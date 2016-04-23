@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ZoekLlnSchermController">
+   <left>
+      <Pane prefHeight="477.0" prefWidth="464.0" style="-fx-background-color: lightyellow;" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="nummerField" layoutX="189.0" layoutY="211.0" prefHeight="43.0" prefWidth="248.0" />
+            <TextField fx:id="zoekNaamTxtField" layoutX="189.0" layoutY="97.0" prefHeight="48.0" prefWidth="248.0" />
+            <Label fx:id="zoekNaamLbl" layoutX="77.0" layoutY="107.0" text="Naam:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="219.0" text="Inschrijvingsnr°:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="zoekenButton" layoutX="285.0" layoutY="338.0" mnemonicParsing="false" onAction="#zoekOpNummer" prefHeight="75.0" prefWidth="145.0" text="Zoeken">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="32.0" layoutY="21.0" />
+            <Button layoutX="38.0" layoutY="588.0" mnemonicParsing="false" onAction="#veranderScherm" prefHeight="75.0" prefWidth="75.0">
+                <graphic>
+                    <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="45" layoutY="45" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/appbar.undo.curve.png" />
+               </image>
+            </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="zoekAlleButton" layoutX="79.0" layoutY="338.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="149.0" text="Zoek Alle">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </left>
+   <top>
+      <TitledPane animated="false" text="Leerling  zoeken" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </TitledPane>
+   </top>
+   <center>
+       <ListView fx:id="lijst" prefHeight="477.0" prefWidth="290.0" style="-fx-background-color: lightyellow;" BorderPane.alignment="CENTER">
+       </ListView>
+   </center>
+   <right>
+      <Pane prefHeight="716.0" prefWidth="242.0" style="-fx-background-color: lightyellow;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="ok" layoutX="145.0" layoutY="602.0" mnemonicParsing="false" onAction="#naarOverzichtScherm" prefHeight="75.0" prefWidth="75.0" text="OK">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="imgView" fitHeight="150.0" fitWidth="200.0" layoutX="60.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="48.0" layoutY="39.0" text="Naam">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="145.0" text="Inschrijvingsnr">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="50.0" layoutY="246.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="358.0" text="Foto">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Text fx:id="naamLbl" layoutX="46.0" layoutY="90.0" text="naam" />
+            <Text fx:id="nummerLbl" layoutX="46.0" layoutY="196.0" text="nummer" />
+            <Text fx:id="emailLbl" layoutX="46.0" layoutY="302.0" text="email" />
+         </children>
+      </Pane>
+   </right>
+</BorderPane>

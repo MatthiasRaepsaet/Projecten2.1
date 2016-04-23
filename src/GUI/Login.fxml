@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginController">
+   <top>
+      <Pane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="768.0" fitWidth="1024.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/car.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="nieuwButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="362.0" layoutY="493.0" mnemonicParsing="false" onAction="#veranderScherm" prefHeight="130.0" prefWidth="170.0" text="Zoek" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>  
+               <graphic>
+                   <ImageView layoutX="291.0" layoutY="323.0">
+                      <image>
+                          <Image url="@../images/appbar.people.magnify.png" />
+                      </image>                            
+                  </ImageView></graphic> 
+            </Button>
+            <Button fx:id="zoekButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="592.0" layoutY="493.0" mnemonicParsing="false" onAction="#naarNieuwLlnScherm" prefHeight="130.0" prefWidth="170.0" text="Nieuw" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font> 
+               <graphic>
+                  <ImageView layoutX="497.0" layoutY="323.0">
+                      <image>
+                          <Image url="@../images/appbar.people.down.png" />
+                      </image>                            
+                  </ImageView></graphic>      
+            </Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="67.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/eva.png" />
+               </image>
+            </ImageView>
+                  
+                  
+         </children>
+      </Pane>
+   </top>
+</BorderPane>

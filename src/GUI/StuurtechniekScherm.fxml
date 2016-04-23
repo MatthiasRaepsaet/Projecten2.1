@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="imgView" fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/zonderwijzer.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="137.0" layoutX="852.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/boom.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="858.0" layoutY="184.0" text="Joske Vermeulen">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="104.0" fitWidth="402.0" layoutX="53.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/legendegrijs.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="terugButton" layoutX="890.0" layoutY="667.0" mnemonicParsing="false" onAction="#vorigeScherm" prefHeight="75.0" prefWidth="81.0">
+         <graphic>
+            <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="55.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/appbar.undo.curve.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="rechtsButton" alignment="CENTER" layoutX="112.0" layoutY="356.0" mnemonicParsing="false" onAction="#veranderKnoppen" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0">
+               <image>
+                  <Image url="@../images/appbar.redo.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="autosButton" alignment="CENTER" layoutX="420.0" layoutY="356.0" mnemonicParsing="false" onAction="#veranderKnoppen" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0">
+               <image>
+                  <Image url="@../images/appbar.transit.congestion.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="voorrangButton" alignment="CENTER" layoutX="265.0" layoutY="174.0" mnemonicParsing="false" onAction="#veranderKnoppen" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0">
+               <image>
+                  <Image url="@../images/voorrang.gif" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="overgaanButton" alignment="CENTER" layoutX="377.0" layoutY="438.0" mnemonicParsing="false" onAction="#veranderKnoppen" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" rotate="270.0">
+               <image>
+                  <Image url="@../images/appbar.shuffle.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="pinkerButton" alignment="CENTER" layoutX="112.0" layoutY="288.0" mnemonicParsing="false" onAction="#veranderKnoppen" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0">
+               <image>
+                  <Image url="@../images/pinkers.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="snelheidButton" alignment="CENTER" layoutX="420.0" layoutY="288.0" mnemonicParsing="false" onAction="#veranderKnoppen" prefHeight="60.0" prefWidth="60.0" text="70" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="bordenButton" alignment="CENTER" layoutX="377.0" layoutY="204.0" mnemonicParsing="false" onAction="#veranderKnoppen" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0">
+               <image>
+                  <Image url="@../images/appbar.sign.caution.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="owButton" alignment="CENTER" layoutX="153.0" layoutY="204.0" mnemonicParsing="false" onAction="#veranderKnoppen" prefHeight="60.0" prefWidth="60.0" text="OW" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="kruisenButton" alignment="CENTER" layoutX="265.0" layoutY="479.0" mnemonicParsing="false" onAction="#veranderKnoppen" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0">
+               <image>
+                  <Image url="@../images/appbar.arrow.up.down.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="linksButton" alignment="CENTER" layoutX="150.0" layoutY="438.0" mnemonicParsing="false" onAction="#veranderKnoppen" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0">
+               <image>
+                  <Image url="@../images/appbar.undo.curve.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="224.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="174.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="194.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="224.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="470.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="470.0" layoutY="308.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="470.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="476.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="476.0" layoutY="376.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="476.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="438.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="458.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="478.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="479.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="499.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="519.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="438.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="458.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="478.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="376.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="308.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <ListView fx:id="opmerkingListView" layoutX="620.0" layoutY="14.0" prefHeight="410.0" prefWidth="370.0" />
+      <Label fx:id="opmerkingLabel" layoutX="625.0" layoutY="546.0" text="Opmerking" />
+      <TextField fx:id="andereTxtArea" layoutX="693.0" layoutY="546.0" prefHeight="75.0" prefWidth="297.0" />
+      <Button fx:id="basicButton6" layoutX="620.0" layoutY="500.0" mnemonicParsing="false" onAction="#toonInvoerveld" prefHeight="39.0" prefWidth="364.0" text="Andere" />
+      <Button fx:id="okButton" layoutX="898.0" layoutY="634.0" mnemonicParsing="false" onAction="#andereNaarOpmerkingList" text="Ok" />
+      <Button fx:id="cancelButton" layoutX="934.0" layoutY="634.0" mnemonicParsing="false" text="Cancel" />
+      <Button fx:id="basicButton1" layoutX="629.0" layoutY="428.0" mnemonicParsing="false" onAction="#basicNaarOpmerkingLijst" prefHeight="60.0" text="Zithouding" />
+      <Button fx:id="basicButton2" layoutX="714.0" layoutY="428.0" mnemonicParsing="false" onAction="#basicNaarOpmerkingLijst" prefHeight="60.0" text="Gordel" />
+      <Button fx:id="basicButton3" layoutX="776.0" layoutY="428.0" mnemonicParsing="false" onAction="#basicNaarOpmerkingLijst" prefHeight="60.0" text="Spiegels" />
+      <Button fx:id="basicButton4" layoutX="846.0" layoutY="428.0" mnemonicParsing="false" onAction="#basicNaarOpmerkingLijst" prefHeight="60.0" text="Handrem" />
+      <Button fx:id="basicButton5" layoutX="922.0" layoutY="428.0" mnemonicParsing="false" onAction="#basicNaarOpmerkingLijst" prefHeight="60.0" text="Voet af" />
+      <Button fx:id="infoButton" contentDisplay="CENTER" layoutX="39.0" layoutY="41.0" mnemonicParsing="false" onAction="#naarInfoScherm" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="933.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/appbar.information.circle.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Rectangle fx:id="wijzer" arcHeight="5.0" arcWidth="5.0" height="207.0" layoutX="293.0" layoutY="253.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="11.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.5238095238095238" startX="1.0" startY="0.5523809523809524">
+               <stops>
+                  <Stop color="#eb938300" />
+                  <Stop color="#e88f80" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle fx:id="groen" arcHeight="5.0" arcWidth="5.0" fill="#20ff1f" height="54.0" layoutX="21.0" layoutY="584.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
+      <Rectangle fx:id="rood" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="54.0" layoutX="247.0" layoutY="594.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
+      <Rectangle fx:id="oranje" arcHeight="5.0" arcWidth="5.0" fill="#ff9d1f" height="54.0" layoutX="136.0" layoutY="594.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
+      <Label fx:id="onderdeelLbl" layoutX="56.0" layoutY="531.0" text="onderdeel" />
+   </children>
+</Pane>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    
+   <children>
+       <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@../images/basicstuur.png" />
+           </image>
+       </ImageView>
+<!--       <Button onAction="#naarStuurtechniekScherm"  layoutX="202.0" layoutY="255.0" prefHeight="507.0" prefWidth="619.0" style="-fx-background-color: none;">
+           <graphic><ImageView fitHeight="504.0" fitWidth="610.0" layoutX="207.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/stuurAlleen.png" />
+         </image>
+      </ImageView></graphic>
+       </Button>
+      -->
+      <ImageView fx:id="imgView" fitHeight="131.0" fitWidth="127.0" layoutX="869.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/0001.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="naamLbl" layoutX="877.0" layoutY="171.0" text="Joske Vermeulen">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="51.0" layoutY="31.0" prefHeight="109.0" prefWidth="324.0" />
+      <ImageView fitHeight="104.0" fitWidth="402.0" layoutX="416.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/legende_1.png" />
+         </image>
+      </ImageView>
+      <CheckBox fx:id="eva1Check" layoutX="31.0" layoutY="652.0" mnemonicParsing="false" selected="true" />
+      <CheckBox fx:id="eva2Check" layoutX="31.0" layoutY="682.0" mnemonicParsing="false" />
+      <CheckBox fx:id="eva3Check" layoutX="31.0" layoutY="713.0" mnemonicParsing="false" />
+      
+      <Button fx:id="rotondeButton" alignment="CENTER" layoutX="18.0" layoutY="201.0" mnemonicParsing="false" onAction="#veranderBol" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+          <graphic>
+              <ImageView fitHeight="50.0" fitWidth="50.0">
+                  <image>
+                      <Image url="@../images/rondp.gif" />
+                  </image>
+              </ImageView>
+          </graphic>
+      </Button>
+      <Button fx:id="rijbaanButton" alignment="CENTER" layoutX="19.0" layoutY="270.0" mnemonicParsing="false" onAction="#veranderBol" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+          <graphic>
+              <ImageView fitHeight="50.0" fitWidth="50.0">
+                  <image>
+                      <Image url="@../images/rijbaan.png" />
+                  </image>
+              </ImageView>
+          </graphic>
+      </Button>
+      <Button fx:id="stadButton" alignment="CENTER" layoutX="19.0" layoutY="337.0" mnemonicParsing="false" onAction="#veranderBol" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+          <graphic>
+              <ImageView fitHeight="50.0" fitWidth="50.0">
+                  <image>
+                      <Image url="@../images/appbar.city.sanfrancisco.png" />
+                  </image>
+              </ImageView>
+          </graphic>
+      </Button>
+      <Button fx:id="autostradeButton" alignment="CENTER" layoutX="19.0" layoutY="404.0" mnemonicParsing="false" onAction="#veranderBol" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+          <graphic>
+              <ImageView fitHeight="50.0" fitWidth="50.0">
+                  <image>
+                      <Image url="@../images/highway.png" />
+                  </image>
+              </ImageView>
+          </graphic>
+      </Button>
+      <Button fx:id="schakelaarButton" alignment="CENTER" layoutX="163.0" layoutY="425.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
+          <graphic>
+          <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="140.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/appbar.lightbulb.png" />
+            </image>
+          </ImageView>
+          </graphic>
+      </Button>
+      <Button fx:id="vloeistoffenButton" alignment="CENTER" layoutX="133.0" layoutY="495.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
+          <graphic>
+                <ImageView fitHeight="45" fitWidth="45" layoutX="132.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/appbar.water.droplet.reflection.png" />
+         </image>
+      </ImageView>
+          </graphic>
+      </Button>
+      <Button fx:id="bandenButton" alignment="CENTER" layoutX="103.0" layoutY="566.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
+          <graphic>
+              <ImageView fitHeight="450" fitWidth="45" layoutX="132.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/appbar.location.circle.png" />
+         </image>
+      </ImageView>
+          </graphic>
+      </Button>
+      <Button fx:id="tankenButton" alignment="CENTER" contentDisplay="CENTER" layoutX="804.0" layoutY="425.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
+          <graphic>
+              <ImageView fitHeight="45" fitWidth="450" layoutX="649.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/appbar.gas.png" />
+         </image>
+      </ImageView>
+          </graphic>
+      </Button>
+      <Button fx:id="gpsButton" alignment="CENTER" layoutX="835.0" layoutY="495.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" text="GPS" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="stopButton" alignment="CENTER" layoutX="865.0" layoutY="566.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
+          <graphic>
+              <ImageView fitHeight="45" fitWidth="45" layoutX="649.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/appbar.sign.stop.png" />
+         </image>
+      </ImageView>
+          </graphic>
+      </Button>
+      <Circle fx:id="bol1" fill="WHITE" layoutX="84.0" layoutY="210.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <ProgressBar fx:id="progress" layoutX="843.0" layoutY="560.0" prefHeight="32.0" prefWidth="302.0" progress="0.0" rotate="270.0" />
+      <Label layoutX="953.0" layoutY="479.0" text="A">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="954.0" layoutY="620.0" text="B">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="954.0" layoutY="425.0" text="X">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Text fx:id="text" fill="#eb0303" layoutX="813.0" layoutY="686.0" wrappingWidth="157.0" />
+      <Circle fx:id="bol2" fill="WHITE" layoutX="85.0" layoutY="279.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="bol3" fill="WHITE" layoutX="85.0" layoutY="346.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="bol4" fill="WHITE" layoutX="84.0" layoutY="413.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button fx:id="attitudeButton" layoutX="109.0" layoutY="658.0" mnemonicParsing="false" onAction="#naarAttitudeScherm">
+         <graphic>
+              <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/appbar.group.png" />
+         </image>
+      </ImageView>
+          </graphic>
+      </Button>
+      <Button fx:id="infoButton" contentDisplay="CENTER" layoutX="948.0" layoutY="307.0" mnemonicParsing="false" onAction="#naarInfoScherm" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;">
+          <graphic>
+              <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="933.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/appbar.information.circle.png" />
+         </image>
+      </ImageView>
+          </graphic>
+      </Button>
+      <Button fx:id="plus" layoutX="978.0" layoutY="389.0" mnemonicParsing="false" onAction="#plusProgress" text="+">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="min" layoutX="978.0" layoutY="730.0" mnemonicParsing="false" onAction="#minProgress" prefHeight="32.0" prefWidth="32.0" text="-">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="211.0" layoutY="266.0" mnemonicParsing="false" onAction="#naarStuurtechniekScherm" prefHeight="600.0" prefWidth="600.0" style="-fx-background-radius: 1000; -fx-background-color: none; -fx-border-color: black; -fx-border-radius: 1000; -fx-border-width: 5;" />
+      <Button fx:id="logoutButton" layoutX="864.0" layoutY="23.0" mnemonicParsing="false" onAction="#naarLogOutScherm" prefHeight="184.0" prefWidth="137.0" style="-fx-background-color: none;" />
+      <Circle layoutX="513.0" layoutY="568.0" opacity="0.5" radius="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.45238095238095233" startX="1.0" startY="0.3952380952380952">
+               <stops>
+                  <Stop color="RED" />
+                  <Stop color="#ff000000" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Circle>
+      <Circle layoutX="511.0" layoutY="568.0" opacity="0.5" radius="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
+         <fill>
+            <LinearGradient endX="0.17142857142857146" endY="0.5523809523809524" startX="0.08571428571428572" startY="0.661904761904762">
+               <stops>
+                  <Stop color="#29ff00" />
+                  <Stop color="#07ff0000" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Circle>
+      <Circle layoutX="511.0" layoutY="568.0" opacity="0.5" radius="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
+         <fill>
+            <LinearGradient endX="0.4761904761904763" endY="0.7571428571428571" startX="0.5952380952380953" startY="0.9">
+               <stops>
+                  <Stop color="#ff8a00" />
+                  <Stop color="#ff7b0000" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Circle>
+      <Button alignment="CENTER" layoutX="392.0" layoutY="542.0" mnemonicParsing="false" onAction="#naarStuurtechniekScherm" prefHeight="120.0" prefWidth="120.0" style="-fx-background-radius: 100;" textAlignment="CENTER">
+          <graphic>
+              <ImageView fitHeight="90" fitWidth="90" layoutX="649.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/stuur.gif" />
+         </image>
+      </ImageView>
+          </graphic>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="523.0" layoutY="542.0" mnemonicParsing="false" onAction="#naarRijtechniekScherm" prefHeight="120.0" prefWidth="120.0" style="-fx-background-radius: 100;" textAlignment="CENTER">
+          <graphic>
+              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rotonde.gif" />
+         </image>
+      </ImageView>
+          </graphic>
+      </Button>
+      
+      
+
+   </children>
+</Pane>

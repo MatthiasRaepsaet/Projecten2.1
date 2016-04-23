@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <TitledPane animated="false" text="Nieuwe leerling toevoegen" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </TitledPane>
+   </top>
+   <left>
+      <Pane prefHeight="768.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+             <ImageView fitHeight="768.0" fitWidth="1024.0" layoutY="-52.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                     <Image url="@../images/start1.jpg" />
+                 </image>
+             </ImageView>
+            <ImageView fx:id="imgView" fitHeight="306.0" fitWidth="240.0" layoutX="74.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/boom.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="inschrijfNummerTxtField" layoutX="685.0" layoutY="250.0" prefHeight="45.0" prefWidth="245.0" />
+            <TextField fx:id="emailTxtField" layoutX="685.0" layoutY="349.0" prefHeight="45.0" prefWidth="245.0" />
+            <TextField fx:id="naamTxtField" layoutX="685.0" layoutY="170.0" prefHeight="45.0" prefWidth="245.0" />
+            <Label fx:id="emailLbl" layoutX="506.0" layoutY="358.0" text="Email:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="naamLbl" layoutX="505.0" layoutY="179.0" text="Naam:" textFill="#fffdfd">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="175.0" layoutY="38.0" text="Foto">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="inschrijfNummerLbl" layoutX="505.0" layoutY="259.0" text="Inschrijvingsnr°:" textFill="#fcf9f9">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="neemFotoButton" layoutX="74.0" layoutY="394.0" mnemonicParsing="false" onAction="#kiesFoto" prefHeight="57.0" prefWidth="240.0" text="Neem een foto">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                   <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="74.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/appbar.camera.switch.png" />
+               </image>
+            </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="opslaanButton" layoutX="785.0" layoutY="543.0" mnemonicParsing="false" onAction="#slaNaamOp" prefHeight="72.0" prefWidth="145.0" text="Opslaan">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Text fx:id="messageLbl" fill="#da3838" layoutX="423.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="216.71484375">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Text>
+            <Button fx:id="terugNaarLoginButton" layoutX="74.0" layoutY="543.0" mnemonicParsing="false" onAction="#terugNaarLoginScherm" prefHeight="73.0" prefWidth="80.0">
+                <graphic>
+                    <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="45" layoutY="45" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/appbar.undo.curve.png" />
+               </image>
+            </ImageView>
+                </graphic>
+            </Button>
+         </children>
+      </Pane>
+   </left>
+</BorderPane>
