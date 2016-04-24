@@ -20,6 +20,8 @@ public class LoginController{
     
     DomeinController dc;
 
+    private NieuweLlnSchermController nlc;
+    
     public DomeinController getDc() {
         return dc;
     }
@@ -38,7 +40,7 @@ public class LoginController{
 //    ZoekLlnSchermController zls = new ZoekLlnSchermController(dc);
     
     public void veranderScherm(ActionEvent event) throws IOException{
-        Stage stage = (Stage) zoekButton.getScene().getWindow();
+        Stage stage = (Stage) nieuwButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("ZoekLlnScherm.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);

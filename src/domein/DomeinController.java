@@ -24,6 +24,8 @@ import java.util.List;
  */
 public class DomeinController {
     
+    private List<Leerling> leerlingenCache = new ArrayList<>();
+    
     private Leerling geselecteerd;
     private List<Leerling> leerlingen = new ArrayList<>();
     
