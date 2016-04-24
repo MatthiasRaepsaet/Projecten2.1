@@ -30,6 +30,8 @@ public class AttitudeSchermController implements Initializable {
     
     DomeinController dc;
     
+    private OverzichtSchermController ozc;
+    
     @FXML
     private Button achteruitButton;
     
@@ -135,7 +137,13 @@ public class AttitudeSchermController implements Initializable {
     
     public void gaAchteruit(ActionEvent event) throws IOException{
         Stage stage = (Stage) achteruitButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("OverzichtScherm.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        ozc = dc.getOzc();
+        dc.setOzc(ozc);
+        dc.getOzc().setDc(dc);
+        loader.setLocation(getClass().getResource("OverzichtScherm.fxml"));
+        loader.setController(dc.getOzc());
+        Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

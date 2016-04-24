@@ -135,6 +135,8 @@ public class OverzichtSchermController implements Initializable {
         stopButton.setBackground(standaardBackground);
         tankenButton.setBackground(standaardBackground);
         gpsButton.setBackground(standaardBackground);
+        
+        
 
     }
 
@@ -176,6 +178,7 @@ public class OverzichtSchermController implements Initializable {
         } else {
             dezeBol.setFill(Color.WHITE);
         }
+        
     }
 
     public void veranderKleur(ActionEvent event) throws IOException {
@@ -229,7 +232,12 @@ public class OverzichtSchermController implements Initializable {
 
     public void naarInfoScherm(ActionEvent event) throws IOException {
         Stage stage = (Stage) infoButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("InfoScherm.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        dc.setIsc(info);
+        dc.getIsc().setDc(dc);
+        loader.setLocation(getClass().getResource("InfoScherm.fxml"));
+        loader.setController(dc.getIsc());
+        Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -269,15 +277,25 @@ public class OverzichtSchermController implements Initializable {
 
     public void naarAttitudeScherm(ActionEvent event) throws IOException {
         Stage stage = (Stage) attitudeButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("AttitudeScherm.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        dc.setAsc(asc);
+        dc.getAsc().setDc(dc);
+        loader.setLocation(getClass().getResource("AttitudeScherm.fxml"));
+        loader.setController(dc.getAsc());
+        Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
     public void naarLogOutScherm(ActionEvent event) throws IOException {
-        Stage stage = (Stage) attitudeButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("Logout.fxml"));
+        Stage stage = (Stage) imgView.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        dc.setLogoutc(logout);
+        dc.getLogoutc().setDc(dc);
+        loader.setLocation(getClass().getResource("Logout.fxml"));
+        loader.setController(dc.getLogoutc());
+        Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

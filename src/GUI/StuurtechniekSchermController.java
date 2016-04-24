@@ -29,6 +29,8 @@ import javafx.stage.Stage;
 
 public class StuurtechniekSchermController implements Initializable {
     DomeinController dc;
+    
+    private OverzichtSchermController ozc;
 
     public DomeinController getDc() {
         return dc;
@@ -139,7 +141,13 @@ public class StuurtechniekSchermController implements Initializable {
     @FXML
     private void vorigeScherm(ActionEvent event) throws IOException {
         Stage stage = (Stage) terugButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("OverzichtScherm.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        ozc = dc.getOzc();
+        dc.setOzc(ozc);
+        dc.getOzc().setDc(dc);
+        loader.setLocation(getClass().getResource("OverzichtScherm.fxml"));
+        loader.setController(dc.getOzc());
+        Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

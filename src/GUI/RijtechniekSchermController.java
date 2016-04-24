@@ -21,6 +21,9 @@ import javafx.stage.Stage;
 public class RijtechniekSchermController{
     DomeinController dc;
 
+    private OverzichtSchermController ozc;
+    private InfoSchermController info;
+    
     public DomeinController getDc() {
         return dc;
     }
@@ -74,7 +77,13 @@ public class RijtechniekSchermController{
     @FXML
     private void naarOverzichtScherm(ActionEvent event) throws IOException{
         Stage stage = (Stage) overzichtButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("OverzichtScherm.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        ozc = dc.getOzc();
+        dc.setOzc(ozc);
+        dc.getOzc().setDc(dc);
+        loader.setLocation(getClass().getResource("OverzichtScherm.fxml"));
+        loader.setController(dc.getOzc());
+        Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -82,7 +91,12 @@ public class RijtechniekSchermController{
     
     public void naarInfoScherm(ActionEvent event) throws IOException{
         Stage stage = (Stage) infoButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("InfoScherm.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        dc.setIsc(info);
+        dc.getIsc().setDc(dc);
+        loader.setLocation(getClass().getResource("InfoScherm.fxml"));
+        loader.setController(dc.getIsc());
+        Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
