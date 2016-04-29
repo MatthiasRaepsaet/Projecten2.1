@@ -8,12 +8,14 @@ package GUI;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import domein.Cursus;
 import domein.DomeinController;
 import domein.Leerling;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
@@ -30,6 +32,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javax.ws.rs.client.Client;
@@ -49,6 +52,7 @@ public class ZoekLlnSchermController implements Initializable {
         this.dc = dc;
     }
     
+    private Cursus cursus;
 
     @FXML
     private ListView listView;
@@ -138,6 +142,7 @@ public class ZoekLlnSchermController implements Initializable {
         geselecteerdeLeerling.setFotoPath(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"));
         dc.setGeselecteerd(geselecteerdeLeerling);
         
+        cursus = new Cursus("1", "#FF0000", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null, null, null);
         if(naamLbl.getText() != "naam"){
             ok.setDisable(false);
         }
@@ -159,6 +164,7 @@ public class ZoekLlnSchermController implements Initializable {
     public void naarOverzichtScherm(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         dc.setOzc(ozc);
+        dc.setCursus(cursus);
         ozc.setDc(dc);
         loader.setLocation(getClass().getResource("OverzichtScherm.fxml"));
         Stage stage = (Stage) zoekenButton.getScene().getWindow();

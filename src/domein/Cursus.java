@@ -47,14 +47,46 @@ public class Cursus {
     private Map<String, String> stuurtechniekKleurenMap;
     private Map<String, Map<String, List<String>>> evaStuurtechniekMap;
     private Map<String, Map<String, List<String>>> VorigeEvaStuurtechniekMap;
-    
 
+    public Cursus() {
+    }
+
+    public Cursus(String evaNummer, String kleurBol1, String kleurBol2, String kleurBol3, String kleurBol4, String kleurStuurBoven, String kleurStuurLinks, String kleurStuurRechts, double waardeProgressbar, String opmerking, Map<String, List<String>> rijtechniekOpmerkingenMap, Map<String, String> rijtechniekKleurenMap, Map<String, Map<String, List<String>>> evaRijtechniekMap, Map<String, Map<String, List<String>>> VorigeEvaRijtechniekMap, Map<String, List<String>> stuurtechniekOpmerkingenMap, Map<String, String> stuurtechniekKleurenMap, Map<String, Map<String, List<String>>> evaStuurtechniekMap, Map<String, Map<String, List<String>>> VorigeEvaStuurtechniekMap) {
+        this.evaNummer = evaNummer;
+        this.kleurBol1 = kleurBol1;
+        this.kleurBol2 = kleurBol2;
+        this.kleurBol3 = kleurBol3;
+        this.kleurBol4 = kleurBol4;
+        this.kleurStuurBoven = kleurStuurBoven;
+        this.kleurStuurLinks = kleurStuurLinks;
+        this.kleurStuurRechts = kleurStuurRechts;
+        this.waardeProgressbar = waardeProgressbar;
+        this.opmerking = opmerking;
+        this.rijtechniekOpmerkingenMap = rijtechniekOpmerkingenMap;
+        this.rijtechniekKleurenMap = rijtechniekKleurenMap;
+        this.evaRijtechniekMap = evaRijtechniekMap;
+        this.VorigeEvaRijtechniekMap = VorigeEvaRijtechniekMap;
+        this.stuurtechniekOpmerkingenMap = stuurtechniekOpmerkingenMap;
+        this.stuurtechniekKleurenMap = stuurtechniekKleurenMap;
+        this.evaStuurtechniekMap = evaStuurtechniekMap;
+        this.VorigeEvaStuurtechniekMap = VorigeEvaStuurtechniekMap;
+    }
+    
+    
     public String getEvaNummer() {
         return evaNummer;
     }
 
     public void setEvaNummer(String evaNummer) {
         this.evaNummer = evaNummer;
+    }
+
+    public Leerling getLeerling() {
+        return leerling;
+    }
+
+    public void setLeerling(Leerling leerling) {
+        this.leerling = leerling;
     }
 
     public String getKleurBol1() {
@@ -88,6 +120,8 @@ public class Cursus {
     public void setKleurBol4(String kleurBol4) {
         this.kleurBol4 = kleurBol4;
     }
+
+    
 
     public String getKleurStuurBoven() {
         return kleurStuurBoven;
