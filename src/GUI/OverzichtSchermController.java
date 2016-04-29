@@ -5,7 +5,9 @@
  */
 package GUI;
 
+import domein.Cursus;
 import domein.DomeinController;
+import java.awt.Checkbox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,12 +21,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -35,7 +39,7 @@ import javafx.stage.Stage;
  * @author Matthias
  */
 public class OverzichtSchermController implements Initializable {
-    
+
     private DomeinController dc = new DomeinController();
 
     /**
@@ -92,14 +96,17 @@ public class OverzichtSchermController implements Initializable {
     private ImageView imgView;
 
     @FXML
+    private RadioButton radioEva1;
+
+    @FXML
+    private RadioButton radioEva2;
+
+    @FXML
+    private RadioButton radioEva3;
+
+    @FXML
     private Label naamLbl;
 
-//    @FXML
-//    private Checkbox eva1Check;
-//    @FXML
-//    private Checkbox eva2Check;
-//    @FXML
-//    private Checkbox eva3Check;
     @FXML
     private Button infoButton;
 
@@ -117,6 +124,7 @@ public class OverzichtSchermController implements Initializable {
     private LogoutController logout = new LogoutController();
     private StuurtechniekSchermController stuurtechniek = new StuurtechniekSchermController();
     private RijtechniekSchermController rijtechniek = new RijtechniekSchermController();
+
     //prefill progress bar
     private Background standaardBackground = new Background(new BackgroundFill(null, new CornerRadii(30), Insets.EMPTY));
     private Background roodBackground = new Background(new BackgroundFill(Color.RED, new CornerRadii(30), Insets.EMPTY));
@@ -125,7 +133,13 @@ public class OverzichtSchermController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
+        evaCheck();
+        System.out.println(dc.getCursus().getKleurBol1());
+        bol1.setFill(Color.web(dc.getCursus().getKleurBol1(),1.0));
+        bol2.setFill(Color.web(dc.getCursus().getKleurBol2(),1.0));
+        bol3.setFill(Color.web(dc.getCursus().getKleurBol3(),1.0));
+        bol4.setFill(Color.web(dc.getCursus().getKleurBol4(),1.0));
         naamLbl.setText(dc.getGeselecteerd().getNaam());
         imgView.setImage(new Image(dc.getGeselecteerd().getFotoPath().toURI().toString()));
         schakelaarButton.setBackground(standaardBackground);
@@ -135,8 +149,6 @@ public class OverzichtSchermController implements Initializable {
         stopButton.setBackground(standaardBackground);
         tankenButton.setBackground(standaardBackground);
         gpsButton.setBackground(standaardBackground);
-        
-        
 
     }
 
@@ -169,16 +181,20 @@ public class OverzichtSchermController implements Initializable {
         if (event.getSource() == autostradeButton) {
             dezeBol = bol4;
         }
-        if (dezeBol.getFill() == Color.WHITE) {
-            dezeBol.setFill(Color.RED);
-        } else if (dezeBol.getFill() == Color.RED) {
-            dezeBol.setFill(Color.ORANGE);
-        } else if (dezeBol.getFill() == Color.ORANGE) {
-            dezeBol.setFill(Color.GREEN);
+        if (dezeBol.getFill() == Color.web("#FFFFFF",1.0)) {
+            dezeBol.setFill(Color.web("#FF0000",1.0));
+        } else if (dezeBol.getFill() == Color.web("#FF0000",1.0)) {
+            dezeBol.setFill(Color.web("#FFA500",1.0));
+        } else if (dezeBol.getFill() == Color.web("#FFA500",1.0)) {
+            dezeBol.setFill(Color.web("#00FF00",1.0));
         } else {
-            dezeBol.setFill(Color.WHITE);
+            dezeBol.setFill(Color.web("#FFFFFF",1.0));
         }
-        
+        dc.getCursus().setKleurBol1(hexConverter(bol1.getFill()));
+        dc.getCursus().setKleurBol2(hexConverter(bol2.getFill()));
+        dc.getCursus().setKleurBol3(hexConverter(bol3.getFill()));
+        dc.getCursus().setKleurBol4(hexConverter(bol4.getFill()));
+        System.out.println(dc.getCursus().getKleurBol1());
     }
 
     public void veranderKleur(ActionEvent event) throws IOException {
@@ -301,6 +317,40 @@ public class OverzichtSchermController implements Initializable {
         stage.show();
     }
 
+    public void evaCheck() {
+
+        if (dc.getCursus().getEvaNummer() == "1") {
+            radioEva1.setSelected(true);
+            radioEva2.setSelected(false);
+            radioEva3.setSelected(false);
+        }
+        if (dc.getCursus().getEvaNummer() == "2") {
+            radioEva1.setSelected(false);
+            radioEva2.setSelected(true);
+            radioEva3.setSelected(false);
+        }
+        if (dc.getCursus().getEvaNummer() == "3") {
+            radioEva1.setSelected(false);
+            radioEva2.setSelected(false);
+            radioEva3.setSelected(true);
+        }
+    }
+
+    public void veranderEva(ActionEvent event) throws IOException {
+        if (event.getSource().equals(radioEva1)) {
+            dc.getCursus().setEvaNummer("1");
+            evaCheck();
+        }
+        if (event.getSource().equals(radioEva2)) {
+            dc.getCursus().setEvaNummer("2");
+            evaCheck();
+        }
+        if (event.getSource().equals(radioEva3)) {
+            dc.getCursus().setEvaNummer("3");
+            evaCheck();
+        }
+    }
+
     public DomeinController getDc() {
         return dc;
     }
@@ -309,5 +359,12 @@ public class OverzichtSchermController implements Initializable {
         this.dc = dc;
     }
 
-    
+    public String hexConverter(Paint p) {
+        Color c = (Color) p;
+        String hex = String.format("#%02X%02X%02X",
+                (int) (c.getRed()),
+                (int) (c.getGreen()),
+                (int) (c.getBlue()));
+        return hex;
+    }
 }

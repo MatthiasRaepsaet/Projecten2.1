@@ -26,6 +26,8 @@ public class DomeinController {
     
     private List<Leerling> leerlingenCache = new ArrayList<>();
     
+    private Cursus cursus;
+    
     private Leerling geselecteerd;
     private List<Leerling> leerlingen = new ArrayList<>();
     
@@ -44,6 +46,24 @@ public class DomeinController {
         leerlingen.add(new Leerling("0001","Joske Vermeulen", new File("src/images/GastonPng.png"),"joske.vermeulen@gmail.com"));
         leerlingen.add(new Leerling("0002","Ewout Ghysbrecht", new File("src/images/EwoutPng.png"), "ewout.g@hotmail.com"));
     }
+
+    public List<Leerling> getLeerlingenCache() {
+        return leerlingenCache;
+    }
+
+    public void setLeerlingenCache(List<Leerling> leerlingenCache) {
+        this.leerlingenCache = leerlingenCache;
+    }
+
+    public Cursus getCursus() {
+        return cursus;
+    }
+
+    public void setCursus(Cursus cursus) {
+        this.cursus = cursus;
+    }
+    
+    
     
     public void voegLeerlingToe(Leerling leerling){
         leerlingen.add(leerling);
