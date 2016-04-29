@@ -86,6 +86,23 @@ public class ZoekLlnSchermController implements Initializable {
     @FXML
     private TextField zoekNaamTxtField;
     
+    //RijtechniekScherm
+    private Map<String, List<String>> rijtechniekOpmerkingenMap;
+    private Map<String, String> rijtechniekKleurenMap;
+    private Map<String, Map<String, List<String>>> evaRijtechniekMap;
+    private Map<String, Map<String, List<String>>> VorigeEvaRijtechniekMap;
+    private Map<String, Map<String, List<String>>> evaRijtechniekMap1;
+    private Map<String, Map<String, List<String>>> evaRijtechniekMap2;
+    private Map<String, Map<String, List<String>>> evaRijtechniekMap3;
+    
+    //StuurtechniekScherm
+    private Map<String, List<String>> stuurtechniekOpmerkingenMap;
+    private Map<String, String> stuurtechniekKleurenMap;
+    private Map<String, Map<String, List<String>>> evaStuurtechniekMap;
+    private Map<String, Map<String, List<String>>> VorigeEvaStuurtechniekMap;
+    private Map<String, Map<String, List<String>>> evaStuurtechniekMap1;
+    private Map<String, Map<String, List<String>>> evaStuurtechniekMap2;
+    private Map<String, Map<String, List<String>>> evaStuurtechniekMap3;
     
     private OverzichtSchermController ozc = new OverzichtSchermController();
     
@@ -93,6 +110,33 @@ public class ZoekLlnSchermController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        rijtechniekOpmerkingenMap.put("ambreage", null);
+        rijtechniekOpmerkingenMap.put("rem", null);
+        rijtechniekOpmerkingenMap.put("stuur", null);
+        rijtechniekOpmerkingenMap.put("schakelen", null);
+        rijtechniekOpmerkingenMap.put("opmerkzaamheid", null);
+        rijtechniekOpmerkingenMap.put("parkeren", null);
+        rijtechniekOpmerkingenMap.put("keren in een straat", null);
+        rijtechniekOpmerkingenMap.put("garage", null);
+        rijtechniekOpmerkingenMap.put("achteruitrijden", null);
+        rijtechniekOpmerkingenMap.put("bochten", null);
+        rijtechniekOpmerkingenMap.put("helling", null);
+        rijtechniekOpmerkingenMap.put("zithouding", null);
+        
+        rijtechniekKleurenMap.put("ambreage", null);
+        rijtechniekKleurenMap.put("rem", null);
+        rijtechniekKleurenMap.put("stuur", null);
+        rijtechniekKleurenMap.put("schakelen", null);
+        rijtechniekKleurenMap.put("opmerkzaamheid", null);
+        rijtechniekKleurenMap.put("parkeren", null);
+        rijtechniekKleurenMap.put("keren in een straat", null);
+        rijtechniekKleurenMap.put("garage", null);
+        rijtechniekKleurenMap.put("achteruitrijden", null);
+        rijtechniekKleurenMap.put("bochten", null);
+        rijtechniekKleurenMap.put("helling", null);
+        rijtechniekKleurenMap.put("zithouding", null);
+        
+        
         zoekNaamLbl.setVisible(false);
         zoekNaamTxtField.setVisible(false);
         ok.setDisable(true);
@@ -142,7 +186,7 @@ public class ZoekLlnSchermController implements Initializable {
         geselecteerdeLeerling.setFotoPath(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"));
         dc.setGeselecteerd(geselecteerdeLeerling);
         
-        cursus = new Cursus("1", "#FF0000", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null, null, null);
+        cursus = new Cursus("1", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null);
         if(naamLbl.getText() != "naam"){
             ok.setDisable(false);
         }
