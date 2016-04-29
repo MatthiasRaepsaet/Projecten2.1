@@ -169,32 +169,37 @@ public class OverzichtSchermController implements Initializable {
 //    }
     public void veranderBol(ActionEvent event) throws IOException {
         Circle dezeBol = null;
+        String kleur = null;
         if (event.getSource() == rotondeButton) {
             dezeBol = bol1;
+            kleur = dc.getCursus().getKleurBol1();
         }
         if (event.getSource() == rijbaanButton) {
             dezeBol = bol2;
+            kleur = dc.getCursus().getKleurBol2();
         }
         if (event.getSource() == stadButton) {
             dezeBol = bol3;
+            kleur = dc.getCursus().getKleurBol3();
         }
         if (event.getSource() == autostradeButton) {
             dezeBol = bol4;
+            kleur = dc.getCursus().getKleurBol4();
         }
-        if (dezeBol.getFill() == Color.web("#FFFFFF",1.0)) {
-            dezeBol.setFill(Color.web("#FF0000",1.0));
-        } else if (dezeBol.getFill() == Color.web("#FF0000",1.0)) {
-            dezeBol.setFill(Color.web("#FFA500",1.0));
-        } else if (dezeBol.getFill() == Color.web("#FFA500",1.0)) {
-            dezeBol.setFill(Color.web("#00FF00",1.0));
-        } else {
-            dezeBol.setFill(Color.web("#FFFFFF",1.0));
+        if (kleur == "#FFFFFF") {
+            dc.getCursus().setKleurBol1("#FF0000");
+            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol1(),1.0));
+        } else if (kleur == "#FF0000") {
+            dc.getCursus().setKleurBol1("#FFA500");
+            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol1(),1.0));
+        } else if (kleur == "#FFA500") {
+            dc.getCursus().setKleurBol1("#00FF00");
+            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol1(),1.0));
+        } else{
+            dc.getCursus().setKleurBol1("#FFFFFF");
+            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol1(),1.0));
         }
-        dc.getCursus().setKleurBol1(hexConverter(bol1.getFill()));
-        dc.getCursus().setKleurBol2(hexConverter(bol2.getFill()));
-        dc.getCursus().setKleurBol3(hexConverter(bol3.getFill()));
-        dc.getCursus().setKleurBol4(hexConverter(bol4.getFill()));
-        System.out.println(dc.getCursus().getKleurBol1());
+        
     }
 
     public void veranderKleur(ActionEvent event) throws IOException {
@@ -359,12 +364,12 @@ public class OverzichtSchermController implements Initializable {
         this.dc = dc;
     }
 
-    public String hexConverter(Paint p) {
-        Color c = (Color) p;
-        String hex = String.format("#%02X%02X%02X",
-                (int) (c.getRed()),
-                (int) (c.getGreen()),
-                (int) (c.getBlue()));
-        return hex;
-    }
+//    public String hexConverter(Paint p) {
+//        Color c = (Color) p;
+//        String hex = String.format("#%02X%02X%02X",
+//                (int) (c.getRed()),
+//                (int) (c.getGreen()),
+//                (int) (c.getBlue()));
+//        return hex;
+//    }
 }
