@@ -60,7 +60,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="voorrangButton" alignment="CENTER" layoutX="265.0" layoutY="174.0" mnemonicParsing="false" onAction="#veranderKnoppen" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+      <Button fx:id="voorrangButton" onAction="#veranderKnoppen"  alignment="CENTER" layoutX="265.0" layoutY="174.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0">
                <image>
@@ -184,9 +184,5 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Rectangle fx:id="groen" arcHeight="5.0" arcWidth="5.0" fill="#20ff1f" height="54.0" layoutX="21.0" layoutY="584.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
-      <Rectangle fx:id="rood" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="54.0" layoutX="247.0" layoutY="594.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
-      <Rectangle fx:id="oranje" arcHeight="5.0" arcWidth="5.0" fill="#ff9d1f" height="54.0" layoutX="136.0" layoutY="594.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
-      <Label fx:id="onderdeelLbl" layoutX="56.0" layoutY="531.0" text="onderdeel" />
    </children>
 </Pane>

@@ -17,11 +17,6 @@
             <Image url="@../images/zonderwijzer.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="104.0" fitWidth="402.0" layoutX="53.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/legendegrijs.png" />
-         </image>
-      </ImageView>
       <Button fx:id="overzichtButton" layoutX="889.0" layoutY="656.0" mnemonicParsing="false" onAction="#naarOverzichtScherm" prefHeight="75.0" prefWidth="81.0">
          <graphic>
             <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="55.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
@@ -40,9 +35,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="200.0" layoutY="254.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="200.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="200.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="embreage3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="200.0" layoutY="254.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="embreage2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="200.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="embreage1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="200.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="stuurButton" alignment="CENTER" layoutX="318.0" layoutY="160.0" mnemonicParsing="false" onAction="#voegOpmerkingToe" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0">
@@ -52,9 +47,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="385.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="385.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="385.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="sturen3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="385.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="sturen2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="385.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="sturen1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="385.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="schakelButton" alignment="CENTER" layoutX="405.0" layoutY="214.0" mnemonicParsing="false" onAction="#voegOpmerkingToe" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0">
@@ -64,9 +59,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="468.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="468.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="468.0" layoutY="254.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="schakelen1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="468.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="schakelen2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="468.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="schakelen3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="468.0" layoutY="254.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="kijkButton" alignment="CENTER" layoutX="435.0" layoutY="295.0" mnemonicParsing="false" onAction="#voegOpmerkingToe" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0">
@@ -76,9 +71,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="502.0" layoutY="335.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="502.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="502.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="kijk3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="502.0" layoutY="335.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="kijk2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="502.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="kijk1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="502.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="hellingButton" alignment="CENTER" layoutX="105.0" layoutY="364.0" mnemonicParsing="false" onAction="#voegOpmerkingToe" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0">
@@ -88,17 +83,17 @@
             </ImageView>
          </graphic>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="167.0" layoutY="364.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="167.0" layoutY="384.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="167.0" layoutY="404.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="helling1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="167.0" layoutY="364.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="helling2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="167.0" layoutY="384.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="helling3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="167.0" layoutY="404.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="achteruitButton" alignment="CENTER" layoutX="224.0" layoutY="493.0" mnemonicParsing="false" onAction="#voegOpmerkingToe" prefHeight="60.0" prefWidth="60.0" text="R" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="283.0" layoutY="533.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="283.0" layoutY="513.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="283.0" layoutY="493.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="achteruit3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="283.0" layoutY="533.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="achteruit2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="283.0" layoutY="513.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="achteruit1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="283.0" layoutY="493.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="kerenButton" alignment="CENTER" layoutX="405.0" layoutY="440.0" mnemonicParsing="false" onAction="#voegOpmerkingToe" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0">
@@ -108,17 +103,17 @@
             </ImageView>
          </graphic>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="468.0" layoutY="480.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="468.0" layoutY="460.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="468.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="keren3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="468.0" layoutY="480.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="keren2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="468.0" layoutY="460.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="keren1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="468.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="garageButton" alignment="CENTER" layoutX="321.0" layoutY="493.0" mnemonicParsing="false" onAction="#voegOpmerkingToe" prefHeight="60.0" prefWidth="60.0" text="G" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="375.0" layoutY="493.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="375.0" layoutY="513.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="375.0" layoutY="533.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="garage1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="375.0" layoutY="493.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="garage2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="375.0" layoutY="513.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="garage3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="375.0" layoutY="533.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="zittenButton" alignment="CENTER" layoutX="105.0" layoutY="295.0" mnemonicParsing="false" onAction="#voegOpmerkingToe" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0">
@@ -128,9 +123,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="167.0" layoutY="335.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="167.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="167.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="zit3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="167.0" layoutY="335.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="zit2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="167.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="zit1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="167.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="remButton" alignment="CENTER" layoutX="228.0" layoutY="160.0" mnemonicParsing="false" onAction="#voegOpmerkingToe" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0">
@@ -140,9 +135,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f79600" height="20.0" layoutX="293.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="293.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="293.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="remmen1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="293.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="remmen2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="293.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="remmen3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="293.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="parkeerButton" alignment="CENTER" layoutX="435.0" layoutY="364.0" mnemonicParsing="false" onAction="#voegOpmerkingToe" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0">
@@ -152,9 +147,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="502.0" layoutY="364.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="502.0" layoutY="384.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="502.0" layoutY="404.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="parkeer1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="502.0" layoutY="364.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="parkeer2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="502.0" layoutY="384.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="parkeer3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="502.0" layoutY="404.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="bochtenButton" alignment="CENTER" layoutX="134.0" layoutY="440.0" mnemonicParsing="false" onAction="#voegOpmerkingToe" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0">
@@ -164,9 +159,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="200.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="200.0" layoutY="460.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="200.0" layoutY="480.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="bocht1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="200.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="bocht2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="200.0" layoutY="460.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="bocht3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="200.0" layoutY="480.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="infoButton" contentDisplay="CENTER" layoutX="29.0" layoutY="31.0" mnemonicParsing="false" onAction="#naarInfoScherm" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;">
          <graphic>
             <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="933.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
@@ -186,16 +181,15 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Text layoutX="300.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="K" />
-      <Pane layoutX="650.0" layoutY="123.0" prefHeight="499.0" prefWidth="320.0" style="-fx-background-color: black; -fx-background-radius: 50;">
+      <Pane layoutX="597.0" layoutY="123.0" prefHeight="499.0" prefWidth="389.0" style="-fx-background-color: black; -fx-background-radius: 50;">
          <children>
-            <ComboBox fx:id="combo" layoutX="31.0" layoutY="337.0" prefHeight="54.0" prefWidth="265.0" promptText="Kies items uit deze lijst" />
-            <Text fx:id="titel" fill="#fcfafa" layoutX="48.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="226.13671875">
+            <ComboBox fx:id="combo" layoutX="31.0" layoutY="337.0" onAction="#selecteerUitCombo" prefHeight="54.0" prefWidth="265.0" promptText="Kies items uit deze lijst" />
+            <Text fx:id="titel" fill="#fcfafa" layoutX="77.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="226.13671875">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Text>
-            <ToggleButton fx:id="uitroepteken" layoutX="131.0" layoutY="417.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="52.0">
+            <ToggleButton fx:id="uitroepteken" layoutX="310.0" layoutY="337.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
                 <graphic>
             <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="933.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -204,8 +198,23 @@
             </ImageView>
          </graphic>
             </ToggleButton>
-            <TextArea layoutX="31.0" layoutY="62.0" prefHeight="266.0" prefWidth="265.0" />
+            <TextArea fx:id="tekstVeld" layoutX="31.0" layoutY="62.0" prefHeight="266.0" prefWidth="265.0" />
+            <Button fx:id="opslaanButton" layoutX="62.0" layoutY="415.0" mnemonicParsing="false" onAction="#wijzigigenOpslaan" prefHeight="55.0" prefWidth="265.0" text="Aanpassingen opslaan">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="55.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/appbar.save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="rood" layoutX="313.0" layoutY="101.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: red;" />
+            <Button fx:id="oranje" layoutX="313.0" layoutY="168.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: orange;" />
+            <Button fx:id="groen" layoutX="313.0" layoutY="233.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: green;" />
          </children>
       </Pane>
+      <Text layoutX="173.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A" />
+      <Text layoutX="174.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B" />
+      <Text layoutX="173.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C" />
    </children>
 </Pane>
