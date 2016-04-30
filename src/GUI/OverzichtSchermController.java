@@ -191,13 +191,13 @@ public class OverzichtSchermController implements Initializable {
             dezeBol.setFill(Color.web(dc.getCursus().getKleurBol1(),1.0));
         } else if (kleur == "#FF0000") {
             dc.getCursus().setKleurBol1("#FFA500");
-            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol1(),1.0));
+            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol2(),1.0));
         } else if (kleur == "#FFA500") {
             dc.getCursus().setKleurBol1("#00FF00");
-            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol1(),1.0));
+            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol3(),1.0));
         } else{
             dc.getCursus().setKleurBol1("#FFFFFF");
-            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol1(),1.0));
+            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol4(),1.0));
         }
         
     }
