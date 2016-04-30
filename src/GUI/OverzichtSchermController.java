@@ -364,12 +364,5 @@ public class OverzichtSchermController implements Initializable {
         this.dc = dc;
     }
 
-//    public String hexConverter(Paint p) {
-//        Color c = (Color) p;
-//        String hex = String.format("#%02X%02X%02X",
-//                (int) (c.getRed()),
-//                (int) (c.getGreen()),
-//                (int) (c.getBlue()));
-//        return hex;
-//    }
+
 }

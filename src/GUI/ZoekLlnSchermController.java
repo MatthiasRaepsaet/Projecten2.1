@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -14,9 +16,13 @@ import domein.Leerling;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -87,9 +93,9 @@ public class ZoekLlnSchermController implements Initializable {
     private TextField zoekNaamTxtField;
     
     //RijtechniekScherm
-    private Map<String, List<String>> rijtechniekOpmerkingenMap;
-    private Map<String, String> rijtechniekKleurenMap;
-    private Map<String, Map<String, List<String>>> evaRijtechniekMap;
+    private Map<String, List<String>> rijtechniekOpmerkingenMap = new HashMap<>();
+    private Map<String, String> rijtechniekKleurenMap = new HashMap<>();
+    private Map<String, Map<String, List<String>>> evaRijtechniekMap = new HashMap<>();
     private Map<String, Map<String, List<String>>> VorigeEvaRijtechniekMap;
     private Map<String, Map<String, List<String>>> evaRijtechniekMap1;
     private Map<String, Map<String, List<String>>> evaRijtechniekMap2;
@@ -99,10 +105,10 @@ public class ZoekLlnSchermController implements Initializable {
     private Map<String, List<String>> stuurtechniekOpmerkingenMap;
     private Map<String, String> stuurtechniekKleurenMap;
     private Map<String, Map<String, List<String>>> evaStuurtechniekMap;
-    private Map<String, Map<String, List<String>>> VorigeEvaStuurtechniekMap;
-    private Map<String, Map<String, List<String>>> evaStuurtechniekMap1;
-    private Map<String, Map<String, List<String>>> evaStuurtechniekMap2;
-    private Map<String, Map<String, List<String>>> evaStuurtechniekMap3;
+    private Map<String, List<String>> VorigeEvaStuurtechniekMap;
+    private Map<String, List<String>> evaStuurtechniekMap1;
+    private Map<String, List<String>> evaStuurtechniekMap2;
+    private Map<String, List<String>> evaStuurtechniekMap3;
     
     private OverzichtSchermController ozc = new OverzichtSchermController();
     
@@ -110,32 +116,36 @@ public class ZoekLlnSchermController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        rijtechniekOpmerkingenMap.put("ambreage", null);
-        rijtechniekOpmerkingenMap.put("rem", null);
-        rijtechniekOpmerkingenMap.put("stuur", null);
-        rijtechniekOpmerkingenMap.put("schakelen", null);
-        rijtechniekOpmerkingenMap.put("opmerkzaamheid", null);
-        rijtechniekOpmerkingenMap.put("parkeren", null);
-        rijtechniekOpmerkingenMap.put("keren in een straat", null);
-        rijtechniekOpmerkingenMap.put("garage", null);
-        rijtechniekOpmerkingenMap.put("achteruitrijden", null);
-        rijtechniekOpmerkingenMap.put("bochten", null);
-        rijtechniekOpmerkingenMap.put("helling", null);
-        rijtechniekOpmerkingenMap.put("zithouding", null);
         
-        rijtechniekKleurenMap.put("ambreage", null);
-        rijtechniekKleurenMap.put("rem", null);
-        rijtechniekKleurenMap.put("stuur", null);
-        rijtechniekKleurenMap.put("schakelen", null);
-        rijtechniekKleurenMap.put("opmerkzaamheid", null);
-        rijtechniekKleurenMap.put("parkeren", null);
-        rijtechniekKleurenMap.put("keren in een straat", null);
-        rijtechniekKleurenMap.put("garage", null);
-        rijtechniekKleurenMap.put("achteruitrijden", null);
-        rijtechniekKleurenMap.put("bochten", null);
-        rijtechniekKleurenMap.put("helling", null);
-        rijtechniekKleurenMap.put("zithouding", null);
+        rijtechniekOpmerkingenMap.put("ambreage", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("rem", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("stuur", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("schakelen", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("opmerkzaamheid", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("parkeren", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("keren in een straat", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("garage", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("achteruitrijden", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("bochten", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("helling", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("zithouding", new ArrayList<>());
         
+        rijtechniekKleurenMap.put("ambreage", "#FFFFFF");
+        rijtechniekKleurenMap.put("rem", "#FFFFFF");
+        rijtechniekKleurenMap.put("stuur", "#FFFFFF");
+        rijtechniekKleurenMap.put("schakelen", "#FFFFFF");
+        rijtechniekKleurenMap.put("opmerkzaamheid", "#FFFFFF");
+        rijtechniekKleurenMap.put("parkeren", "#FFFFFF");
+        rijtechniekKleurenMap.put("keren in een straat", "#FFFFFF");
+        rijtechniekKleurenMap.put("garage", "#FFFFFF");
+        rijtechniekKleurenMap.put("achteruitrijden", "#FFFFFF");
+        rijtechniekKleurenMap.put("bochten", "#FFFFFF");
+        rijtechniekKleurenMap.put("helling", "#FFFFFF");
+        rijtechniekKleurenMap.put("zithouding", "#FFFFFF");
+        
+        evaRijtechniekMap.put("eva1", rijtechniekOpmerkingenMap);
+        evaRijtechniekMap.put("eva2", rijtechniekOpmerkingenMap);
+        evaRijtechniekMap.put("eva3", rijtechniekOpmerkingenMap);
         
         zoekNaamLbl.setVisible(false);
         zoekNaamTxtField.setVisible(false);
