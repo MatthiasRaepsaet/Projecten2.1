@@ -152,21 +152,7 @@ public class OverzichtSchermController implements Initializable {
 
     }
 
-//    public OverzichtSchermController(Button schakelaarButton, Button vloeistoffenButton, Button bandenButton, Button stopButton, Button tankenButton, Button gpsButton) {
-//        this.schakelaarButton = schakelaarButton;
-//        this.vloeistoffenButton = vloeistoffenButton;
-//        this.bandenButton = bandenButton;
-//        this.stopButton = stopButton;
-//        this.tankenButton = tankenButton;
-//        this.gpsButton = gpsButton;
-////        schakelaarButton.setBackground(standaarBackground);
-////        vloeistoffenButton.setBackground(standaarBackground);
-////        bandenButton.setBackground(standaarBackground);
-////        
-////        tankenButton.setBackground(standaarBackground);
-////        gpsButton.setBackground(standaarBackground);
-////        stopButton.setBackground(standaarBackground);
-//    }
+
     public void veranderBol(ActionEvent event) throws IOException {
         Circle dezeBol = null;
         String kleur = null;
@@ -343,17 +329,17 @@ public class OverzichtSchermController implements Initializable {
 
     public void evaCheck() {
 
-        if (dc.getCursus().getEvaNummer() == "1") {
+        if (dc.getCursus().getEvaNummer() == "eva1") {
             radioEva1.setSelected(true);
             radioEva2.setSelected(false);
             radioEva3.setSelected(false);
         }
-        if (dc.getCursus().getEvaNummer() == "2") {
+        if (dc.getCursus().getEvaNummer() == "eva2") {
             radioEva1.setSelected(false);
             radioEva2.setSelected(true);
             radioEva3.setSelected(false);
         }
-        if (dc.getCursus().getEvaNummer() == "3") {
+        if (dc.getCursus().getEvaNummer() == "eva3") {
             radioEva1.setSelected(false);
             radioEva2.setSelected(false);
             radioEva3.setSelected(true);
@@ -362,15 +348,18 @@ public class OverzichtSchermController implements Initializable {
 
     public void veranderEva(ActionEvent event) throws IOException {
         if (event.getSource().equals(radioEva1)) {
-            dc.getCursus().setEvaNummer("1");
+            dc.getCursus().setEvaNummer("eva1");
+            System.out.println(dc.getCursus().getEvaNummer());
             evaCheck();
         }
         if (event.getSource().equals(radioEva2)) {
-            dc.getCursus().setEvaNummer("2");
+            dc.getCursus().setEvaNummer("eva2");
+            System.out.println(dc.getCursus().getEvaNummer());
             evaCheck();
         }
         if (event.getSource().equals(radioEva3)) {
-            dc.getCursus().setEvaNummer("3");
+            dc.getCursus().setEvaNummer("eva3");
+            System.out.println(dc.getCursus().getEvaNummer());
             evaCheck();
         }
     }

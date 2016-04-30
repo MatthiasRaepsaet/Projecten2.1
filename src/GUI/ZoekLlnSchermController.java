@@ -97,9 +97,9 @@ public class ZoekLlnSchermController implements Initializable {
     private Map<String, String> rijtechniekKleurenMap = new HashMap<>();
     private Map<String, Map<String, List<String>>> evaRijtechniekMap = new HashMap<>();
     private Map<String, Map<String, List<String>>> VorigeEvaRijtechniekMap;
-    private Map<String, Map<String, List<String>>> evaRijtechniekMap1;
-    private Map<String, Map<String, List<String>>> evaRijtechniekMap2;
-    private Map<String, Map<String, List<String>>> evaRijtechniekMap3;
+    private Map<String, List<String>> evaRijtechniekMap1 = new HashMap<>();
+    private Map<String, List<String>> evaRijtechniekMap2 = new HashMap<>();
+    private Map<String, List<String>> evaRijtechniekMap3 = new HashMap<>();
     
     //StuurtechniekScherm
     private Map<String, List<String>> stuurtechniekOpmerkingenMap;
@@ -121,14 +121,19 @@ public class ZoekLlnSchermController implements Initializable {
         rijtechniekOpmerkingenMap.put("rem", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("stuur", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("schakelen", new ArrayList<>());
-        rijtechniekOpmerkingenMap.put("opmerkzaamheid", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("kijk", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("parkeren", new ArrayList<>());
-        rijtechniekOpmerkingenMap.put("keren in een straat", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("keren", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("garage", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("achteruitrijden", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("bochten", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("helling", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("zithouding", new ArrayList<>());
+
+        evaRijtechniekMap1 = rijtechniekOpmerkingenMap;
+        evaRijtechniekMap2 = rijtechniekOpmerkingenMap;
+        evaRijtechniekMap3 = rijtechniekOpmerkingenMap;
+        
         
         rijtechniekKleurenMap.put("ambreage", "#FFFFFF");
         rijtechniekKleurenMap.put("rem", "#FFFFFF");
@@ -143,9 +148,14 @@ public class ZoekLlnSchermController implements Initializable {
         rijtechniekKleurenMap.put("helling", "#FFFFFF");
         rijtechniekKleurenMap.put("zithouding", "#FFFFFF");
         
-        evaRijtechniekMap.put("eva1", rijtechniekOpmerkingenMap);
-        evaRijtechniekMap.put("eva2", rijtechniekOpmerkingenMap);
-        evaRijtechniekMap.put("eva3", rijtechniekOpmerkingenMap);
+        evaRijtechniekMap.put("eva1", evaRijtechniekMap1);
+        evaRijtechniekMap.put("eva2", evaRijtechniekMap2);
+        evaRijtechniekMap.put("eva3", evaRijtechniekMap3);
+        
+        evaRijtechniekMap.get("eva1").get("ambreage").add("eva1");
+        evaRijtechniekMap.get("eva2").get("ambreage").add("eva2am");
+        evaRijtechniekMap.get("eva2").get("rem").add("eva2rem");
+        evaRijtechniekMap.get("eva3").get("stuur").add("eva3");
         
         zoekNaamLbl.setVisible(false);
         zoekNaamTxtField.setVisible(false);
@@ -196,7 +206,7 @@ public class ZoekLlnSchermController implements Initializable {
         geselecteerdeLeerling.setFotoPath(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"));
         dc.setGeselecteerd(geselecteerdeLeerling);
         
-        cursus = new Cursus("1", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null);
+        cursus = new Cursus("eva1", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null);
         if(naamLbl.getText() != "naam"){
             ok.setDisable(false);
         }
@@ -220,6 +230,10 @@ public class ZoekLlnSchermController implements Initializable {
         dc.setOzc(ozc);
         dc.setCursus(cursus);
         ozc.setDc(dc);
+        dc.getCursus().setRijtechniekOpmerkingenMap(rijtechniekOpmerkingenMap);
+        dc.getCursus().setEvaRijtechniekOpmerkingenMap(evaRijtechniekMap);
+        dc.getCursus().setRijtechniekKleurenMap(rijtechniekKleurenMap);
+        System.out.println(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("ambreage"));
         loader.setLocation(getClass().getResource("OverzichtScherm.fxml"));
         Stage stage = (Stage) zoekenButton.getScene().getWindow();
         loader.setController(dc.getOzc());
