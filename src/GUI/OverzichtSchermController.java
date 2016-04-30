@@ -187,19 +187,38 @@ public class OverzichtSchermController implements Initializable {
             kleur = dc.getCursus().getKleurBol4();
         }
         if (kleur == "#FFFFFF") {
-            dc.getCursus().setKleurBol1("#FF0000");
-            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol1(),1.0));
+            kleur = "#FF0000";
+//            dc.getCursus().setKleurBol1("#FF0000");
+            dezeBol.setFill(Color.web(kleur,1.0));
         } else if (kleur == "#FF0000") {
-            dc.getCursus().setKleurBol1("#FFA500");
-            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol2(),1.0));
+            kleur = "#FFA500";
+//            dc.getCursus().setKleurBol1("#FFA500");
+            dezeBol.setFill(Color.web(kleur,1.0));
         } else if (kleur == "#FFA500") {
-            dc.getCursus().setKleurBol1("#00FF00");
-            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol3(),1.0));
+            kleur = "#00FF00";
+//            dc.getCursus().setKleurBol1("#00FF00");
+            dezeBol.setFill(Color.web(kleur,1.0));
         } else{
-            dc.getCursus().setKleurBol1("#FFFFFF");
-            dezeBol.setFill(Color.web(dc.getCursus().getKleurBol4(),1.0));
+            kleur = "#FFFFFF";
+//            dc.getCursus().setKleurBol1("#FFFFFF");
+            dezeBol.setFill(Color.web(kleur,1.0));
         }
-        
+        if (event.getSource() == rotondeButton) {
+            dezeBol = bol1;
+            dc.getCursus().setKleurBol1(kleur);
+        }
+        if (event.getSource() == rijbaanButton) {
+            dezeBol = bol2;
+            dc.getCursus().setKleurBol2(kleur);
+        }
+        if (event.getSource() == stadButton) {
+            dezeBol = bol3;
+            dc.getCursus().setKleurBol3(kleur);
+        }
+        if (event.getSource() == autostradeButton) {
+            dezeBol = bol4;
+            dc.getCursus().setKleurBol4(kleur);
+        }
     }
 
     public void veranderKleur(ActionEvent event) throws IOException {
