@@ -17,6 +17,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -52,13 +54,15 @@ public class LogoutController implements Initializable {
     private Text naamTxt;
     @FXML
     private Text errorTxt;
+    @FXML
+    private ImageView imgView;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //moet anders later
-        naamTxt.setText("Joske Vermeulen");
-        naamTxtField.setText("Joske Vermeulen");
-        emailTxtField.setText("joske@vermeulen.be");
+        naamTxt.setText(dc.getGeselecteerd().getNaam());
+        naamTxtField.setText(dc.getGeselecteerd().getNaam());
+        emailTxtField.setText(dc.getGeselecteerd().getEmail());
+        imgView.setImage(new Image(dc.getGeselecteerd().getFotoPath().toURI().toString()));
     } 
     public void naarOverzichtScherm(ActionEvent event) throws IOException {
         Stage stage = (Stage) terugButton.getScene().getWindow();
@@ -93,6 +97,8 @@ public class LogoutController implements Initializable {
             //code voor naar de DB weg te schrijven en te controlleren of het effectief weggeschreven is
             errorTxt.setFill(Color.GREEN);
             errorTxt.setText("Opslaan geslaagd!");
+            //dc.getGeselecteerd().setNaam(naamTxt.get);
+            //dc.getGeselecteerd().setEmail(null);
         } else {
             String bericht = "Opslaan niet geslaagd... \nHet volgende is fout gelopen:";
             errorTxt.setFill(Color.RED);

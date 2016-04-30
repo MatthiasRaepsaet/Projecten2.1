@@ -186,15 +186,17 @@ public class ZoekLlnSchermController implements Initializable {
         JsonObject jsono = gson.fromJson(target.request(MediaType.APPLICATION_JSON).get(String.class), JsonElement.class).getAsJsonObject();
         System.out.println(jsono.get("naam").getAsString());
         
-        naamLbl.setText(jsono.get("naam").toString());
-        geselecteerdeLeerling.setInschrijvingsNummer(jsono.get("inschrijvingsNummer").toString());
-        nummerLbl.setText(jsono.get("inschrijvingsNummer").toString());
-        geselecteerdeLeerling.setNaam(jsono.get("naam").toString());
-        emailLbl.setText(jsono.get("email").toString());
-        geselecteerdeLeerling.setEmail(jsono.get("email").toString());
-        imgView.setImage(new Image(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png").toURI().toString()));
+        geselecteerdeLeerling.setNaam(jsono.get("naam").toString().replaceAll("\"", ""));
+        geselecteerdeLeerling.setInschrijvingsNummer(jsono.get("inschrijvingsNummer").toString().replaceAll("\"", ""));
         geselecteerdeLeerling.setFotoPath(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"));
+        geselecteerdeLeerling.setEmail(jsono.get("email").toString().replaceAll("\"", ""));
         dc.setGeselecteerd(geselecteerdeLeerling);
+        
+        
+        naamLbl.setText(geselecteerdeLeerling.getNaam());
+        nummerLbl.setText(geselecteerdeLeerling.getInschrijvingsNummer());
+        emailLbl.setText(geselecteerdeLeerling.getEmail());
+        imgView.setImage(new Image(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png").toURI().toString()));
         
         cursus = new Cursus("1", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null);
         if(naamLbl.getText() != "naam"){

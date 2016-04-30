@@ -2,13 +2,16 @@ package GUI;
 
 import domein.DomeinController;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,7 +22,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class RijtechniekSchermController {
+public class RijtechniekSchermController implements Initializable {
 
     DomeinController dc;
 
@@ -115,8 +118,16 @@ public class RijtechniekSchermController {
     @FXML
     private ComboBox combo;
 
+    @FXML
+    private Text naamLbl;
+    
     private ObservableList<String> lijst = FXCollections.observableArrayList();
-
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        naamLbl.setText(dc.getGeselecteerd().getNaam());
+    }
+    
     public void voegOpmerkingToe(ActionEvent event) throws IOException {
         ObservableList<String> comboLijst;
         tekstVeld.clear();

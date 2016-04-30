@@ -34,7 +34,7 @@
             <Image url="@../images/0001.png" />
          </image>
       </ImageView>
-      <Label fx:id="naamLbl" layoutX="877.0" layoutY="171.0" text="Joske Vermeulen">
+      <Label fx:id="naamLbl" alignment="CENTER" layoutX="869.0" layoutY="171.0" prefHeight="20.0" prefWidth="127.0" text="Joske Vermeulen" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
