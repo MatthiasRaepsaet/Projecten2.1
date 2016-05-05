@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -120,6 +121,13 @@ public class RijtechniekSchermController implements Initializable {
 
     @FXML
     private Text naamLbl;
+    
+    @FXML
+    private Ellipse linkerPijl;
+    @FXML
+    private Ellipse rechterPijl;
+    @FXML
+    private Ellipse onderPijl;
     
     private ObservableList<String> lijst = FXCollections.observableArrayList();
     
@@ -375,5 +383,6 @@ public class RijtechniekSchermController implements Initializable {
 //            tekstVeld.setText("");
 //        }
     }
+    
 
 }

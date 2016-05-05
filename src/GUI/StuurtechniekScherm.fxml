@@ -194,5 +194,10 @@
             <Button fx:id="groen" layoutX="313.0" layoutY="233.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: green;" />
          </children>
       </Pane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="604.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/stuur.gif" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

@@ -118,6 +118,13 @@ public class OverzichtSchermController implements Initializable {
 
     @FXML
     private Button attitudeButton;
+    
+    @FXML
+    private Circle topStuur;
+    @FXML
+    private Circle linkerStuur;
+    @FXML
+    private Circle rechterStuur;
 
     private AttitudeSchermController asc = new AttitudeSchermController();
     private InfoSchermController info = new InfoSchermController();
@@ -371,6 +378,9 @@ public class OverzichtSchermController implements Initializable {
     public void setDc(DomeinController dc) {
         this.dc = dc;
     }
-
+    
+    public void kleurStuur(){
+        
+    }
 
 }
