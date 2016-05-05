@@ -18,21 +18,6 @@
             <Image url="@../images/zonderwijzer.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="137.0" layoutX="852.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/boom.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="858.0" layoutY="184.0" text="Joske Vermeulen">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="104.0" fitWidth="402.0" layoutX="53.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/legendegrijs.png" />
-         </image>
-      </ImageView>
       <Button fx:id="terugButton" layoutX="890.0" layoutY="667.0" mnemonicParsing="false" onAction="#vorigeScherm" prefHeight="75.0" prefWidth="81.0">
          <graphic>
             <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="55.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
@@ -60,7 +45,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="voorrangButton" onAction="#veranderKnoppen"  alignment="CENTER" layoutX="265.0" layoutY="174.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
+      <Button fx:id="voorrangButton" alignment="CENTER" layoutX="265.0" layoutY="174.0" mnemonicParsing="false" onAction="#veranderKnoppen" prefHeight="60.0" prefWidth="60.0" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0">
                <image>
@@ -124,47 +109,36 @@
             </ImageView>
          </graphic>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="224.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="174.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="194.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="224.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="470.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="470.0" layoutY="308.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="470.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="476.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="476.0" layoutY="376.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="476.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="438.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="458.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="478.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="479.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="499.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="519.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="438.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="458.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="478.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="376.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="308.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <ListView fx:id="opmerkingListView" layoutX="620.0" layoutY="14.0" prefHeight="410.0" prefWidth="370.0" />
-      <Label fx:id="opmerkingLabel" layoutX="625.0" layoutY="546.0" text="Opmerking" />
-      <TextField fx:id="andereTxtArea" layoutX="693.0" layoutY="546.0" prefHeight="75.0" prefWidth="297.0" />
-      <Button fx:id="basicButton6" layoutX="620.0" layoutY="500.0" mnemonicParsing="false" onAction="#toonInvoerveld" prefHeight="39.0" prefWidth="364.0" text="Andere" />
-      <Button fx:id="okButton" layoutX="898.0" layoutY="634.0" mnemonicParsing="false" onAction="#andereNaarOpmerkingList" text="Ok" />
-      <Button fx:id="cancelButton" layoutX="934.0" layoutY="634.0" mnemonicParsing="false" text="Cancel" />
-      <Button fx:id="basicButton1" layoutX="629.0" layoutY="428.0" mnemonicParsing="false" onAction="#basicNaarOpmerkingLijst" prefHeight="60.0" text="Zithouding" />
-      <Button fx:id="basicButton2" layoutX="714.0" layoutY="428.0" mnemonicParsing="false" onAction="#basicNaarOpmerkingLijst" prefHeight="60.0" text="Gordel" />
-      <Button fx:id="basicButton3" layoutX="776.0" layoutY="428.0" mnemonicParsing="false" onAction="#basicNaarOpmerkingLijst" prefHeight="60.0" text="Spiegels" />
-      <Button fx:id="basicButton4" layoutX="846.0" layoutY="428.0" mnemonicParsing="false" onAction="#basicNaarOpmerkingLijst" prefHeight="60.0" text="Handrem" />
-      <Button fx:id="basicButton5" layoutX="922.0" layoutY="428.0" mnemonicParsing="false" onAction="#basicNaarOpmerkingLijst" prefHeight="60.0" text="Voet af" />
+      <Rectangle fx:id="ow1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="ow2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="224.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="ow3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="voorrang1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="174.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="voorrang2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="194.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="voorrang3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="214.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="borden1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="204.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="borden3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="borden2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="224.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="snel3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="470.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="snel2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="470.0" layoutY="308.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="snel1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="470.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="autos3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="476.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="autos2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="476.0" layoutY="376.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="autos1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="476.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="over1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="438.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="over2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="458.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="over3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="433.0" layoutY="478.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="kruis1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="479.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="kruis2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="499.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="kruis3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="321.0" layoutY="519.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="l1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="438.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="l2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="458.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="l3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="206.0" layoutY="478.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="r1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="r2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="376.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="r3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="pinker1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="pinker2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="308.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="pinker3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="168.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Button fx:id="infoButton" contentDisplay="CENTER" layoutX="39.0" layoutY="41.0" mnemonicParsing="false" onAction="#naarInfoScherm" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;">
          <graphic>
             <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="933.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
@@ -184,5 +158,41 @@
             </LinearGradient>
          </fill>
       </Rectangle>
+      <Text fx:id="naamLbl" fill="WHITE" layoutX="627.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Matthias Raepsaet" textAlignment="CENTER" wrappingWidth="350.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Pane layoutX="607.0" layoutY="133.0" prefHeight="499.0" prefWidth="389.0" style="-fx-background-color: gray; -fx-background-radius: 50;">
+         <children>
+            <Text fx:id="titel" fill="#fcfafa" layoutX="77.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="226.13671875">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <ToggleButton fx:id="uitroepteken" layoutX="310.0" layoutY="335.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="933.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/appbar.alert.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <TextArea fx:id="tekstVeld" layoutX="31.0" layoutY="62.0" prefHeight="331.0" prefWidth="265.0" />
+            <Button fx:id="opslaanButton" layoutX="31.0" layoutY="415.0" mnemonicParsing="false" onAction="#wijzigigenOpslaan" prefHeight="55.0" prefWidth="265.0" text="Aanpassingen opslaan">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="55.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/appbar.save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="rood" layoutX="313.0" layoutY="101.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: red;" />
+            <Button fx:id="oranje" layoutX="313.0" layoutY="168.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: orange;" />
+            <Button fx:id="groen" layoutX="313.0" layoutY="233.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: green;" />
+         </children>
+      </Pane>
    </children>
 </Pane>

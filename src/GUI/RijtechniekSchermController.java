@@ -295,7 +295,7 @@ public class RijtechniekSchermController implements Initializable {
     }
 
     public void selecteerUitCombo(ActionEvent event) throws IOException {
-        tekstVeld.setText(tekstVeld.getText() + "\n" + combo.getSelectionModel().getSelectedItem().toString());
+        tekstVeld.setText(tekstVeld.getText() + "\n" + combo.getSelectionModel().getSelectedItem().toString()+"\n");
     }
 
     public void vulVierkantjes() {
