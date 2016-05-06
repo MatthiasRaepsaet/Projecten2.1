@@ -5,17 +5,19 @@ import java.util.List;
 
 public class Leerling {
 
-    public Leerling(String inschrijvingsNummer, String naam, File fotoPath, String email) {
+    public Leerling(String inschrijvingsNummer, String naam, File fotoPath, String email, Evaluatie evaluatie) {
         this.inschrijvingsNummer = inschrijvingsNummer;
         this.naam = naam;
         this.fotoPath = fotoPath;
         this.email = email;
+        this.evaluatie = evaluatie;
     }
     
     private String inschrijvingsNummer;
     private String naam;
     private File fotoPath;
     private String email;
+    private Evaluatie evaluatie;
 
     public Leerling() {
         
@@ -53,6 +55,16 @@ public class Leerling {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Evaluatie getEvaluatie() {
+        return evaluatie;
+    }
+
+    public void setEvaluatie(Evaluatie evaluatie) {
+        this.evaluatie = evaluatie;
+    }
+    
+    
     
     @Override
     public String toString(){

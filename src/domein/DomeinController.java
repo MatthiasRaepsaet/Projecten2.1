@@ -28,6 +28,8 @@ public class DomeinController {
     
     private Cursus cursus;
     
+    private Evaluatie evaluatieMatthias;
+    
     private Leerling geselecteerd;
     private List<Leerling> leerlingen = new ArrayList<>();
     
@@ -43,8 +45,8 @@ public class DomeinController {
     
     public DomeinController()
     {
-        leerlingen.add(new Leerling("0001","Joske Vermeulen", new File("src/images/GastonPng.png"),"joske.vermeulen@gmail.com"));
-        leerlingen.add(new Leerling("0002","Ewout Ghysbrecht", new File("src/images/EwoutPng.png"), "ewout.g@hotmail.com"));
+//        leerlingen.add(new Leerling("0001","Joske Vermeulen", new File("src/images/GastonPng.png"),"joske.vermeulen@gmail.com"));
+//        leerlingen.add(new Leerling("0002","Ewout Ghysbrecht", new File("src/images/EwoutPng.png"), "ewout.g@hotmail.com"));
     }
 
     public List<Leerling> getLeerlingenCache() {
@@ -153,6 +155,15 @@ public class DomeinController {
     public void setZlsc(ZoekLlnSchermController zlsc) {
         this.zlsc = zlsc;
     }
+
+    public Evaluatie getEvaluatieMatthias() {
+        return evaluatieMatthias;
+    }
+
+    public void setEvaluatieMatthias(Evaluatie evaluatieMatthias) {
+        this.evaluatieMatthias = evaluatieMatthias;
+    }
+    
     
     
 }
