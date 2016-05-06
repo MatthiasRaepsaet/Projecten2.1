@@ -6,6 +6,7 @@
 package GUI;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import domein.Cursus;
@@ -237,7 +238,7 @@ public class ZoekLlnSchermController implements Initializable {
 //        for(int i=0; i<jsona.size();i++)
 //        {
 //            JsonObject jsono = jsona.get(i).getAsJsonObject();
-//            Leerling l = new Leerling(jsono.get("inschrijvingsnummer").getAsString(), jsono.get("naam").getAsString(),null, null); //nullpointer >.<
+//            Leerling l = new Leerling(jsono.get("inschrijvingsnummer").getAsString(), jsono.get("naam").getAsString(),); //nullpointer >.<
 //            test.add(l);
 //        }
 //        System.out.println(test.toString());
