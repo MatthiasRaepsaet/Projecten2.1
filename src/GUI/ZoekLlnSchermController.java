@@ -5,9 +5,8 @@
  */
 package GUI;
 
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import domein.Cursus;
@@ -21,11 +20,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,13 +36,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+import jdk.nashorn.internal.parser.JSONParser;
 
 public class ZoekLlnSchermController implements Initializable {
     
@@ -97,9 +95,9 @@ public class ZoekLlnSchermController implements Initializable {
     private Map<String, String> rijtechniekKleurenMap = new HashMap<>();
     private Map<String, Map<String, List<String>>> evaRijtechniekMap = new HashMap<>();
     private Map<String, Map<String, List<String>>> VorigeEvaRijtechniekMap;
-    private Map<String, Map<String, List<String>>> evaRijtechniekMap1;
-    private Map<String, Map<String, List<String>>> evaRijtechniekMap2;
-    private Map<String, Map<String, List<String>>> evaRijtechniekMap3;
+    private Map<String, List<String>> evaRijtechniekMap1 = new HashMap<>();
+    private Map<String, List<String>> evaRijtechniekMap2 = new HashMap<>();
+    private Map<String, List<String>> evaRijtechniekMap3 = new HashMap<>();
     
     //StuurtechniekScherm
     private Map<String, List<String>> stuurtechniekOpmerkingenMap;
@@ -121,14 +119,19 @@ public class ZoekLlnSchermController implements Initializable {
         rijtechniekOpmerkingenMap.put("rem", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("stuur", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("schakelen", new ArrayList<>());
-        rijtechniekOpmerkingenMap.put("opmerkzaamheid", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("kijk", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("parkeren", new ArrayList<>());
-        rijtechniekOpmerkingenMap.put("keren in een straat", new ArrayList<>());
+        rijtechniekOpmerkingenMap.put("keren", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("garage", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("achteruitrijden", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("bochten", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("helling", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("zithouding", new ArrayList<>());
+
+        evaRijtechniekMap1 = rijtechniekOpmerkingenMap;
+        evaRijtechniekMap2 = rijtechniekOpmerkingenMap;
+        evaRijtechniekMap3 = rijtechniekOpmerkingenMap;
+        
         
         rijtechniekKleurenMap.put("ambreage", "#FFFFFF");
         rijtechniekKleurenMap.put("rem", "#FFFFFF");
@@ -143,9 +146,14 @@ public class ZoekLlnSchermController implements Initializable {
         rijtechniekKleurenMap.put("helling", "#FFFFFF");
         rijtechniekKleurenMap.put("zithouding", "#FFFFFF");
         
-        evaRijtechniekMap.put("eva1", rijtechniekOpmerkingenMap);
-        evaRijtechniekMap.put("eva2", rijtechniekOpmerkingenMap);
-        evaRijtechniekMap.put("eva3", rijtechniekOpmerkingenMap);
+        evaRijtechniekMap.put("eva1", evaRijtechniekMap1);
+        evaRijtechniekMap.put("eva2", evaRijtechniekMap2);
+        evaRijtechniekMap.put("eva3", evaRijtechniekMap3);
+        
+        evaRijtechniekMap.get("eva1").get("ambreage").add("eva1");
+        evaRijtechniekMap.get("eva2").get("ambreage").add("eva2am");
+        evaRijtechniekMap.get("eva2").get("rem").add("eva2rem");
+        evaRijtechniekMap.get("eva3").get("stuur").add("eva3");
         
         zoekNaamLbl.setVisible(false);
         zoekNaamTxtField.setVisible(false);
@@ -171,6 +179,7 @@ public class ZoekLlnSchermController implements Initializable {
                 nummerLbl.setText("" + geselecteerd.getInschrijvingsNummer());
                 emailLbl.setText(geselecteerd.getEmail());
                 imgView.setImage(new Image(geselecteerd.getFotoPath().toURI().toString()));
+                dc.setGeselecteerd(geselecteerd);
                 
             }
         });
@@ -186,15 +195,17 @@ public class ZoekLlnSchermController implements Initializable {
         JsonObject jsono = gson.fromJson(target.request(MediaType.APPLICATION_JSON).get(String.class), JsonElement.class).getAsJsonObject();
         System.out.println(jsono.get("naam").getAsString());
         
-        naamLbl.setText(jsono.get("naam").toString());
-        geselecteerdeLeerling.setInschrijvingsNummer(jsono.get("inschrijvingsNummer").toString());
-        nummerLbl.setText(jsono.get("inschrijvingsNummer").toString());
-        geselecteerdeLeerling.setNaam(jsono.get("naam").toString());
-        emailLbl.setText(jsono.get("email").toString());
-        geselecteerdeLeerling.setEmail(jsono.get("email").toString());
-        imgView.setImage(new Image(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png").toURI().toString()));
+        geselecteerdeLeerling.setNaam(jsono.get("naam").toString().replaceAll("\"", ""));
+        geselecteerdeLeerling.setInschrijvingsNummer(jsono.get("inschrijvingsNummer").toString().replaceAll("\"", ""));
         geselecteerdeLeerling.setFotoPath(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"));
+        geselecteerdeLeerling.setEmail(jsono.get("email").toString().replaceAll("\"", ""));
         dc.setGeselecteerd(geselecteerdeLeerling);
+        
+        
+        naamLbl.setText(geselecteerdeLeerling.getNaam());
+        nummerLbl.setText(geselecteerdeLeerling.getInschrijvingsNummer());
+        emailLbl.setText(geselecteerdeLeerling.getEmail());
+        imgView.setImage(new Image(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png").toURI().toString()));
         
         cursus = new Cursus("1", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null);
         if(naamLbl.getText() != "naam"){
@@ -205,6 +216,22 @@ public class ZoekLlnSchermController implements Initializable {
     public void zoekAlle(ActionEvent event){
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target("http://localhost:8080/projecten/api/leerlingen");
+        
+        List<Leerling> test = new ArrayList<>();
+        
+        Gson gson = new Gson();
+        JsonArray jsona = gson.fromJson(target.request(MediaType.APPLICATION_JSON).get(String.class), JsonElement.class).getAsJsonArray();
+        
+        for(int i=0; i<jsona.size();i++)
+        {
+            JsonObject jsono = jsona.get(i).getAsJsonObject();
+            Leerling l = new Leerling(jsono.get("inschrijvingsnummer").getAsString(), jsono.get("naam").getAsString(),null, null); //nullpointer >.<
+            test.add(l);
+        }
+        System.out.println(test.toString());
+        lijst.setItems(FXCollections.observableList(test));
+        System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
+        System.out.println(jsona.toString());
     }
 
     public void veranderScherm(ActionEvent event) throws IOException {
@@ -220,6 +247,10 @@ public class ZoekLlnSchermController implements Initializable {
         dc.setOzc(ozc);
         dc.setCursus(cursus);
         ozc.setDc(dc);
+        dc.getCursus().setRijtechniekOpmerkingenMap(rijtechniekOpmerkingenMap);
+        dc.getCursus().setEvaRijtechniekOpmerkingenMap(evaRijtechniekMap);
+        dc.getCursus().setRijtechniekKleurenMap(rijtechniekKleurenMap);
+        //System.out.println(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("ambreage"));
         loader.setLocation(getClass().getResource("OverzichtScherm.fxml"));
         Stage stage = (Stage) zoekenButton.getScene().getWindow();
         loader.setController(dc.getOzc());

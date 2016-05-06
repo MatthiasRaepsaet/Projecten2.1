@@ -42,9 +42,6 @@ public class Cursus {
     private Map<String, Map<String, List<String>>> evaRijtechniekOpmerkingenMap;
     private Map<String, Map<String, String>> evaRijtechniekKleurenMap;
     private Map<String, Map<String, List<String>>> VorigeEvaRijtechniekMap;
-    private Map<String, Map<String, List<String>>> evaRijtechniekMap1;
-    private Map<String, Map<String, List<String>>> evaRijtechniekMap2;
-    private Map<String, Map<String, List<String>>> evaRijtechniekMap3;
     
     //StuurtechniekScherm
     private Map<String, List<String>> stuurtechniekOpmerkingenMap;
@@ -52,9 +49,6 @@ public class Cursus {
     private Map<String, Map<String, List<String>>> evaStuurtechniekOpmerkingenMap;
     private Map<String, Map<String, String>> evaStuurtechniekKleurenMap;
     private Map<String, Map<String, List<String>>> VorigeEvaStuurtechniekMap;
-    private Map<String, Map<String, List<String>>> evaStuurtechniekMap1;
-    private Map<String, Map<String, List<String>>> evaStuurtechniekMap2;
-    private Map<String, Map<String, List<String>>> evaStuurtechniekMap3;
     
     public Cursus() {
     }
@@ -109,59 +103,7 @@ public class Cursus {
     public void setEvaStuurtechniekKleurenMap(Map<String, Map<String, String>> evaStuurtechniekKleurenMap) {
         this.evaStuurtechniekKleurenMap = evaStuurtechniekKleurenMap;
     }
-
-    
-    
-    public Map<String, Map<String, List<String>>> getEvaRijtechniekMap1() {
-        return evaRijtechniekMap1;
-    }
-
-    public void setEvaRijtechniekMap1(Map<String, Map<String, List<String>>> evaRijtechniekMap1) {
-        this.evaRijtechniekMap1 = evaRijtechniekMap1;
-    }
-
-    public Map<String, Map<String, List<String>>> getEvaRijtechniekMap2() {
-        return evaRijtechniekMap2;
-    }
-
-    public void setEvaRijtechniekMap2(Map<String, Map<String, List<String>>> evaRijtechniekMap2) {
-        this.evaRijtechniekMap2 = evaRijtechniekMap2;
-    }
-
-    public Map<String, Map<String, List<String>>> getEvaRijtechniekMap3() {
-        return evaRijtechniekMap3;
-    }
-
-    public void setEvaRijtechniekMap3(Map<String, Map<String, List<String>>> evaRijtechniekMap3) {
-        this.evaRijtechniekMap3 = evaRijtechniekMap3;
-    }
-
-    public Map<String, Map<String, List<String>>> getEvaStuurtechniekMap1() {
-        return evaStuurtechniekMap1;
-    }
-
-    public void setEvaStuurtechniekMap1(Map<String, Map<String, List<String>>> evaStuurtechniekMap1) {
-        this.evaStuurtechniekMap1 = evaStuurtechniekMap1;
-    }
-
-    public Map<String, Map<String, List<String>>> getEvaStuurtechniekMap2() {
-        return evaStuurtechniekMap2;
-    }
-
-    public void setEvaStuurtechniekMap2(Map<String, Map<String, List<String>>> evaStuurtechniekMap2) {
-        this.evaStuurtechniekMap2 = evaStuurtechniekMap2;
-    }
-
-    public Map<String, Map<String, List<String>>> getEvaStuurtechniekMap3() {
-        return evaStuurtechniekMap3;
-    }
-
-    public void setEvaStuurtechniekMap3(Map<String, Map<String, List<String>>> evaStuurtechniekMap3) {
-        this.evaStuurtechniekMap3 = evaStuurtechniekMap3;
-    }
-    
-    
-    
+      
     public String getEvaNummer() {
         return evaNummer;
     }

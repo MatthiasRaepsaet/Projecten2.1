@@ -2,24 +2,28 @@ package GUI;
 
 import domein.DomeinController;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class RijtechniekSchermController {
+public class RijtechniekSchermController implements Initializable {
 
     DomeinController dc;
 
@@ -115,8 +119,23 @@ public class RijtechniekSchermController {
     @FXML
     private ComboBox combo;
 
+    @FXML
+    private Text naamLbl;
+    
+    @FXML
+    private Ellipse linkerPijl;
+    @FXML
+    private Ellipse rechterPijl;
+    @FXML
+    private Ellipse onderPijl;
+    
     private ObservableList<String> lijst = FXCollections.observableArrayList();
-
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        naamLbl.setText(dc.getGeselecteerd().getNaam());
+    }
+    
     public void voegOpmerkingToe(ActionEvent event) throws IOException {
         ObservableList<String> comboLijst;
         tekstVeld.clear();
@@ -131,7 +150,7 @@ public class RijtechniekSchermController {
             wijzer.setRotate(345);
             titel.setText("Remmen");
             setNummerVierkant(0);
-            vanLijstNaarTextArea();
+            vanLijstNaarTextArea(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("rem"));
         }
         if (event.getSource() == stuurButton) {
             comboLijst = FXCollections.observableArrayList();
@@ -142,7 +161,7 @@ public class RijtechniekSchermController {
             wijzer.setRotate(15);
             titel.setText("Sturen");
             setNummerVierkant(3);
-            vanLijstNaarTextArea();
+            vanLijstNaarTextArea(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("stuur"));
         }
         if (event.getSource() == schakelButton) {
             comboLijst = FXCollections.observableArrayList();
@@ -152,7 +171,7 @@ public class RijtechniekSchermController {
             wijzer.setRotate(45);
             titel.setText("Schakelen");
             setNummerVierkant(6);
-            vanLijstNaarTextArea();
+            vanLijstNaarTextArea(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("schakelen"));
         }
         if (event.getSource() == kijkButton) {
             comboLijst = FXCollections.observableArrayList();
@@ -164,7 +183,7 @@ public class RijtechniekSchermController {
             wijzer.setRotate(75);
             titel.setText("Kijken");
             setNummerVierkant(9);
-            vanLijstNaarTextArea();
+            vanLijstNaarTextArea(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("kijk"));
         }
         if (event.getSource() == parkeerButton) {
             comboLijst = FXCollections.observableArrayList();
@@ -175,7 +194,7 @@ public class RijtechniekSchermController {
             wijzer.setRotate(105);
             titel.setText("Parkeren");
             setNummerVierkant(12);
-            vanLijstNaarTextArea();
+            vanLijstNaarTextArea(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("parkeren"));
         }
         if (event.getSource() == kerenButton) {
             comboLijst = FXCollections.observableArrayList();
@@ -183,7 +202,7 @@ public class RijtechniekSchermController {
             wijzer.setRotate(135);
             titel.setText("Keren");
             setNummerVierkant(15);
-            vanLijstNaarTextArea();
+            vanLijstNaarTextArea(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("keren"));
         }
         if (event.getSource() == garageButton) {
             comboLijst = FXCollections.observableArrayList();
@@ -194,7 +213,7 @@ public class RijtechniekSchermController {
             wijzer.setRotate(155);
             titel.setText("Garage");
             setNummerVierkant(18);
-            vanLijstNaarTextArea();
+            vanLijstNaarTextArea(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("garage"));
         }
         if (event.getSource() == achteruitButton) {
             comboLijst = FXCollections.observableArrayList();
@@ -202,7 +221,7 @@ public class RijtechniekSchermController {
             wijzer.setRotate(205);
             titel.setText("Achterwaarts rijden");
             setNummerVierkant(21);
-            vanLijstNaarTextArea();
+            vanLijstNaarTextArea(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("achteruitrijden"));
         }
         if (event.getSource() == bochtenButton) {
             comboLijst = FXCollections.observableArrayList();
@@ -210,7 +229,7 @@ public class RijtechniekSchermController {
             wijzer.setRotate(235);
             titel.setText("Bochten");
             setNummerVierkant(24);
-            vanLijstNaarTextArea();
+            vanLijstNaarTextArea(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("bochten"));
         }
         if (event.getSource() == hellingButton) {
             comboLijst = FXCollections.observableArrayList();
@@ -221,7 +240,7 @@ public class RijtechniekSchermController {
             wijzer.setRotate(255);
             titel.setText("Vertrekken op een helling");
             setNummerVierkant(27);
-            vanLijstNaarTextArea();
+            vanLijstNaarTextArea(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("helling"));
         }
         if (event.getSource() == zittenButton) {
             comboLijst = FXCollections.observableArrayList();
@@ -233,7 +252,7 @@ public class RijtechniekSchermController {
             wijzer.setRotate(285);
             titel.setText("Zithouding");
             setNummerVierkant(30);
-            vanLijstNaarTextArea();
+            vanLijstNaarTextArea(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("zithouding"));
         }
         if (event.getSource() == embreageButton) {
             comboLijst = FXCollections.observableArrayList();
@@ -246,7 +265,7 @@ public class RijtechniekSchermController {
             wijzer.setRotate(315);
             titel.setText("Ontkoppeling");
             setNummerVierkant(33);
-            vanLijstNaarTextArea();
+            vanLijstNaarTextArea(dc.getCursus().getEvaRijtechniekOpmerkingenMap().get(dc.getCursus().getEvaNummer()).get("ambreage"));
         }
     }
 
@@ -284,7 +303,7 @@ public class RijtechniekSchermController {
     }
 
     public void selecteerUitCombo(ActionEvent event) throws IOException {
-        tekstVeld.setText(tekstVeld.getText() + "\n" + combo.getSelectionModel().getSelectedItem().toString());
+        tekstVeld.setText(tekstVeld.getText() + "\n" + combo.getSelectionModel().getSelectedItem().toString()+"\n");
     }
 
     public void vulVierkantjes() {
@@ -350,16 +369,20 @@ public class RijtechniekSchermController {
         textAreaLijst.add(nummerVierkant, tekstVeld.getText());
     }
 
-    public void vanLijstNaarTextArea() {
-        if (!textAreaLijst.isEmpty()) {
-            if (textAreaLijst.size() >= nummerVierkant + 1) {
-                tekstVeld.setText(textAreaLijst.get(nummerVierkant));
-            } else {
-                tekstVeld.setText("");
-            }
-        } else {
-            tekstVeld.setText("");
+    public void vanLijstNaarTextArea(List<String> lijst) {
+        for(String s : lijst){
+            tekstVeld.setText(s + "\n");
         }
+//        if (!textAreaLijst.isEmpty()) {
+//            if (textAreaLijst.size() >= nummerVierkant + 1) {
+//                tekstVeld.setText(textAreaLijst.get(nummerVierkant));
+//            } else {
+//                tekstVeld.setText("");
+//            }
+//        } else {
+//            tekstVeld.setText("");
+//        }
     }
+    
 
 }

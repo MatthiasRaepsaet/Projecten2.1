@@ -8,13 +8,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-       <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true" >
-           <image>
-               <Image url="@../images/0003.png"/>
-           </image>
-       </ImageView>
       <Button fx:id="terugButton" layoutX="899.0" layoutY="666.0" mnemonicParsing="false" onAction="#naarOverzichtScherm" prefHeight="75.0" prefWidth="81.0">
          <graphic>
             <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="55.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
@@ -24,7 +19,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="homeButton" layoutX="76.0" layoutY="666.0" mnemonicParsing="false" onAction="#naarLoginScherm" prefHeight="75.0" prefWidth="206.0" text="Ga naar startpagina">
+      <Button fx:id="homeButton" layoutX="76.0" layoutY="666.0" mnemonicParsing="false" onAction="#naarLoginScherm" prefHeight="75.0" prefWidth="167.0" text="Afmelden">
          <graphic>
             <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="55.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
