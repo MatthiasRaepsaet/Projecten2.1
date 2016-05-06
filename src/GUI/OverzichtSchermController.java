@@ -7,6 +7,7 @@ package GUI;
 
 import domein.Cursus;
 import domein.DomeinController;
+import domein.Kleuren;
 import java.awt.Checkbox;
 import java.io.IOException;
 import java.net.URL;
@@ -142,11 +143,11 @@ public class OverzichtSchermController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         evaCheck();
-        System.out.println(dc.getCursus().getKleurBol1());
-        bol1.setFill(Color.web(dc.getCursus().getKleurBol1(),1.0));
-        bol2.setFill(Color.web(dc.getCursus().getKleurBol2(),1.0));
-        bol3.setFill(Color.web(dc.getCursus().getKleurBol3(),1.0));
-        bol4.setFill(Color.web(dc.getCursus().getKleurBol4(),1.0));
+        System.out.println(dc.getEvaluatieMatthias().getRotonde().getHexValue());
+        bol1.setFill(Color.web(dc.getEvaluatieMatthias().getRotonde().getHexValue(),1.0));
+        bol2.setFill(Color.web(dc.getEvaluatieMatthias().getSteenweg().getHexValue(),1.0));
+        bol3.setFill(Color.web(dc.getEvaluatieMatthias().getBebouwdeKom().getHexValue(),1.0));
+        bol4.setFill(Color.web(dc.getEvaluatieMatthias().getAutostrade().getHexValue(),1.0));
         naamLbl.setText(dc.getGeselecteerd().getNaam());
         imgView.setImage(new Image(dc.getGeselecteerd().getFotoPath().toURI().toString()));
         schakelaarButton.setBackground(standaardBackground);
@@ -163,54 +164,59 @@ public class OverzichtSchermController implements Initializable {
     public void veranderBol(ActionEvent event) throws IOException {
         Circle dezeBol = null;
         String kleur = null;
+        Kleuren aux = Kleuren.WIT;
         if (event.getSource() == rotondeButton) {
             dezeBol = bol1;
-            kleur = dc.getCursus().getKleurBol1();
+            kleur = dc.getEvaluatieMatthias().getRotonde().getHexValue();
         }
         if (event.getSource() == rijbaanButton) {
             dezeBol = bol2;
-            kleur = dc.getCursus().getKleurBol2();
+            kleur = dc.getEvaluatieMatthias().getSteenweg().getHexValue();
         }
         if (event.getSource() == stadButton) {
             dezeBol = bol3;
-            kleur = dc.getCursus().getKleurBol3();
+            kleur = dc.getEvaluatieMatthias().getBebouwdeKom().getHexValue();
         }
         if (event.getSource() == autostradeButton) {
             dezeBol = bol4;
-            kleur = dc.getCursus().getKleurBol4();
+            kleur = dc.getEvaluatieMatthias().getAutostrade().getHexValue();
         }
         if (kleur == "#FFFFFF") {
             kleur = "#FF0000";
 //            dc.getCursus().setKleurBol1("#FF0000");
             dezeBol.setFill(Color.web(kleur,1.0));
+            aux = Kleuren.ROOD;
         } else if (kleur == "#FF0000") {
             kleur = "#FFA500";
 //            dc.getCursus().setKleurBol1("#FFA500");
             dezeBol.setFill(Color.web(kleur,1.0));
+            aux = Kleuren.ORANJE;
         } else if (kleur == "#FFA500") {
             kleur = "#00FF00";
 //            dc.getCursus().setKleurBol1("#00FF00");
             dezeBol.setFill(Color.web(kleur,1.0));
+            aux = Kleuren.GROEN;
         } else{
             kleur = "#FFFFFF";
 //            dc.getCursus().setKleurBol1("#FFFFFF");
             dezeBol.setFill(Color.web(kleur,1.0));
+            aux = Kleuren.WIT;
         }
         if (event.getSource() == rotondeButton) {
             dezeBol = bol1;
-            dc.getCursus().setKleurBol1(kleur);
+            dc.getEvaluatieMatthias().setRotonde(aux);
         }
         if (event.getSource() == rijbaanButton) {
             dezeBol = bol2;
-            dc.getCursus().setKleurBol2(kleur);
+            dc.getEvaluatieMatthias().setSteenweg(aux);
         }
         if (event.getSource() == stadButton) {
             dezeBol = bol3;
-            dc.getCursus().setKleurBol3(kleur);
+            dc.getEvaluatieMatthias().setBebouwdeKom(aux);
         }
         if (event.getSource() == autostradeButton) {
             dezeBol = bol4;
-            dc.getCursus().setKleurBol4(kleur);
+            dc.getEvaluatieMatthias().setAutostrade(aux);
         }
     }
 
@@ -336,17 +342,17 @@ public class OverzichtSchermController implements Initializable {
 
     public void evaCheck() {
 
-        if (dc.getCursus().getEvaNummer() == "eva1") {
+        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam() == "eva1") {
             radioEva1.setSelected(true);
             radioEva2.setSelected(false);
             radioEva3.setSelected(false);
         }
-        if (dc.getCursus().getEvaNummer() == "eva2") {
+        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam() == "eva2") {
             radioEva1.setSelected(false);
             radioEva2.setSelected(true);
             radioEva3.setSelected(false);
         }
-        if (dc.getCursus().getEvaNummer() == "eva3") {
+        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam() == "eva3") {
             radioEva1.setSelected(false);
             radioEva2.setSelected(false);
             radioEva3.setSelected(true);
@@ -355,18 +361,18 @@ public class OverzichtSchermController implements Initializable {
 
     public void veranderEva(ActionEvent event) throws IOException {
         if (event.getSource().equals(radioEva1)) {
-            dc.getCursus().setEvaNummer("eva1");
-            System.out.println(dc.getCursus().getEvaNummer());
+            dc.getEvaluatieMatthias().setHuidigeEva(dc.getEvaluatieMatthias().getEvaLijst().get(0));
+            System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getNaam());
             evaCheck();
         }
         if (event.getSource().equals(radioEva2)) {
-            dc.getCursus().setEvaNummer("eva2");
-            System.out.println(dc.getCursus().getEvaNummer());
+            dc.getEvaluatieMatthias().setHuidigeEva(dc.getEvaluatieMatthias().getEvaLijst().get(1));
+            System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getNaam());
             evaCheck();
         }
         if (event.getSource().equals(radioEva3)) {
-            dc.getCursus().setEvaNummer("eva3");
-            System.out.println(dc.getCursus().getEvaNummer());
+            dc.getEvaluatieMatthias().setHuidigeEva(dc.getEvaluatieMatthias().getEvaLijst().get(2));
+            System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getNaam());
             evaCheck();
         }
     }
