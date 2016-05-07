@@ -27,6 +27,16 @@ public class Evaluatie {
     private EvaluatieMoment huidigeEva;
     private EvaluatieMoment vorigeEva;
     private List<EvaluatieMoment> evaLijst = new ArrayList<>();
+    
+    private Kleuren links1;
+    private Kleuren links2;
+    private Kleuren links3;
+    
+    private Kleuren rechts1;
+    private Kleuren rechts2;
+    private Kleuren rechts3;
+    
+    private double waardeProgress;
 
     public Evaluatie(String evaluatieNummer, int rijtechniekenScore, int verkeerstechniekenScore, int algemeneScore, String algemeneOpmerkingen, Kleuren rotonde, Kleuren steenweg, Kleuren bebouwdeKom, Kleuren autostrade) {
         this.evaluatieNummer = evaluatieNummer;
@@ -140,6 +150,72 @@ public class Evaluatie {
     public void setEvaLijst(List<EvaluatieMoment> evaLijst) {
         this.evaLijst = evaLijst;
     }
+
+    public Kleuren getLinks1() {
+        return links1;
+    }
+
+    public void setLinks1(Kleuren links1) {
+        this.links1 = links1;
+    }
+
+    public Kleuren getLinks2() {
+        return links2;
+    }
+
+    public void setLinks2(Kleuren links2) {
+        this.links2 = links2;
+    }
+
+    public Kleuren getLinks3() {
+        return links3;
+    }
+
+    public void setLinks3(Kleuren links3) {
+        this.links3 = links3;
+    }
+
+    public Kleuren getRechts1() {
+        return rechts1;
+    }
+
+    public void setRechts1(Kleuren rechts1) {
+        this.rechts1 = rechts1;
+    }
+
+    public Kleuren getRechts2() {
+        return rechts2;
+    }
+
+    public void setRechts2(Kleuren rechts2) {
+        this.rechts2 = rechts2;
+    }
+
+    public Kleuren getRechts3() {
+        return rechts3;
+    }
+
+    public void setRechts3(Kleuren rechts3) {
+        this.rechts3 = rechts3;
+    }
+
+    public double getWaardeProgress() {
+        return waardeProgress;
+    }
+
+    public void setWaardeProgress(double waardeProgress) {
+        this.waardeProgress = waardeProgress;
+    }
     
+    public void berekenVerkeerstechnieken(){
+        
+    }
     
+    public void berekenVaardigheid(){
+        
+    }
+    
+    public void berekenRijtechnieken(){
+        
+    }
 }
