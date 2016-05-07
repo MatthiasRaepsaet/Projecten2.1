@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,7 +46,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
 public class ZoekLlnSchermController implements Initializable {
-    
+
     private DomeinController dc = new DomeinController();
 
     public DomeinController getDc() {
@@ -55,7 +56,7 @@ public class ZoekLlnSchermController implements Initializable {
     public void setDc(DomeinController dc) {
         this.dc = dc;
     }
-    
+
     private Evaluatie evaluatie;
     private Cursus cursus;
 
@@ -81,16 +82,25 @@ public class ZoekLlnSchermController implements Initializable {
 
     @FXML
     private ImageView imgView;
-    
+
     @FXML
     private TextField nummerField;
-    
+
     @FXML
     private Label zoekNaamLbl;
-    
+
     @FXML
     private TextField zoekNaamTxtField;
-    
+
+    @FXML
+    private Button naamButton;
+
+    @FXML
+    private Button nummerButton;
+
+    @FXML
+    private Label zoekNummerLbl;
+
     //RijtechniekScherm
     private Map<String, List<String>> rijtechniekOpmerkingenMap = new HashMap<>();
     private Map<String, String> rijtechniekKleurenMap = new HashMap<>();
@@ -99,7 +109,7 @@ public class ZoekLlnSchermController implements Initializable {
     private Map<String, List<String>> evaRijtechniekMap1 = new HashMap<>();
     private Map<String, List<String>> evaRijtechniekMap2 = new HashMap<>();
     private Map<String, List<String>> evaRijtechniekMap3 = new HashMap<>();
-    
+
     //StuurtechniekScherm
     private Map<String, List<String>> stuurtechniekOpmerkingenMap;
     private Map<String, String> stuurtechniekKleurenMap;
@@ -108,18 +118,19 @@ public class ZoekLlnSchermController implements Initializable {
     private Map<String, List<String>> evaStuurtechniekMap1;
     private Map<String, List<String>> evaStuurtechniekMap2;
     private Map<String, List<String>> evaStuurtechniekMap3;
-    
+
     private OverzichtSchermController ozc = new OverzichtSchermController();
-    
+
     private EvaluatieMoment eva1;
     private EvaluatieMoment eva2;
     private EvaluatieMoment eva3;
-    
-    private Leerling geselecteerdeLeerling = new Leerling(); 
-    
+
+    private Leerling geselecteerdeLeerling = new Leerling();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
+        naamButton.setDisable(true);
         rijtechniekOpmerkingenMap.put("ambreage", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("rem", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("stuur", new ArrayList<>());
@@ -136,8 +147,7 @@ public class ZoekLlnSchermController implements Initializable {
         evaRijtechniekMap1 = rijtechniekOpmerkingenMap;
         evaRijtechniekMap2 = rijtechniekOpmerkingenMap;
         evaRijtechniekMap3 = rijtechniekOpmerkingenMap;
-        
-        
+
         rijtechniekKleurenMap.put("ambreage", "#FFFFFF");
         rijtechniekKleurenMap.put("rem", "#FFFFFF");
         rijtechniekKleurenMap.put("stuur", "#FFFFFF");
@@ -150,16 +160,16 @@ public class ZoekLlnSchermController implements Initializable {
         rijtechniekKleurenMap.put("bochten", "#FFFFFF");
         rijtechniekKleurenMap.put("helling", "#FFFFFF");
         rijtechniekKleurenMap.put("zithouding", "#FFFFFF");
-        
+
         evaRijtechniekMap.put("eva1", evaRijtechniekMap1);
         evaRijtechniekMap.put("eva2", evaRijtechniekMap2);
         evaRijtechniekMap.put("eva3", evaRijtechniekMap3);
-        
+
         evaRijtechniekMap.get("eva1").get("ambreage").add("eva1");
         evaRijtechniekMap.get("eva2").get("ambreage").add("eva2am");
         evaRijtechniekMap.get("eva2").get("rem").add("eva2rem");
         evaRijtechniekMap.get("eva3").get("stuur").add("eva3");
-        
+
         zoekNaamLbl.setVisible(false);
         zoekNaamTxtField.setVisible(false);
         ok.setDisable(true);
@@ -185,66 +195,102 @@ public class ZoekLlnSchermController implements Initializable {
                 emailLbl.setText(geselecteerd.getEmail());
                 imgView.setImage(new Image(geselecteerd.getFotoPath().toURI().toString()));
                 dc.setGeselecteerd(geselecteerd);
-                
+
             }
         });
 
     }
 
     public void zoekOpNummer(ActionEvent event) {
-        Client client = ClientBuilder.newClient();
-        WebTarget target = client.target("http://localhost:8080/projecten/api/leerlingen/nummer/"+ nummerField.getText());
-        System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
-        
-        Gson gson = new Gson();
-        JsonObject jsono = gson.fromJson(target.request(MediaType.APPLICATION_JSON).get(String.class), JsonElement.class).getAsJsonObject();
-        System.out.println(jsono.get("naam").getAsString());
-        
-        geselecteerdeLeerling.setNaam(jsono.get("naam").toString().replaceAll("\"", ""));
-        geselecteerdeLeerling.setInschrijvingsNummer(jsono.get("inschrijvingsNummer").toString().replaceAll("\"", ""));
-        geselecteerdeLeerling.setFotoPath(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"));
-        geselecteerdeLeerling.setEmail(jsono.get("email").toString().replaceAll("\"", ""));
-        dc.setGeselecteerd(geselecteerdeLeerling);
-        
-        
-        naamLbl.setText(geselecteerdeLeerling.getNaam());
-        nummerLbl.setText(geselecteerdeLeerling.getInschrijvingsNummer());
-        emailLbl.setText(geselecteerdeLeerling.getEmail());
-        imgView.setImage(new Image(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png").toURI().toString()));
-        
-        evaluatie = new Evaluatie("0003", 0, 0, 0, "", Kleuren.WIT, Kleuren.WIT, Kleuren.WIT, Kleuren.WIT);
-        eva1 = new EvaluatieMoment("eva1");
-        eva2 = new EvaluatieMoment("eva2");
-        eva3 = new EvaluatieMoment("eva3");
-        evaluatie.setHuidigeEva(eva1);
-        evaluatie.getEvaLijst().add(eva1);
-        evaluatie.getEvaLijst().add(eva2);
-        evaluatie.getEvaLijst().add(eva3);
+        if (zoekNummerLbl.getText().equals("Nummer:")) {
+            Client client = ClientBuilder.newClient();
+            WebTarget target = client.target("http://localhost:8080/projecten/api/leerlingen/nummer/" + nummerField.getText());
+            System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
+
+            Gson gson = new Gson();
+            JsonObject jsono = gson.fromJson(target.request(MediaType.APPLICATION_JSON).get(String.class), JsonElement.class).getAsJsonObject();
+            System.out.println(jsono.get("naam").getAsString());
+
+            geselecteerdeLeerling.setNaam(jsono.get("naam").toString().replaceAll("\"", ""));
+            geselecteerdeLeerling.setInschrijvingsNummer(jsono.get("inschrijvingsNummer").toString().replaceAll("\"", ""));
+            geselecteerdeLeerling.setFotoPath(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"));
+            geselecteerdeLeerling.setEmail(jsono.get("email").toString().replaceAll("\"", ""));
+            dc.setGeselecteerd(geselecteerdeLeerling);
+
+            naamLbl.setText(geselecteerdeLeerling.getNaam());
+            nummerLbl.setText(geselecteerdeLeerling.getInschrijvingsNummer());
+            emailLbl.setText(geselecteerdeLeerling.getEmail());
+            imgView.setImage(new Image(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png").toURI().toString()));
+
+            evaluatie = new Evaluatie("0003", 0, 0, 0, "", Kleuren.WIT, Kleuren.WIT, Kleuren.WIT, Kleuren.WIT);
+            eva1 = new EvaluatieMoment("eva1");
+            eva2 = new EvaluatieMoment("eva2");
+            eva3 = new EvaluatieMoment("eva3");
+            evaluatie.setHuidigeEva(eva1);
+            evaluatie.getEvaLijst().add(eva1);
+            evaluatie.getEvaLijst().add(eva2);
+            evaluatie.getEvaLijst().add(eva3);
 //        cursus = new Cursus("1", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null);
-        if(naamLbl.getText() != "naam"){
-            ok.setDisable(false);
+            if (naamLbl.getText() != "naam") {
+                ok.setDisable(false);
+            }
+        }
+        if(zoekNummerLbl.getText().equals("Naam:")){
+            Client client = ClientBuilder.newClient();
+            WebTarget target = client.target("http://localhost:8080/projecten/api/leerlingen/naam/" + nummerField.getText());
+            System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
+
+            Gson gson = new Gson();
+            JsonObject jsono = gson.fromJson(target.request(MediaType.APPLICATION_JSON).get(String.class), JsonElement.class).getAsJsonObject();
+            System.out.println(jsono.get("naam").getAsString());
+
+            geselecteerdeLeerling.setNaam(jsono.get("naam").toString().replaceAll("\"", ""));
+            geselecteerdeLeerling.setInschrijvingsNummer(jsono.get("inschrijvingsNummer").toString().replaceAll("\"", ""));
+            geselecteerdeLeerling.setFotoPath(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"));
+            geselecteerdeLeerling.setEmail(jsono.get("email").toString().replaceAll("\"", ""));
+            dc.setGeselecteerd(geselecteerdeLeerling);
+
+            naamLbl.setText(geselecteerdeLeerling.getNaam());
+            nummerLbl.setText(geselecteerdeLeerling.getInschrijvingsNummer());
+            emailLbl.setText(geselecteerdeLeerling.getEmail());
+            imgView.setImage(new Image(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png").toURI().toString()));
+
+            evaluatie = new Evaluatie("0003", 0, 0, 0, "", Kleuren.WIT, Kleuren.WIT, Kleuren.WIT, Kleuren.WIT);
+            eva1 = new EvaluatieMoment("eva1");
+            eva2 = new EvaluatieMoment("eva2");
+            eva3 = new EvaluatieMoment("eva3");
+            evaluatie.setHuidigeEva(eva1);
+            evaluatie.getEvaLijst().add(eva1);
+            evaluatie.getEvaLijst().add(eva2);
+            evaluatie.getEvaLijst().add(eva3);
+//        cursus = new Cursus("1", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null);
+            if (naamLbl.getText() != "naam") {
+                ok.setDisable(false);
+            }
         }
     }
-    
-    public void zoekAlle(ActionEvent event){
-//        Client client = ClientBuilder.newClient();
-//        WebTarget target = client.target("http://localhost:8080/projecten/api/leerlingen");
-//        
-//        List<Leerling> test = new ArrayList<>();
-//        
-//        Gson gson = new Gson();
-//        JsonArray jsona = gson.fromJson(target.request(MediaType.APPLICATION_JSON).get(String.class), JsonElement.class).getAsJsonArray();
-//        
-//        for(int i=0; i<jsona.size();i++)
-//        {
-//            JsonObject jsono = jsona.get(i).getAsJsonObject();
-//            Leerling l = new Leerling(jsono.get("inschrijvingsnummer").getAsString(), jsono.get("naam").getAsString(),); //nullpointer >.<
-//            test.add(l);
-//        }
-//        System.out.println(test.toString());
-//        lijst.setItems(FXCollections.observableList(test));
-//        System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
-//        System.out.println(jsona.toString());
+
+    public void zoekAlle(ActionEvent event) {
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target("http://localhost:8080/projecten/api/leerlingen");
+        System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
+        List<Leerling> test = new ArrayList<>();
+
+        Gson gson = new Gson();
+        JsonArray jsona = gson.fromJson(target.request(MediaType.APPLICATION_JSON).get(String.class), JsonArray.class).getAsJsonArray();
+
+        for (JsonElement jse : jsona) {
+            System.out.println(jse);
+            JsonObject jsono = gson.fromJson(jse, JsonElement.class).getAsJsonObject();
+            System.out.println(jsono);
+            Leerling l = new Leerling(jsono.get("inschrijvingsNummer").getAsString(), jsono.get("naam").getAsString(), new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"),
+                    jsono.get("email").getAsString(), null); //nullpointer >.<
+            test.add(l);
+        }
+        System.out.println(test.toString());
+        lijst.setItems(FXCollections.observableList(test));
+        System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
+        System.out.println(jsona.toString());
     }
 
     public void veranderScherm(ActionEvent event) throws IOException {
@@ -273,6 +319,17 @@ public class ZoekLlnSchermController implements Initializable {
         stage.show();
     }
 
+    public void zoekSwitch(ActionEvent event) throws IOException {
+        if (event.getSource() == naamButton) {
+            zoekNummerLbl.setText("Naam:");
+            nummerButton.setDisable(false);
+            naamButton.setDisable(true);
+        }
+        if (event.getSource() == nummerButton) {
+            zoekNummerLbl.setText("Nummer:");
+            naamButton.setDisable(false);
+            nummerButton.setDisable(true);
+        }
+    }
 
-    
 }
