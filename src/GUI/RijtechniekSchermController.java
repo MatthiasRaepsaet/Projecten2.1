@@ -137,6 +137,8 @@ public class RijtechniekSchermController implements Initializable {
     
     private int index;
     
+    private Scene scene;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         naamLbl.setText(dc.getGeselecteerd().getNaam());
@@ -336,6 +338,8 @@ public class RijtechniekSchermController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        this.scene=overzichtButton.getScene();
+        dc.setRijtechniekenScene(this.scene);
     }
 
     public void naarInfoScherm(ActionEvent event) throws IOException {
@@ -350,6 +354,8 @@ public class RijtechniekSchermController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        this.scene=infoButton.getScene();
+        dc.setRijtechniekenScene(this.scene);
     }
 
     public void comboNaarTextArea(ActionEvent event) throws IOException {

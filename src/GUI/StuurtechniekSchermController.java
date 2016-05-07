@@ -139,7 +139,7 @@ public class StuurtechniekSchermController implements Initializable {
 
     private List<Rectangle> vierkantjes = new ArrayList<>();
     
-
+    private Scene scene;
     @FXML
     private void vorigeScherm(ActionEvent event) throws IOException {
         Stage stage = (Stage) terugButton.getScene().getWindow();
@@ -153,6 +153,8 @@ public class StuurtechniekSchermController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        this.scene=terugButton.getScene();
+        dc.setStuurtechniekenScene(this.scene);
     }
 
     @Override
@@ -244,6 +246,8 @@ public class StuurtechniekSchermController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        this.scene=terugButton.getScene();
+        dc.setStuurtechniekenScene(this.scene);
     }
     public void veranderKleur(ActionEvent event) throws IOException {
         int eva = 0;//moet uit vorig scherm komen dit is eva1=0 eva2=1 eva3=2

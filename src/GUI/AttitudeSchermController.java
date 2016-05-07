@@ -52,6 +52,8 @@ public class AttitudeSchermController implements Initializable {
     
     @FXML
     private TextField andereText;
+    
+    private Scene scene;
             
     //dit is de rechterlijst
     private ObservableList<String> attitudes = FXCollections.observableArrayList();
@@ -61,13 +63,26 @@ public class AttitudeSchermController implements Initializable {
     private List<String> controle;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        keuzes.add("Zenuwachtig");
-        keuzes.add("Concentratie");
-        keuzes.add("Angst");
-        keuzes.add("Asociaal");
-        keuzes.add("Verkeersgevaarlijk");
-        keuzes.add("Inzet");
-        keuzes.add("Verstrooid");
+        //De opties moeten inspringen ofwel zettek er nen tab voor
+        keuzes.add("Defensief rijden");//Hoofdoptie
+        keuzes.add("    Gedrag tov anderen");//Optie
+        keuzes.add("    Beslissingen nemen");//Optie
+        keuzes.add("    Voorspelbaar rijgedrag");//Optie
+        keuzes.add("    Rijgedrag ifv externe factoren");//Optie
+        keuzes.add("Eco-rijden");//hoofdoptie
+        keuzes.add("Zelfreflectie");//hoofdoptie
+        keuzes.add("Gedrag bij ongeval");//hoofdoptie
+        keuzes.add("Drijfveren/ Gedragskenmerken");//Hoofdoptie
+        keuzes.add("    Zenuwachtig");//optie
+        keuzes.add("    Concentratie");//optie
+        keuzes.add("    Verstrooid");//optie
+        keuzes.add("    Eigenwijs");//optie
+        keuzes.add("    Inzet");//optie
+        keuzes.add("    Schrik");//optie
+        keuzes.add("    Agressief");//optie
+        keuzes.add("    Asociaal rijgedrag");//optie
+        keuzes.add("    Verkeersgevaarlijk");//optie
+        keuzes.add("    Ongeduldig");//optie
         linkerLijst.setItems(keuzes);
         controle=keuzes;
         rechts.setDisable(true);
@@ -147,6 +162,8 @@ public class AttitudeSchermController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        this.scene=achteruitButton.getScene();
+        dc.setAttitudeScene(this.scene);
     }
 
     public DomeinController getDc() {

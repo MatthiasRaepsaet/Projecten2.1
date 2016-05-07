@@ -161,22 +161,22 @@ public class InfoSchermController implements Initializable {
             tekst.setText("Dit is de attitude knop:"+"\nJe gaat hiermee naar een ander scherm waar je de attitude van je leerling kan aanduiden.");
         }
         if(event.getSource()==schakelaarButton){
-            tekst.setText("Dit is de schakelaars knop:"+"\nJe gaat hiermee naar een ander scherm waar je");
+            tekst.setText("Dit is de schakelaars knop:"+"\nJe kan hiermee aangeven of de leerling reeds met alle schakelaar kan werken.");
         }
         if(event.getSource()==vloeistoffenButton){
-            tekst.setText("Dit is de attitude knop:"+"\nJe gaat hiermee naar een ander scherm waar je");
+            tekst.setText("Dit is de vloeistoffen knop:"+"\nJe kan hiermee aangeven of de leerling reeds alle vloeistoffen kent.");
         }
         if(event.getSource()==bandenButton){
-            tekst.setText("Dit is de attitude knop:"+"\nJe gaat hiermee naar een ander scherm waar je");
+            tekst.setText("Dit is de banden knop:"+"\nJe kan hiermee aangeven of de leerling reeds alles over banden weet.");
         }
         if(event.getSource()==tankenButton){
-            tekst.setText("Dit is de attitude knop:"+"\nJe gaat hiermee naar een ander scherm waar je");
+            tekst.setText("Dit is de tanken knop:"+"\nJe kan hiermee aangeven of de leerling reeds kan tanken.");
         }
         if(event.getSource()==stopButton){
-            tekst.setText("Dit is de attitude knop:"+"\nJe gaat hiermee naar een ander scherm waar je");
+            tekst.setText("Dit is de noodstop knop:"+"\nJe kan hiermee aangeven of de leerling een noodstop kan maken.");
         }
         if(event.getSource()==gpsButton){
-            tekst.setText("Dit is de attitude knop:"+"\nJe gaat hiermee naar een ander scherm waar je");
+            tekst.setText("Dit is de gps knop:"+"\nJe kan hiermee aangeven of de leerling reeds met een gps kan rijden.");
         }
         if(event.getSource()==rijtechniekButton){
             tekst.setText("Dit is de verkeerstechniek knop:"+"\nJe gaat hiermee naar het verkeerstechniekscherm waar je de leerling kan evalueren.");
@@ -185,13 +185,13 @@ public class InfoSchermController implements Initializable {
             tekst.setText("Dit is de rijtechniek knop:"+"\nJe gaat hiermee naar het rijtechniekscherm waar je de leerling verder kan evalueren.");
         }
         if(event.getSource()==snelheidButton){
-            tekst.setText("Dit is de snelheids knop:"+"\nJe gaat hiermee naar een ander scherm waar je");
+            tekst.setText("Dit is de snelheids knop:"+"\nJe kan hiermee aangeven of de leerling met de juiste snelheid rijdt.");
         }
         if(event.getSource()==owButton){
-            tekst.setText("Dit is de attitude knop:"+"\nJe gaat hiermee naar een ander scherm waar je");
+            tekst.setText("Dit is de openbare weg knop:"+"\nJe kan hiermee aangeven of de leerling zijn plaats op de openbare weg kent, en reeds kan voorsorteren.");
         }
         if(event.getSource()==voorrangButton){
-            tekst.setText("Dit is de attitude knop:"+"\nJe gaat hiermee naar een ander scherm waar je");
+            tekst.setText("Dit is de voorrangs knop:"+"\nJe kan hiermee aangeven of de leerling reeds correct voorrang verleent.");
         }
         if(event.getSource()==bordenButton){
             tekst.setText("Dit is de verkeersborden knop:"+"\nJe kan hiermee aangeven of de leerling een goede kennis heeft van alle verkeersborden.");
@@ -203,7 +203,7 @@ public class InfoSchermController implements Initializable {
             tekst.setText("Dit is de auto's overgaan knop:"+"\nJe kan hiermee aangeven of de leerling juist auto's kan overgaan.");
         }
         if(event.getSource()==autosButton){
-            tekst.setText("Dit is de attitude knop:"+"\nJe gaat hiermee naar een ander scherm waar je");
+            tekst.setText("Dit is de auto afstand knop:"+"\nJe kan hiermee aangeven of de leerling reeds de juiste volgafstand en zijdelingse afstand kan inschatten.");
         }
         if(event.getSource()==linksButton){
             tekst.setText("Dit is de links knop:"+"\nJe kan hiermee aangeven of de leerling reeds goed naar links kan afdraaien.");
@@ -239,7 +239,7 @@ public class InfoSchermController implements Initializable {
             tekst.setText("Dit is de bochten knop:"+"\nJe gaat hiermee aangeven of een leerling een bocht reeds juist kan nemen.");
         }
         if(event.getSource()==hellingButton){
-            tekst.setText("Dit is de knop voor het starten op de helling:"+"\nJe gaat hiermee naar een ander scherm waar je");
+            tekst.setText("Dit is de knop voor het starten op de helling:"+"\nJe kan hiermee aangeven of de leerling reeds kan vertrekken op een helling met zowel de voetrem alsook de handrem.");
         }
          if(event.getSource()==zittenButton){
             tekst.setText("Dit is de zithouding knop:"+"\nJe kan hiermee aangeven of je leerling een goede zithouding heeft.");
