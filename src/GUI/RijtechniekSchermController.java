@@ -131,7 +131,7 @@ public class RijtechniekSchermController implements Initializable {
     @FXML
     private Ellipse onderPijl;
     
-    private ObservableList<String> lijst = FXCollections.observableArrayList();
+    private ObservableList<String> lijst;
     
     private List<String> hulpLijst = new ArrayList<>();
     
@@ -304,7 +304,7 @@ public class RijtechniekSchermController implements Initializable {
             wijzer.setRotate(285);
             titel.setText("Zithouding");
             setNummerVierkant(30);
-            vanLijstNaarTextArea(lijst);
+            vanLijstNaarTextArea(hulpLijst);
         }
         if (event.getSource() == embreageButton) {
             index = 1;
@@ -320,7 +320,7 @@ public class RijtechniekSchermController implements Initializable {
             wijzer.setRotate(315);
             titel.setText("Ontkoppeling");
             setNummerVierkant(33);
-            vanLijstNaarTextArea(lijst);
+            vanLijstNaarTextArea(hulpLijst);
         }
     }
 
