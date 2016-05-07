@@ -130,7 +130,7 @@ public class ZoekLlnSchermController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        naamButton.setDisable(true);
+        nummerButton.setDisable(true);
         rijtechniekOpmerkingenMap.put("ambreage", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("rem", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("stuur", new ArrayList<>());
