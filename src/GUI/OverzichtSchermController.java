@@ -139,6 +139,8 @@ public class OverzichtSchermController implements Initializable {
     private Background oranjeBackground = new Background(new BackgroundFill(Color.ORANGE, new CornerRadii(30), Insets.EMPTY));
     private Background groenBackground = new Background(new BackgroundFill(Color.GREEN, new CornerRadii(30), Insets.EMPTY));
 
+    private Scene scene;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -338,6 +340,8 @@ public class OverzichtSchermController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        this.scene = imgView.getScene();
+        dc.setOverzichtScene(this.scene);
     }
 
     public void evaCheck() {

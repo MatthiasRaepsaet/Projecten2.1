@@ -17,6 +17,7 @@ import GUI.ZoekLlnSchermController;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.Scene;
 
 /**
  *
@@ -42,6 +43,11 @@ public class DomeinController {
     private RijtechniekSchermController rtc;
     private StuurtechniekSchermController stc;
     private ZoekLlnSchermController zlsc;
+    
+    private Scene overzichtScene;
+    private Scene stuurTechniekenScene;
+    private Scene rijTechniekenScene;
+    private Scene attitudeScene;
     
     public DomeinController()
     {
@@ -163,7 +169,37 @@ public class DomeinController {
     public void setEvaluatieMatthias(Evaluatie evaluatieMatthias) {
         this.evaluatieMatthias = evaluatieMatthias;
     }
+
+    public void setStuurtechniekenScene(Scene scene) {
+        stuurTechniekenScene=scene;
+    }
     
+    public Scene getStuurtechniekenScene(){
+        return stuurTechniekenScene;
+    }
     
+    public void setRijtechniekenScene(Scene scene) {
+        this.rijTechniekenScene=scene;
+    }
+    
+    public Scene getRijtechniekenScene() {
+        return rijTechniekenScene;
+    }
+    
+    public void setOverzichtScene(Scene scene) {
+        this.overzichtScene=scene;
+    }
+
+    public Scene getOverzichtScene() {
+        return overzichtScene;
+    }
+    
+    public void setAttitudeScene(Scene scene) {
+        this.attitudeScene=scene;
+    }
+    
+    public Scene getAttitudeScene() {
+        return attitudeScene;
+    }
     
 }

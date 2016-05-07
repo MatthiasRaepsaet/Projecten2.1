@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button fx:id="achteruitButton" layoutX="892.0" layoutY="656.0" mnemonicParsing="false" onAction="#gaAchteruit" prefHeight="75.0" prefWidth="81.0">
          <graphic>
@@ -44,7 +44,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="153.0" layoutY="711.0" text="Selecteer een woord uit de linker kolom en klik op de pijl om het naar rechts te verplaatsen" textFill="#f8f7f7">
+      <Label layoutX="153.0" layoutY="711.0" text="Selecteer een woord uit de linker kolom en klik op de pijl om het naar rechts te verplaatsen">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
@@ -52,7 +52,7 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Label layoutX="582.0" layoutY="451.0" text="Andere opmerking:" textFill="#fffbfb">
+      <Label layoutX="582.0" layoutY="451.0" text="Andere opmerking:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
