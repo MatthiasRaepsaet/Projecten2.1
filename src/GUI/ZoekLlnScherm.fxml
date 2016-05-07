@@ -19,12 +19,12 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="37.0" layoutY="219.0" text="Inschrijvingsnr°:">
+            <Label fx:id="zoekNummerLbl" layoutX="52.0" layoutY="219.0" text="Nummer:">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="zoekenButton" layoutX="285.0" layoutY="338.0" mnemonicParsing="false" onAction="#zoekOpNummer" prefHeight="75.0" prefWidth="145.0" text="Zoeken">
+            <Button fx:id="zoekenButton" layoutX="292.0" layoutY="283.0" mnemonicParsing="false" onAction="#zoekOpNummer" prefHeight="75.0" prefWidth="145.0" text="Zoeken">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -39,7 +39,17 @@
             </ImageView>
                 </graphic>
             </Button>
-            <Button fx:id="zoekAlleButton" layoutX="79.0" layoutY="338.0" mnemonicParsing="false" onAction="#zoekAlle" prefHeight="78.0" prefWidth="149.0" text="Zoek Alle">
+            <Button fx:id="zoekAlleButton" layoutX="83.0" layoutY="282.0" mnemonicParsing="false" onAction="#zoekAlle" prefHeight="78.0" prefWidth="149.0" text="Zoek Alle">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="naamButton" layoutX="83.0" layoutY="388.0" mnemonicParsing="false" onAction="#zoekSwitch" prefHeight="78.0" prefWidth="149.0" text="Naam">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="nummerButton" layoutX="290.0" layoutY="388.0" mnemonicParsing="false" onAction="#zoekSwitch" prefHeight="78.0" prefWidth="149.0" text="Nummer">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

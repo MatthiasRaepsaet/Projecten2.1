@@ -7,12 +7,18 @@ package domein;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author Matthias
  */
+@Entity
 public class Onderdeel {
+    
+    @Id
+    private String id;
     
     private String naam;
     private List<String> opmerkingen = new ArrayList<>();
