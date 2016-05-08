@@ -1,9 +1,11 @@
 package GUI;
 
 import domein.DomeinController;
+import domein.Kleuren;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -129,7 +131,7 @@ public class RijtechniekSchermController implements Initializable {
     @FXML
     private Ellipse onderPijl;
     
-    private ObservableList<String> lijst = FXCollections.observableArrayList();
+    private ObservableList<String> lijst;
     
     private List<String> hulpLijst = new ArrayList<>();
     
@@ -143,12 +145,20 @@ public class RijtechniekSchermController implements Initializable {
         dc.getEvaluatieMatthias().getEvaLijst().get(1).getRijtechniekOnderdelen().get(0).getOpmerkingen().add("zithouding niet goed");
         dc.getEvaluatieMatthias().getEvaLijst().get(0).getRijtechniekOnderdelen().get(1).getOpmerkingen().add("te snel");
         lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(0).getOpmerkingen());
+        vulOp();
+        
+        initKleurEva1();
+        initKleurEva2();
+        initKleurEva3();
+        
+        
     }
     
     public void voegOpmerkingToe(ActionEvent event) throws IOException {
         ObservableList<String> comboLijst;
         tekstVeld.clear();
         hulpLijst.clear();
+        combo.getSelectionModel().clearSelection();
         if (event.getSource() == remButton) {
             index = 2;
             comboLijst = FXCollections.observableArrayList();
@@ -157,12 +167,11 @@ public class RijtechniekSchermController implements Initializable {
             comboLijst.add("Te laat");
             comboLijst.add("Remmen op motor");
             combo.setItems(comboLijst);
-            lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(2).getOpmerkingen());
-            hulpLijst.addAll(lijst);
+            hulpLijst = dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(2).getOpmerkingen();
             wijzer.setRotate(345);
             titel.setText("Remmen");
             setNummerVierkant(0);
-            vanLijstNaarTextArea(lijst);
+            vanLijstNaarTextArea(hulpLijst);
         }
         if (event.getSource() == stuurButton) {
             index = 3;
@@ -172,7 +181,6 @@ public class RijtechniekSchermController implements Initializable {
             comboLijst.add("Houding");
             combo.setItems(comboLijst);
             lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(3).getOpmerkingen());
-            hulpLijst.addAll(lijst);
             wijzer.setRotate(15);
             titel.setText("Sturen");
             setNummerVierkant(3);
@@ -296,7 +304,7 @@ public class RijtechniekSchermController implements Initializable {
             wijzer.setRotate(285);
             titel.setText("Zithouding");
             setNummerVierkant(30);
-            vanLijstNaarTextArea(lijst);
+            vanLijstNaarTextArea(hulpLijst);
         }
         if (event.getSource() == embreageButton) {
             index = 1;
@@ -312,12 +320,13 @@ public class RijtechniekSchermController implements Initializable {
             wijzer.setRotate(315);
             titel.setText("Ontkoppeling");
             setNummerVierkant(33);
-            vanLijstNaarTextArea(lijst);
+            vanLijstNaarTextArea(hulpLijst);
         }
     }
 
     @FXML
     private void naarOverzichtScherm(ActionEvent event) throws IOException {
+        vierkantjes.clear();
         Stage stage = (Stage) overzichtButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         ozc = dc.getOzc();
@@ -334,6 +343,7 @@ public class RijtechniekSchermController implements Initializable {
     }
 
     public void naarInfoScherm(ActionEvent event) throws IOException {
+        vierkantjes.clear();
         Stage stage = (Stage) infoButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         dc.setIsc(info);
@@ -354,11 +364,21 @@ public class RijtechniekSchermController implements Initializable {
     }
 
     public void selecteerUitCombo(ActionEvent event) throws IOException {
-        tekstVeld.setText(tekstVeld.getText() + "\n" + combo.getSelectionModel().getSelectedItem().toString());
+        String toevoeg =  "\n" + combo.getSelectionModel().getSelectedItem().toString() + "\n";
+        
+        tekstVeld.appendText(toevoeg);
         hulpLijst.add(combo.getSelectionModel().getSelectedItem().toString());
+        
+        
     }
 
-    public void vulVierkantjes() {
+    public void vulOp(){
+        vierkantjes.add(zit1);
+        vierkantjes.add(zit2);
+        vierkantjes.add(zit3);
+        vierkantjes.add(embreage1);
+        vierkantjes.add(embreage2);
+        vierkantjes.add(embreage3);
         vierkantjes.add(remmen1);
         vierkantjes.add(remmen2);
         vierkantjes.add(remmen3);
@@ -389,23 +409,30 @@ public class RijtechniekSchermController implements Initializable {
         vierkantjes.add(helling1);
         vierkantjes.add(helling2);
         vierkantjes.add(helling3);
-        vierkantjes.add(zit1);
-        vierkantjes.add(zit2);
-        vierkantjes.add(zit3);
-        vierkantjes.add(embreage1);
-        vierkantjes.add(embreage2);
-        vierkantjes.add(embreage3);
     }
+    
 
     public void veranderKleur(ActionEvent event) throws IOException {
+        System.out.println(vierkantjes);
         int eva = 0;//moet uit vorig scherm komen dit is eva1=0 eva2=1 eva3=2
-        vulVierkantjes();
+        if(dc.getEvaluatieMatthias().getHuidigeEva().getNaam().equals("eva1"))
+            eva = 0;
+        if(dc.getEvaluatieMatthias().getHuidigeEva().getNaam().equals("eva2"))
+            eva = 1;
+        if(dc.getEvaluatieMatthias().getHuidigeEva().getNaam().equals("eva3"))
+            eva = 2;
         if (event.getSource() == rood) {
-            vierkantjes.get(eva + getNummerVierkant()).setFill(new Color(1, 0, 0, 1));
+            vierkantjes.get(eva + (index*3)).setFill(Color.web(Kleuren.ROOD.getHexValue(),1.0));
+            dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(index).setKleur(Kleuren.ROOD);
+            dc.getEvaluatieMatthias().getEvaLijst().get(eva).getRijtechniekOnderdelen().get(index).setKleur(Kleuren.ROOD);
         } else if (event.getSource() == oranje) {
-            vierkantjes.get(eva + getNummerVierkant()).setFill(new Color(0.98, 0.5, 0, 1));
+            vierkantjes.get(eva + (index*3)).setFill(Color.web(Kleuren.ORANJE.getHexValue(),1.0));
+            dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(index).setKleur(Kleuren.ORANJE);
+            dc.getEvaluatieMatthias().getEvaLijst().get(eva).getRijtechniekOnderdelen().get(index).setKleur(Kleuren.ORANJE);
         } else if (event.getSource() == groen) {
-            vierkantjes.get(eva + getNummerVierkant()).setFill(new Color(0.255, 0.69, 0, 1));
+            vierkantjes.get(eva+(index*3)).setFill(Color.web(Kleuren.GROEN.getHexValue(),1.0));
+            dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(index).setKleur(Kleuren.GROEN);
+            dc.getEvaluatieMatthias().getEvaLijst().get(eva).getRijtechniekOnderdelen().get(index).setKleur(Kleuren.GROEN);
         }
     }
 
@@ -436,5 +463,27 @@ public class RijtechniekSchermController implements Initializable {
 //        }
     }
     
-
+    public void initKleurEva1(){
+        int i=0;
+        for(int counter = 0;counter<=33;counter = counter+3){
+            vierkantjes.get(counter).setFill(Color.web(dc.getEvaluatieMatthias().getEvaLijst().get(0).getRijtechniekOnderdelen().get(i).getKleur().getHexValue()));
+            i++;
+        }
+    }
+    
+    public void initKleurEva2(){
+        int i=0;
+        for(int counter = 1;counter<=34;counter = counter+3){
+            vierkantjes.get(counter).setFill(Color.web(dc.getEvaluatieMatthias().getEvaLijst().get(1).getRijtechniekOnderdelen().get(i).getKleur().getHexValue()));
+            i++;
+        }
+    }
+    
+    public void initKleurEva3(){
+        int i=0;
+        for(int counter = 2;counter<=35;counter = counter+3){
+            vierkantjes.get(counter).setFill(Color.web(dc.getEvaluatieMatthias().getEvaLijst().get(2).getRijtechniekOnderdelen().get(i).getKleur().getHexValue()));
+            i++;
+        }
+    }
 }
