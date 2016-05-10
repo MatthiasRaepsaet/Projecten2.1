@@ -47,7 +47,7 @@ import javax.ws.rs.core.MediaType;
 
 public class ZoekLlnSchermController implements Initializable {
 
-    private DomeinController dc = new DomeinController();
+    private DomeinController dc;
 
     public DomeinController getDc() {
         return dc;
@@ -130,6 +130,7 @@ public class ZoekLlnSchermController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        
         nummerButton.setDisable(true);
         rijtechniekOpmerkingenMap.put("ambreage", new ArrayList<>());
         rijtechniekOpmerkingenMap.put("rem", new ArrayList<>());
@@ -202,72 +203,110 @@ public class ZoekLlnSchermController implements Initializable {
     }
 
     public void zoekOpNummer(ActionEvent event) {
-        if (zoekNummerLbl.getText().equals("Nummer:")) {
-            Client client = ClientBuilder.newClient();
-            WebTarget target = client.target("http://localhost:8080/projecten/api/leerlingen/nummer/" + nummerField.getText());
-            System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
-
-            Gson gson = new Gson();
-            JsonObject jsono = gson.fromJson(target.request(MediaType.APPLICATION_JSON).get(String.class), JsonElement.class).getAsJsonObject();
-            System.out.println(jsono.get("naam").getAsString());
-
-            geselecteerdeLeerling.setNaam(jsono.get("naam").toString().replaceAll("\"", ""));
-            geselecteerdeLeerling.setInschrijvingsNummer(jsono.get("inschrijvingsNummer").toString().replaceAll("\"", ""));
-            geselecteerdeLeerling.setFotoPath(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"));
-            geselecteerdeLeerling.setEmail(jsono.get("email").toString().replaceAll("\"", ""));
-            dc.setGeselecteerd(geselecteerdeLeerling);
-
-            naamLbl.setText(geselecteerdeLeerling.getNaam());
-            nummerLbl.setText(geselecteerdeLeerling.getInschrijvingsNummer());
-            emailLbl.setText(geselecteerdeLeerling.getEmail());
-            imgView.setImage(new Image(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png").toURI().toString()));
-
-            evaluatie = new Evaluatie("0003", 0, 0, 0, "", Kleuren.WIT, Kleuren.WIT, Kleuren.WIT, Kleuren.WIT);
-            eva1 = new EvaluatieMoment("eva1");
-            eva2 = new EvaluatieMoment("eva2");
-            eva3 = new EvaluatieMoment("eva3");
-            evaluatie.setHuidigeEva(eva1);
-            evaluatie.getEvaLijst().add(eva1);
-            evaluatie.getEvaLijst().add(eva2);
-            evaluatie.getEvaLijst().add(eva3);
-//        cursus = new Cursus("1", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null);
-            if (naamLbl.getText() != "naam") {
-                ok.setDisable(false);
+        Leerling res = null;
+        System.out.println("ok");
+        System.out.println(dc.getLeerlingenCache());
+        if (zoekNummerLbl.getText().equals("Nummer:")) {   
+            for(Leerling leer : dc.getLeerlingenCache()){
+                System.out.println("ok1");
+                System.out.println(leer.getInschrijvingsNummer());
+                if(leer.getInschrijvingsNummer().equals(nummerField.getText())){
+                    res = leer;
+                    System.out.println("ok");
+                }
+                else
+                    System.out.println("niet ok");
             }
+//            Client client = ClientBuilder.newClient();
+//            WebTarget target = client.target("http://localhost:8080/projecten/api/leerlingen/nummer/" + nummerField.getText());
+//            System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
+//
+//            Gson gson = new Gson();
+//            JsonObject jsono = gson.fromJson(target.request(MediaType.APPLICATION_JSON).get(String.class), JsonElement.class).getAsJsonObject();
+//            System.out.println(jsono.get("naam").getAsString());
+//
+//            geselecteerdeLeerling.setNaam(jsono.get("naam").toString().replaceAll("\"", ""));
+//            geselecteerdeLeerling.setInschrijvingsNummer(jsono.get("inschrijvingsNummer").toString().replaceAll("\"", ""));
+//            geselecteerdeLeerling.setFotoPath(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"));
+//            geselecteerdeLeerling.setEmail(jsono.get("email").toString().replaceAll("\"", ""));
+//            dc.setGeselecteerd(geselecteerdeLeerling);
+//
+//            naamLbl.setText(geselecteerdeLeerling.getNaam());
+//            nummerLbl.setText(geselecteerdeLeerling.getInschrijvingsNummer());
+//            emailLbl.setText(geselecteerdeLeerling.getEmail());
+//            imgView.setImage(new Image(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png").toURI().toString()));
+//
+//            evaluatie = new Evaluatie("0003", 0, 0, 0, "", Kleuren.WIT, Kleuren.WIT, Kleuren.WIT, Kleuren.WIT);
+//            eva1 = new EvaluatieMoment("eva1");
+//            eva2 = new EvaluatieMoment("eva2");
+//            eva3 = new EvaluatieMoment("eva3");
+//            evaluatie.setHuidigeEva(eva1);
+//            evaluatie.getEvaLijst().add(eva1);
+//            evaluatie.getEvaLijst().add(eva2);
+//            evaluatie.getEvaLijst().add(eva3);
+////        cursus = new Cursus("1", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null);
+//            if (naamLbl.getText() != "naam") {
+//                ok.setDisable(false);
+//            }
         }
         if(zoekNummerLbl.getText().equals("Naam:")){
-            Client client = ClientBuilder.newClient();
-            WebTarget target = client.target("http://localhost:8080/projecten/api/leerlingen/naam/" + nummerField.getText());
-            System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
+            List<Leerling> resList = new ArrayList<>();
+            for(Leerling leer : dc.getLeerlingenCache()){
+                if(leer.getNaam().endsWith(nummerField.getText()) || leer.getNaam().startsWith(nummerField.getText()))
+                    resList.add(leer);
+                else
+                    resList = null;
+                if(resList.size() > 1)
+                    lijst.setItems(FXCollections.observableList(resList));
+                else{
+                    System.out.println("nietok2");
+                    res = resList.get(0);
+                }
+                    
+            }
+            
 
-            Gson gson = new Gson();
-            JsonObject jsono = gson.fromJson(target.request(MediaType.APPLICATION_JSON).get(String.class), JsonElement.class).getAsJsonObject();
-            System.out.println(jsono.get("naam").getAsString());
+//            Client client = ClientBuilder.newClient();
+//            WebTarget target = client.target("http://localhost:8080/projecten/api/leerlingen/naam/" + nummerField.getText());
+//            System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
+//
+//            Gson gson = new Gson();
+//            JsonObject jsono = gson.fromJson(target.request(MediaType.APPLICATION_JSON).get(String.class), JsonElement.class).getAsJsonObject();
+//            System.out.println(jsono.get("naam").getAsString());
+//
+//            geselecteerdeLeerling.setNaam(jsono.get("naam").toString().replaceAll("\"", ""));
+//            geselecteerdeLeerling.setInschrijvingsNummer(jsono.get("inschrijvingsNummer").toString().replaceAll("\"", ""));
+//            geselecteerdeLeerling.setFotoPath(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"));
+//            geselecteerdeLeerling.setEmail(jsono.get("email").toString().replaceAll("\"", ""));
+//            dc.setGeselecteerd(geselecteerdeLeerling);
+//
+//            naamLbl.setText(geselecteerdeLeerling.getNaam());
+//            nummerLbl.setText(geselecteerdeLeerling.getInschrijvingsNummer());
+//            emailLbl.setText(geselecteerdeLeerling.getEmail());
+//            imgView.setImage(new Image(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png").toURI().toString()));
+//
+//            evaluatie = new Evaluatie("0003", 0, 0, 0, "", Kleuren.WIT, Kleuren.WIT, Kleuren.WIT, Kleuren.WIT);
+//            eva1 = new EvaluatieMoment("eva1");
+//            eva2 = new EvaluatieMoment("eva2");
+//            eva3 = new EvaluatieMoment("eva3");
+//            evaluatie.setHuidigeEva(eva1);
+//            evaluatie.getEvaLijst().add(eva1);
+//            evaluatie.getEvaLijst().add(eva2);
+//            evaluatie.getEvaLijst().add(eva3);
+////        cursus = new Cursus("1", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null);
+            
 
-            geselecteerdeLeerling.setNaam(jsono.get("naam").toString().replaceAll("\"", ""));
-            geselecteerdeLeerling.setInschrijvingsNummer(jsono.get("inschrijvingsNummer").toString().replaceAll("\"", ""));
-            geselecteerdeLeerling.setFotoPath(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png"));
-            geselecteerdeLeerling.setEmail(jsono.get("email").toString().replaceAll("\"", ""));
-            dc.setGeselecteerd(geselecteerdeLeerling);
-
-            naamLbl.setText(geselecteerdeLeerling.getNaam());
-            nummerLbl.setText(geselecteerdeLeerling.getInschrijvingsNummer());
-            emailLbl.setText(geselecteerdeLeerling.getEmail());
-            imgView.setImage(new Image(new File("src/images/" + jsono.get("inschrijvingsNummer").getAsString() + ".png").toURI().toString()));
-
-            evaluatie = new Evaluatie("0003", 0, 0, 0, "", Kleuren.WIT, Kleuren.WIT, Kleuren.WIT, Kleuren.WIT);
-            eva1 = new EvaluatieMoment("eva1");
-            eva2 = new EvaluatieMoment("eva2");
-            eva3 = new EvaluatieMoment("eva3");
-            evaluatie.setHuidigeEva(eva1);
-            evaluatie.getEvaLijst().add(eva1);
-            evaluatie.getEvaLijst().add(eva2);
-            evaluatie.getEvaLijst().add(eva3);
-//        cursus = new Cursus("1", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "rood", "rood", "rood", 0.0, "", null, null, null, null, null, null);
-            if (naamLbl.getText() != "naam") {
+        }
+        geselecteerdeLeerling = res;
+        dc.setGeselecteerd(geselecteerdeLeerling);
+        naamLbl.setText(geselecteerdeLeerling.getNaam());
+        nummerLbl.setText(geselecteerdeLeerling.getInschrijvingsNummer());
+        emailLbl.setText(geselecteerdeLeerling.getEmail());
+        imgView.setImage(new Image(new File("src/images/" + geselecteerdeLeerling.getInschrijvingsNummer() + ".png").toURI().toString()));
+        System.out.println(dc.getGeselecteerd().getEvaluatie());
+        if (naamLbl.getText() != "naam") {
                 ok.setDisable(false);
             }
-        }
     }
 
     public void zoekAlle(ActionEvent event) {
@@ -304,7 +343,7 @@ public class ZoekLlnSchermController implements Initializable {
     public void naarOverzichtScherm(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         dc.setOzc(ozc);
-        dc.setEvaluatieMatthias(evaluatie);
+        dc.setEvaluatieMatthias(dc.getGeselecteerd().getEvaluatie());
         ozc.setDc(dc);
 //        dc.getCursus().setRijtechniekOpmerkingenMap(rijtechniekOpmerkingenMap);
 //        dc.getCursus().setEvaRijtechniekOpmerkingenMap(evaRijtechniekMap);

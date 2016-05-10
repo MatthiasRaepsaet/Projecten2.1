@@ -25,6 +25,7 @@ import java.util.List;
 public class DomeinController {
     
     private List<Leerling> leerlingenCache = new ArrayList<>();
+    private List<Evaluatie> evaluatiesCache = new ArrayList<>();
     
     private Cursus cursus;
     
@@ -49,6 +50,16 @@ public class DomeinController {
 //        leerlingen.add(new Leerling("0002","Ewout Ghysbrecht", new File("src/images/EwoutPng.png"), "ewout.g@hotmail.com"));
     }
 
+    public List<Evaluatie> getEvaluatiesCache() {
+        return evaluatiesCache;
+    }
+
+    public void setEvaluatiesCache(List<Evaluatie> evaluatiesCache) {
+        this.evaluatiesCache = evaluatiesCache;
+    }
+
+    
+    
     public List<Leerling> getLeerlingenCache() {
         return leerlingenCache;
     }
