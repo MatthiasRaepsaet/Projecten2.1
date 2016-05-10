@@ -144,7 +144,6 @@ public class OverzichtSchermController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getNaam());
         evaCheck();
         System.out.println(dc.getEvaluatieMatthias().getRotonde().getHexValue());
         bol1.setFill(Color.web(dc.getEvaluatieMatthias().getRotonde().getHexValue(),1.0));
@@ -347,19 +346,17 @@ public class OverzichtSchermController implements Initializable {
 
     public void evaCheck() {
 
-        System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getNaam() + "66666");
-        
-        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam().equals("eva1")) {
+        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam() == "eva1") {
             radioEva1.setSelected(true);
             radioEva2.setSelected(false);
             radioEva3.setSelected(false);
         }
-        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam().equals("eva2")) {
+        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam() == "eva2") {
             radioEva1.setSelected(false);
             radioEva2.setSelected(true);
             radioEva3.setSelected(false);
         }
-        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam().equals("eva2")) {
+        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam() == "eva3") {
             radioEva1.setSelected(false);
             radioEva2.setSelected(false);
             radioEva3.setSelected(true);
@@ -391,22 +388,11 @@ public class OverzichtSchermController implements Initializable {
     public void setDc(DomeinController dc) {
         this.dc = dc;
     }
-
-    public void setKleurTopStuur(String kleur) {
+    
+    public void kleurStuur(){
+        
+    }
+    public void setKleurTopStuur(String kleur){
         topStuur.setFill(Color.web(kleur));
-        topStuur.setOpacity(0.5);
     }
-
-    public void setKleurLinkerStuur(String kleur) {
-        linkerStuur.setFill(Color.web(kleur));
-        topStuur.setOpacity(0.5);
-    }
-
-    public void setKleurRechterStuur(String kleur) {
-        rechterStuur.setFill(Color.web(kleur));
-        topStuur.setOpacity(0.5);
-    }
-    
-    
-
 }
