@@ -144,6 +144,7 @@ public class OverzichtSchermController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getNaam());
         evaCheck();
         System.out.println(dc.getEvaluatieMatthias().getRotonde().getHexValue());
         bol1.setFill(Color.web(dc.getEvaluatieMatthias().getRotonde().getHexValue(),1.0));
@@ -346,17 +347,19 @@ public class OverzichtSchermController implements Initializable {
 
     public void evaCheck() {
 
-        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam() == "eva1") {
+        System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getNaam() + "66666");
+        
+        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam().equals("eva1")) {
             radioEva1.setSelected(true);
             radioEva2.setSelected(false);
             radioEva3.setSelected(false);
         }
-        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam() == "eva2") {
+        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam().equals("eva2")) {
             radioEva1.setSelected(false);
             radioEva2.setSelected(true);
             radioEva3.setSelected(false);
         }
-        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam() == "eva3") {
+        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam().equals("eva2")) {
             radioEva1.setSelected(false);
             radioEva2.setSelected(false);
             radioEva3.setSelected(true);

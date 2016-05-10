@@ -327,6 +327,7 @@ public class RijtechniekSchermController implements Initializable {
     @FXML
     private void naarOverzichtScherm(ActionEvent event) throws IOException {
         vierkantjes.clear();
+        vulOp();
         Stage stage = (Stage) overzichtButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         ozc = dc.getOzc();
