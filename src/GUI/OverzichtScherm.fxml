@@ -183,32 +183,32 @@
       </Button>
       <Button layoutX="211.0" layoutY="266.0" mnemonicParsing="false" onAction="#naarStuurtechniekScherm" prefHeight="600.0" prefWidth="600.0" style="-fx-background-radius: 1000; -fx-background-color: none; -fx-border-color: black; -fx-border-radius: 1000; -fx-border-width: 5;" />
       <Button fx:id="logoutButton" layoutX="864.0" layoutY="23.0" mnemonicParsing="false" onAction="#naarLogOutScherm" prefHeight="184.0" prefWidth="137.0" style="-fx-background-color: none;" />
-      <Circle fx:id="topStuur" layoutX="513.0" layoutY="568.0" opacity="0.5" radius="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
+      <Circle fx:id="topStuur" layoutX="513.0" layoutY="568.0" opacity="0.3" radius="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
          <fill>
             <LinearGradient endX="1.0" endY="0.45238095238095233" startX="1.0" startY="0.3952380952380952">
                <stops>
-                  <Stop color="RED" />
+                  <Stop color="WHITE" />
                   <Stop color="#ff000000" offset="1.0" />
                </stops>
             </LinearGradient>
          </fill>
       </Circle>
-      <Circle fx:id="linkerStuur" layoutX="511.0" layoutY="568.0" opacity="0.5" radius="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
+      <Circle fx:id="linkerStuur" layoutX="511.0" layoutY="568.0" opacity="0.3" radius="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
          <fill>
             <LinearGradient endX="0.17142857142857146" endY="0.5523809523809524" startX="0.08571428571428572" startY="0.661904761904762">
                <stops>
-                  <Stop color="#29ff00" />
-                  <Stop color="#07ff0000" offset="1.0" />
+                  <Stop color="WHITE" />
+                  <Stop color="#ffffff00" offset="1.0" />
                </stops>
             </LinearGradient>
          </fill>
       </Circle>
-      <Circle fx:id="rechterStuur" layoutX="511.0" layoutY="568.0" opacity="0.5" radius="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
+      <Circle fx:id="rechterStuur" layoutX="511.0" layoutY="568.0" opacity="0.3" radius="271.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0">
          <fill>
             <LinearGradient endX="0.4761904761904763" endY="0.7571428571428571" startX="0.5952380952380953" startY="0.9">
                <stops>
-                  <Stop color="#ff8a00" />
-                  <Stop color="#ff7b0000" offset="1.0" />
+                  <Stop color="WHITE" />
+                  <Stop color="#ffffff00" offset="1.0" />
                </stops>
             </LinearGradient>
          </fill>

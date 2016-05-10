@@ -388,9 +388,22 @@ public class OverzichtSchermController implements Initializable {
     public void setDc(DomeinController dc) {
         this.dc = dc;
     }
-    
-    public void kleurStuur(){
-        
+
+    public void setKleurTopStuur(String kleur) {
+        topStuur.setFill(Color.web(kleur));
+        topStuur.setOpacity(0.5);
     }
+
+    public void setKleurLinkerStuur(String kleur) {
+        linkerStuur.setFill(Color.web(kleur));
+        topStuur.setOpacity(0.5);
+    }
+
+    public void setKleurRechterStuur(String kleur) {
+        rechterStuur.setFill(Color.web(kleur));
+        topStuur.setOpacity(0.5);
+    }
+    
+    
 
 }

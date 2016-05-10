@@ -125,11 +125,11 @@ public class RijtechniekSchermController implements Initializable {
     private Text naamLbl;
     
     @FXML
-    private Ellipse linkerPijl;
+    private Ellipse boven;
     @FXML
-    private Ellipse rechterPijl;
+    private Ellipse linker;
     @FXML
-    private Ellipse onderPijl;
+    private Ellipse rechter;
     
     private ObservableList<String> lijst;
     
@@ -151,7 +151,7 @@ public class RijtechniekSchermController implements Initializable {
         initKleurEva2();
         initKleurEva3();
         
-        
+        kleurStuur();
     }
     
     public void voegOpmerkingToe(ActionEvent event) throws IOException {
@@ -434,6 +434,7 @@ public class RijtechniekSchermController implements Initializable {
             dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(index).setKleur(Kleuren.GROEN);
             dc.getEvaluatieMatthias().getEvaLijst().get(eva).getRijtechniekOnderdelen().get(index).setKleur(Kleuren.GROEN);
         }
+        kleurStuur();
     }
 
     public void setNummerVierkant(int nummerVierkant) {
@@ -484,6 +485,90 @@ public class RijtechniekSchermController implements Initializable {
         for(int counter = 2;counter<=35;counter = counter+3){
             vierkantjes.get(counter).setFill(Color.web(dc.getEvaluatieMatthias().getEvaLijst().get(2).getRijtechniekOnderdelen().get(i).getKleur().getHexValue()));
             i++;
+        }
+    }
+    public void kleurStuur(){
+        //bovenkant
+        if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(0).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(1).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(2).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(3).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(4).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(5).getKleur().getHexValue()=="#FF0000")
+        {
+            boven.setFill(Color.web("#FF0000"));
+            dc.getOzc().setKleurTopStuur("#FF0000");
+            
+        }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(0).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(1).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(2).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(3).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(4).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(5).getKleur().getHexValue()=="#FFA500")
+        {
+            boven.setFill(Color.web("#FFA500"));
+            dc.getOzc().setKleurTopStuur("#FFA500");
+            
+        }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(0).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(1).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(2).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(3).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(4).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(5).getKleur().getHexValue()=="#00FF00")
+        {
+            boven.setFill(Color.web("#00FF00"));
+            dc.getOzc().setKleurTopStuur("#00FF00");
+            
+            
+        }else{
+            boven.setFill(Color.web("#FFFFFF"));
+            dc.getOzc().setKleurTopStuur("#FFFFFF");
+        }
+        //rechter
+        if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(6).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(7).getKleur().getHexValue()=="#FF0000")
+        {
+            rechter.setFill(Color.web("#FF0000"));
+            
+        }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(6).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(7).getKleur().getHexValue()=="#FFA500")
+        {
+            rechter.setFill(Color.web("#FFA500"));
+            
+        }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(6).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(7).getKleur().getHexValue()=="#00FF00")
+        {
+            rechter.setFill(Color.web("#00FF00"));
+            
+            
+        }else{
+            rechter.setFill(Color.web("#FFFFFF"));
+        }
+        //linker
+        if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(8).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(9).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(10).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(11).getKleur().getHexValue()=="#FF0000")
+        {
+            linker.setFill(Color.web("#FF0000"));
+            
+        }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(8).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(9).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(10).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(11).getKleur().getHexValue()=="#FFA500")
+        {
+            linker.setFill(Color.web("#FFA500"));
+            
+        }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(8).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(9).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(10).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(11).getKleur().getHexValue()=="#00FF00")
+        {
+            linker.setFill(Color.web("#00FF00"));
+            
+            
+        }else{
+            linker.setFill(Color.web("#FFFFFF"));
         }
     }
 }

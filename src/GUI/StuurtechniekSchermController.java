@@ -259,6 +259,7 @@ public class StuurtechniekSchermController implements Initializable {
         } else if (event.getSource() == groen) {
             vierkantjes.get(eva + getNummerVierkant()).setFill(new Color(0.255, 0.69, 0, 1));
         }
+        kleurPijltjes();
     }
 
     public void setNummerVierkant(int nummerVierkant) {
@@ -319,5 +320,13 @@ public class StuurtechniekSchermController implements Initializable {
         vierkantjes.add(r1);
         vierkantjes.add(r2);
         vierkantjes.add(r3);
+    }
+    
+    public void kleurPijltjes(){
+//        GROEP 1: richting aangeven, kruisen, inhalen
+//        GROEP 2: plaats op de OW, links afslaan, rechts afslaan,
+//        volgafstand/zijdelingse afstand
+//        GROEP 3: voorrang, verkeerstekens en snelheid
+        
     }
 }

@@ -194,9 +194,12 @@
             <Button fx:id="groen" layoutX="313.0" layoutY="233.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: green;" />
          </children>
       </Pane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="604.0" pickOnBounds="true" preserveRatio="true">
+      <Ellipse fx:id="onderPijl" fill="#fcfbfa" layoutX="123.0" layoutY="704.0" radiusX="41.0" radiusY="27.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fx:id="rechterPijl" fill="WHITE" layoutX="133.0" layoutY="653.0" radiusX="33.0" radiusY="42.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fx:id="linkerPijl" fill="#fefffe" layoutX="85.0" layoutY="662.0" radiusX="33.0" radiusY="42.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="598.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/stuur.gif" />
+            <Image url="@../images/verkeerstech.png" />
          </image>
       </ImageView>
    </children>
