@@ -45,6 +45,12 @@
                   <Image url="@../images/mobixlogo.png" />
                </image>
             </ImageView>
+            <Button fx:id="haalGegevensOp" layoutX="445.0" layoutY="61.0" mnemonicParsing="false" onAction="#haalGegevensOp" text="Haal gegevens op">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="postButton" layoutX="809.0" layoutY="88.0" mnemonicParsing="false" onAction="#nieuweLeerling" text="Button" />
                   
                   
          </children>
