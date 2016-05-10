@@ -343,7 +343,7 @@ public class OverzichtSchermController implements Initializable {
 
     public void evaCheck() {
 
-        System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getNaam() + "66666");
+        System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getNaam());
         
         if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam().equals("eva1")) {
             radioEva1.setSelected(true);
@@ -355,7 +355,7 @@ public class OverzichtSchermController implements Initializable {
             radioEva2.setSelected(true);
             radioEva3.setSelected(false);
         }
-        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam().equals("eva2")) {
+        if (dc.getEvaluatieMatthias().getHuidigeEva().getNaam().equals("eva3")) {
             radioEva1.setSelected(false);
             radioEva2.setSelected(false);
             radioEva3.setSelected(true);
