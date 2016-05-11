@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
@@ -133,6 +134,11 @@ public class StuurtechniekSchermController implements Initializable {
     private List<String> hulpLijst = new ArrayList<>();
     
     private int index;
+    
+    @FXML
+    private TextField lelijkaard;
+    @FXML
+    private Button okButton;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -444,4 +450,90 @@ public class StuurtechniekSchermController implements Initializable {
             i++;
         }
     }
+    
+    public void addFromLelijkaard(ActionEvent event) throws IOException{
+        if(!lelijkaard.getText().isEmpty()&&lelijkaard.getText()!=""){
+            lijst.add(lelijkaard.getText());
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
+            lelijkaard.clear();
+        }
+    }
+     public void kleurStuur(){
+//         1. GROEP 1: richting aangeven, kruisen, inhalen
+//          2. GROEP 2: plaats op de OW, links afslaan, rechts afslaan,
+//          volgafstand/zijdelingse afstand
+//          3. GROEP 3: voorrang, verkeerstekens en snelheid
+        //bovenkant
+        if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(0).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(6).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(7).getKleur().getHexValue()=="#FF0000")
+        {
+            linkerPijl.setFill(Color.web("#FF0000"));
+            
+        }else if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(0).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(6).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(7).getKleur().getHexValue()=="#FFA500")
+        {
+            linkerPijl.setFill(Color.web("#FFA500"));
+            
+        }else if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(0).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(6).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(7).getKleur().getHexValue()=="#00FF00")
+        {
+            linkerPijl.setFill(Color.web("#00FF00"));
+            
+            
+        }else{
+            linkerPijl.setFill(Color.web("#FFFFFF"));
+        }
+        //rechter
+        if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(1).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(5).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(8).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(9).getKleur().getHexValue()=="#FF0000")
+        {
+            rechterPijl.setFill(Color.web("#FF0000"));
+            
+        }else if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(1).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(5).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(8).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(9).getKleur().getHexValue()=="#FFA500")
+        {
+            rechterPijl.setFill(Color.web("#FFA500"));
+            
+        }else if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(1).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(5).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(8).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(9).getKleur().getHexValue()=="#00FF00")
+        {
+            rechterPijl.setFill(Color.web("#00FF00"));
+            
+            
+        }else{
+            rechterPijl.setFill(Color.web("#FFFFFF"));
+        }
+        //linker
+        if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(2).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(3).getKleur().getHexValue()=="#FF0000"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(4).getKleur().getHexValue()=="#FF0000")
+        {
+            onderPijl.setFill(Color.web("#FF0000"));
+            
+        }else if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(2).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(3).getKleur().getHexValue()=="#FFA500"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(4).getKleur().getHexValue()=="#FFA500")
+        {
+            onderPijl.setFill(Color.web("#FFA500"));
+            
+        }else if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(2).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(3).getKleur().getHexValue()=="#00FF00"
+                ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(4).getKleur().getHexValue()=="#00FF00")
+        {
+            onderPijl.setFill(Color.web("#00FF00"));
+            
+            
+        }else{
+            onderPijl.setFill(Color.web("#FFFFFF"));
+        }
+     }
 }

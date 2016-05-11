@@ -170,7 +170,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Text>
-            <ToggleButton fx:id="uitroepteken" layoutX="310.0" layoutY="335.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
+            <ToggleButton fx:id="uitroepteken" layoutX="310.0" layoutY="415.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
                <graphic>
                   <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="933.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -192,12 +192,17 @@
             <Button fx:id="oranje" layoutX="313.0" layoutY="168.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: orange;" />
             <Button fx:id="groen" layoutX="313.0" layoutY="233.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: green;" />
             <ListView fx:id="opmerkingenLV" layoutX="31.0" layoutY="55.0" prefHeight="280.0" prefWidth="265.0" />
-            <ComboBox fx:id="combo" layoutX="31.0" layoutY="349.0" onAction="#selecteerUitCombo" prefHeight="54.0" prefWidth="265.0" promptText="Kies Items uit deze lijst" />
+            <ComboBox fx:id="combo" disable="true" layoutX="31.0" layoutY="349.0" onAction="#selecteerUitCombo" opacity="0.0" prefHeight="54.0" prefWidth="265.0" promptText="Kies Items uit deze lijst" />
+            <TextField fx:id="lelijkaard" layoutX="31.0" layoutY="349.0" prefHeight="54.0" prefWidth="265.0" />
+            <Button fx:id="okButtton" layoutX="310.0" layoutY="349.0" mnemonicParsing="false" onAction="#addFromLelijkaard" prefHeight="54.0" prefWidth="60.0" text="OK" />
          </children>
       </Pane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="604.0" pickOnBounds="true" preserveRatio="true">
+      <Ellipse fx:id="rechterPijl" fill="WHITE" layoutX="119.0" layoutY="659.0" radiusX="33.0" radiusY="42.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fx:id="linkerPijl" fill="WHITE" layoutX="71.0" layoutY="668.0" radiusX="33.0" radiusY="42.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fx:id="onderPijl" fill="#fffffe" layoutX="109.0" layoutY="710.0" radiusX="41.0" radiusY="27.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="29.0" layoutY="604.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/stuur.gif" />
+            <Image url="@../images/verkeerstech.png" />
          </image>
       </ImageView>
    </children>

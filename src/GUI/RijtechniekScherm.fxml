@@ -181,15 +181,15 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Pane layoutX="597.0" layoutY="123.0" prefHeight="499.0" prefWidth="389.0" style="-fx-background-color: gray; -fx-background-radius: 50;">
+      <Pane layoutX="598.0" layoutY="86.0" prefHeight="546.0" prefWidth="389.0" style="-fx-background-color: gray; -fx-background-radius: 50;">
          <children>
-            <ComboBox fx:id="combo" layoutX="31.0" layoutY="337.0" onAction="#selecteerUitCombo" prefHeight="54.0" prefWidth="265.0" promptText="Kies items uit deze lijst" />
+            <ComboBox fx:id="combo" layoutX="31.0" layoutY="392.0" onAction="#selecteerUitCombo" prefHeight="54.0" prefWidth="265.0" promptText="Kies items uit deze lijst" />
             <Text fx:id="titel" fill="#fcfafa" layoutX="77.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="226.13671875">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Text>
-            <ToggleButton fx:id="uitroepteken" layoutX="310.0" layoutY="337.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
+            <ToggleButton fx:id="uitroepteken" layoutX="310.0" layoutY="392.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
                 <graphic>
             <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="933.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -198,7 +198,7 @@
             </ImageView>
          </graphic>
             </ToggleButton>
-            <Button fx:id="opslaanButton" layoutX="31.0" layoutY="415.0" mnemonicParsing="false" onAction="#wijzigingenOpslaan" prefHeight="55.0" prefWidth="265.0" text="Aanpassingen opslaan">
+            <Button fx:id="opslaanButton" layoutX="31.0" layoutY="459.0" mnemonicParsing="false" onAction="#wijzigingenOpslaan" prefHeight="55.0" prefWidth="265.0" text="Aanpassingen opslaan">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="55.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -211,6 +211,8 @@
             <Button fx:id="oranje" layoutX="313.0" layoutY="168.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: orange;" />
             <Button fx:id="groen" layoutX="313.0" layoutY="233.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: green;" />
             <ListView fx:id="opmerkingenLV" layoutX="31.0" layoutY="55.0" prefHeight="266.0" prefWidth="265.0" />
+            <Button fx:id="okButtton" layoutX="310.0" layoutY="330.0" mnemonicParsing="false" onAction="#addFromLelijkaard" prefHeight="54.0" prefWidth="60.0" text="OK" />
+            <TextField fx:id="lelijkaard" layoutX="31.0" layoutY="330.0" prefHeight="54.0" prefWidth="265.0" />
          </children>
       </Pane>
       <Text layoutX="173.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A" />
@@ -220,12 +222,12 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Text>
-      <Ellipse fx:id="linkerPijl" fill="#278d1f" layoutX="75.0" layoutY="652.0" radiusX="33.0" radiusY="42.0" stroke="BLACK" strokeType="INSIDE" />
-      <Ellipse fx:id="rechterPijl" fill="#ff1a00" layoutX="123.0" layoutY="643.0" radiusX="33.0" radiusY="42.0" stroke="BLACK" strokeType="INSIDE" />
-      <Ellipse fx:id="onderPijl" fill="#ffa21f" layoutX="113.0" layoutY="694.0" radiusX="41.0" radiusY="27.0" stroke="BLACK" strokeType="INSIDE" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="33.0" layoutY="588.0" pickOnBounds="true" preserveRatio="true">
+      <Ellipse fx:id="boven" fill="WHITE" layoutX="107.0" layoutY="640.0" radiusX="60.0" radiusY="38.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fx:id="rechter" fill="WHITE" layoutX="135.0" layoutY="694.0" radiusX="27.0" radiusY="33.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fx:id="linker" fill="WHITE" layoutX="80.0" layoutY="697.0" radiusX="33.0" radiusY="27.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" layoutY="588.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/verkeerstech.png" />
+            <Image url="@../images/stuur.gif" />
          </image>
       </ImageView>
    </children>

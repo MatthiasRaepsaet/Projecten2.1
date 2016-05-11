@@ -455,7 +455,15 @@ public class OverzichtSchermController implements Initializable {
         this.dc = dc;
     }
     
-    public void kleurStuur(){
+    public void kleurBovenStuur(String kleur){
+        topStuur.setFill(Color.web(kleur));
+    }
+    public void kleurLinkerStuur(String kleur){
+        linkerStuur.setFill(Color.web(kleur));
+        
+    }
+    public void kleurRechterStuur(String kleur){
+        rechterStuur.setFill(Color.web(kleur));
         
     }
 
