@@ -503,6 +503,11 @@ public class RijtechniekSchermController implements Initializable {
             lelijkaard.clear();
         }
     }
+    
+    public void addAlgemeneOpmerking(ActionEvent event) throws IOException{
+        dc.getEvaluatieMatthias().setAlgemeneOpmerkingen(dc.getEvaluatieMatthias().getAlgemeneOpmerkingen()+"\n"+lelijkaard.getText());
+    }
+    
     public void kleurStuur(){
         //bovenkant
         if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(0).getKleur().getHexValue()=="#FF0000"
@@ -513,7 +518,7 @@ public class RijtechniekSchermController implements Initializable {
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(5).getKleur().getHexValue()=="#FF0000")
         {
             boven.setFill(Color.web("#FF0000"));
-            dc.getOzc().kleurBovenStuur("#FF000");
+            dc.getOzc().kleurBovenStuur("#FF0000");
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(0).getKleur().getHexValue()=="#FFA500"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(1).getKleur().getHexValue()=="#FFA500"

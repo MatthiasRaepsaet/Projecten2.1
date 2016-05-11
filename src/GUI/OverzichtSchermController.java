@@ -5,10 +5,10 @@
  */
 package GUI;
 
-import domein.Cursus;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import domein.DomeinController;
 import domein.Kleuren;
-import java.awt.Checkbox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,16 +23,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 
 /**
  * FXML Controller class
@@ -141,6 +145,9 @@ public class OverzichtSchermController implements Initializable {
     @FXML
     private Circle rechterStuur;
 
+    @FXML
+    private TextArea textArea;
+    
     private AttitudeSchermController asc = new AttitudeSchermController();
     private InfoSchermController info = new InfoSchermController();
     private LogoutController logout = new LogoutController();
@@ -179,8 +186,9 @@ public class OverzichtSchermController implements Initializable {
         stopButton.setBackground(standaardBackground);
         tankenButton.setBackground(standaardBackground);
         gpsButton.setBackground(standaardBackground);
-
+        
         progress.setProgress(dc.getEvaluatieMatthias().getWaardeProgress());
+        textArea.appendText(dc.getEvaluatieMatthias().getAlgemeneOpmerkingen());
     }
 
 

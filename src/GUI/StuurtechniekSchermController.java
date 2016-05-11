@@ -458,6 +458,10 @@ public class StuurtechniekSchermController implements Initializable {
             lelijkaard.clear();
         }
     }
+        public void addAlgemeneOpmerking(ActionEvent event) throws IOException{
+        dc.getEvaluatieMatthias().setAlgemeneOpmerkingen(dc.getEvaluatieMatthias().getAlgemeneOpmerkingen()+"\n"+lelijkaard.getText());
+    }
+        
      public void kleurStuur(){
 //         1. GROEP 1: richting aangeven, kruisen, inhalen
 //          2. GROEP 2: plaats op de OW, links afslaan, rechts afslaan,
