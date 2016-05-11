@@ -15,10 +15,10 @@ import java.util.List;
 public class EvaluatieMoment {
     
     private String naam;
-    private List<Onderdeel> rijtechniekOnderdelen = new ArrayList<>();
-    private List<Onderdeel> verkeerstechniekOnderdelen = new ArrayList<>();
+    private List<RijOnderdeel> rijtechniekOnderdelen = new ArrayList<>();
+    private List<VerkeersOnderdeel> verkeerstechniekOnderdelen = new ArrayList<>();
 
-    public EvaluatieMoment(String naam, List<Onderdeel> rijtechniekOnderdelen, List<Onderdeel> verkeerstechniekOnderdelen) {
+    public EvaluatieMoment(String naam, List<RijOnderdeel> rijtechniekOnderdelen, List<VerkeersOnderdeel> verkeerstechniekOnderdelen) {
         this.naam = naam;
         this.rijtechniekOnderdelen = rijtechniekOnderdelen;
         this.verkeerstechniekOnderdelen = verkeerstechniekOnderdelen;
@@ -56,19 +56,19 @@ public class EvaluatieMoment {
         this.naam = naam;
     }
 
-    public List<Onderdeel> getRijtechniekOnderdelen() {
+    public List<RijOnderdeel> getRijtechniekOnderdelen() {
         return rijtechniekOnderdelen;
     }
 
-    public void setRijtechniekOnderdelen(List<Onderdeel> rijtechniekOnderdelen) {
+    public void setRijtechniekOnderdelen(List<RijOnderdeel> rijtechniekOnderdelen) {
         this.rijtechniekOnderdelen = rijtechniekOnderdelen;
     }
 
-    public List<Onderdeel> getVerkeerstechniekOnderdelen() {
+    public List<VerkeersOnderdeel> getVerkeerstechniekOnderdelen() {
         return verkeerstechniekOnderdelen;
     }
 
-    public void setVerkeerstechniekOnderdelen(List<Onderdeel> verkeerstechniekOnderdelen) {
+    public void setVerkeerstechniekOnderdelen(List<VerkeersOnderdeel> verkeerstechniekOnderdelen) {
         this.verkeerstechniekOnderdelen = verkeerstechniekOnderdelen;
     }
     

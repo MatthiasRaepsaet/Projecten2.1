@@ -142,6 +142,8 @@ public class RijtechniekSchermController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         naamLbl.setText(dc.getGeselecteerd().getNaam());
+        System.out.println(dc.getEvaluatieMatthias().getEvaLijst().get(1)+" 1");
+        System.out.println(dc.getEvaluatieMatthias().getEvaLijst().get(1).getRijtechniekOnderdelen()+" 2");
         dc.getEvaluatieMatthias().getEvaLijst().get(1).getRijtechniekOnderdelen().get(0).getOpmerkingen().add("zithouding niet goed");
         dc.getEvaluatieMatthias().getEvaLijst().get(0).getRijtechniekOnderdelen().get(1).getOpmerkingen().add("te snel");
         lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(0).getOpmerkingen());

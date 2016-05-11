@@ -14,6 +14,7 @@ import domein.Evaluatie;
 import domein.EvaluatieMoment;
 import domein.Kleuren;
 import domein.Leerling;
+import domein.RijOnderdeel;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -99,7 +100,7 @@ public class LoginController {
 
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target("http://localhost:8080/projecten/api/evaluaties");
-        System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
+//        System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
         List<Evaluatie> evaluatiesLijst = new ArrayList<>();
 
         Gson gson = new Gson();
@@ -108,24 +109,38 @@ public class LoginController {
         for (JsonElement jse : jsona) {
             Kleuren aux = null;
             System.out.println(jse);
+            System.out.println("check");
             JsonObject jsono = gson.fromJson(jse, JsonElement.class).getAsJsonObject();
-            System.out.println(jsono);
+            System.out.println("check");
+            System.out.println(jsono.toString());
             Evaluatie e = new Evaluatie(jsono.get("evaluatieNummer").getAsString(), jsono.get("rijtechniekenScore").getAsInt(), jsono.get("verkeerstechniekenScore").getAsInt(), jsono.get("algemeneScore").getAsInt(), jsono.get("algemeneOpmerkingen").getAsString(), getByValue(jsono.get("rotonde").getAsString()), getByValue(jsono.get("rotonde").getAsString()), getByValue(jsono.get("rotonde").getAsString()), getByValue(jsono.get("rotonde").getAsString()));
             e.setEvaLijst(new ArrayList<>());
             JsonArray jsonArrayEvam = jsono.get("evaLijst").getAsJsonArray();
             System.out.println(jsonArrayEvam);
             System.out.println(jsonArrayEvam.get(0).getAsJsonObject().get("naam").getAsString());
             e.getEvaLijst().add(new EvaluatieMoment(jsonArrayEvam.get(0).getAsJsonObject().get("naam").getAsString(), null, null));
-            e.getEvaLijst().add(new EvaluatieMoment("eva2", null, null));
-            e.getEvaLijst().add(new EvaluatieMoment("eva3", null, null));
+            e.getEvaLijst().add(new EvaluatieMoment(jsonArrayEvam.get(1).getAsJsonObject().get("naam").getAsString(), null, null));
+            e.getEvaLijst().add(new EvaluatieMoment(jsonArrayEvam.get(2).getAsJsonObject().get("naam").getAsString(), null, null));
             e.setHuidigeEva(e.getEvaLijst().get(0));
+            
             evaluatiesLijst.add(e);
+            JsonArray jsonro;
+            int counter=0;
+            for(JsonElement jsonele : jsonArrayEvam){
+                jsonro = jsonArrayEvam.get(counter).getAsJsonObject().getAsJsonArray("rijtechniekOnderdelen");
+                for(JsonElement jsonroele : jsonro){
+                    JsonObject jsonoro = gson.fromJson(jsonroele, JsonElement.class).getAsJsonObject();
+                    e.getEvaLijst().get(counter).getRijtechniekOnderdelen().add(new RijOnderdeel(jsonoro.get("rijtechniekOnderdeelNaam").getAsString()));
+                    e.getEvaLijst().get(counter).getRijtechniekOnderdelen().get(e.getEvaLijst().get(counter).getRijtechniekOnderdelen().size()-1).setOpmerkingen(new ArrayList<>());
+                }
+                counter++;
+            }
         }
         dc.setEvaluatiesCache(evaluatiesLijst);
 
         client = ClientBuilder.newClient();
         target = client.target("http://localhost:8080/projecten/api/leerlingen");
-        System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
+//        System.out.println(target.request(MediaType.APPLICATION_JSON).get(String.class));
         List<Leerling> leerlingenLijst = new ArrayList<>();
 
         gson = new Gson();
@@ -156,27 +171,30 @@ public class LoginController {
         JsonObject jsonLeerling = new JsonObject();
         Leerling leerlingEnt = new Leerling();
         leerlingEnt.setNaam("ewout ghysbrecht");
-        leerlingEnt.setInschrijvingsNummer("0002");
         leerlingEnt.setEmail("ewout.g@gmail.com");
         Gson gson = new Gson();
-        jsonLeerling.addProperty("inschrijvingsNummer", "0002");
         jsonLeerling.addProperty("naam", "Ewout Ghysbrecht");
         jsonLeerling.addProperty("email", "ewout.g@gmail.com");
+        JsonObject jsonEva = new JsonObject();
+        Evaluatie eva = new Evaluatie("", 0, 0, 0, "", Kleuren.ROOD, Kleuren.ORANJE, Kleuren.ROOD, Kleuren.ORANJE);
         System.out.println(jsonLeerling);
         nvps.add(new BasicNameValuePair("inschrijvingsNummer", "0002"));
         nvps.add(new BasicNameValuePair("naam", "Ewout Ghysbrecht"));
         nvps.add(new BasicNameValuePair("email", "ewout.g@gmail.com"));
         StringEntity postString = new StringEntity(gson.toJson(leerlingEnt));
         httpPost.setEntity(postString);
-        System.out.println(gson.toJson(leerlingEnt));
+        System.out.println(httpPost.getEntity().getContentType());
+        
 
         CloseableHttpResponse response2 = httpclient.execute(httpPost);
         
         try {
             System.out.println(response2.getStatusLine());
+            
             HttpEntity entity2 = response2.getEntity();
             // do something useful with the response body
             // and ensure it is fully consumed
+            entity2.getContentEncoding();
             EntityUtils.consume(entity2);
         } finally {
             response2.close();
