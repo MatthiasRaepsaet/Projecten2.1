@@ -29,7 +29,7 @@ import javafx.stage.Stage;
 public class AttitudeSchermController implements Initializable {
     
     DomeinController dc;
-    
+     
     private OverzichtSchermController ozc;
     
     @FXML
