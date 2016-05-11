@@ -18,7 +18,7 @@
             <Image url="@../images/zonderwijzer.png" />
          </image>
       </ImageView>
-      <Button fx:id="terugButton" layoutX="890.0" layoutY="667.0" mnemonicParsing="false" onAction="#vorigeScherm" prefHeight="75.0" prefWidth="81.0">
+      <Button fx:id="overzichtButton" layoutX="890.0" layoutY="667.0" mnemonicParsing="false" onAction="#naarOverzichtScherm" prefHeight="75.0" prefWidth="81.0">
          <graphic>
             <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="55.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -179,8 +179,7 @@
                   </ImageView>
                </graphic>
             </ToggleButton>
-            <TextArea fx:id="tekstVeld" layoutX="31.0" layoutY="62.0" prefHeight="331.0" prefWidth="265.0" />
-            <Button fx:id="opslaanButton" layoutX="31.0" layoutY="415.0" mnemonicParsing="false" onAction="#wijzigigenOpslaan" prefHeight="55.0" prefWidth="265.0" text="Aanpassingen opslaan">
+            <Button fx:id="opslaanButton" layoutX="31.0" layoutY="415.0" mnemonicParsing="false" onAction="#wijzigingenOpslaan" prefHeight="55.0" prefWidth="265.0" text="Aanpassingen opslaan">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="55.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -192,6 +191,8 @@
             <Button fx:id="rood" layoutX="313.0" layoutY="101.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: red;" />
             <Button fx:id="oranje" layoutX="313.0" layoutY="168.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: orange;" />
             <Button fx:id="groen" layoutX="313.0" layoutY="233.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: green;" />
+            <ListView fx:id="opmerkingenLV" layoutX="31.0" layoutY="55.0" prefHeight="280.0" prefWidth="265.0" />
+            <ComboBox fx:id="combo" layoutX="31.0" layoutY="349.0" onAction="#selecteerUitCombo" prefHeight="54.0" prefWidth="265.0" promptText="Kies Items uit deze lijst" />
          </children>
       </Pane>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="26.0" layoutY="604.0" pickOnBounds="true" preserveRatio="true">

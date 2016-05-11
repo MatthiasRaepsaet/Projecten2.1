@@ -198,8 +198,7 @@
             </ImageView>
          </graphic>
             </ToggleButton>
-            <TextArea fx:id="tekstVeld" layoutX="31.0" layoutY="62.0" prefHeight="266.0" prefWidth="265.0" />
-            <Button fx:id="opslaanButton" layoutX="31.0" layoutY="415.0" mnemonicParsing="false" onAction="#wijzigigenOpslaan" prefHeight="55.0" prefWidth="265.0" text="Aanpassingen opslaan">
+            <Button fx:id="opslaanButton" layoutX="31.0" layoutY="415.0" mnemonicParsing="false" onAction="#wijzigingenOpslaan" prefHeight="55.0" prefWidth="265.0" text="Aanpassingen opslaan">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="55.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -211,6 +210,7 @@
             <Button fx:id="rood" layoutX="313.0" layoutY="101.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: red;" />
             <Button fx:id="oranje" layoutX="313.0" layoutY="168.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: orange;" />
             <Button fx:id="groen" layoutX="313.0" layoutY="233.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: green;" />
+            <ListView fx:id="opmerkingenLV" layoutX="31.0" layoutY="55.0" prefHeight="266.0" prefWidth="265.0" />
          </children>
       </Pane>
       <Text layoutX="173.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A" />

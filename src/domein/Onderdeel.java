@@ -16,43 +16,43 @@ import javax.persistence.Id;
  */
 @Entity
 public class Onderdeel {
-    
-    @Id
-    private String id;
-    
-    private String naam;
-    private List<String> opmerkingen = new ArrayList<>();
-    private Kleuren kleur;
-
-    public Onderdeel(String naam, Kleuren kleur) {
-        this.naam = naam;
-        this.kleur = kleur;
-    }
-    
-    
-
-    public String getNaam() {
-        return naam;
-    }
-
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
-    public List<String> getOpmerkingen() {
-        return opmerkingen;
-    }
-
-    public void setOpmerkingen(List<String> opmerkingen) {
-        this.opmerkingen = opmerkingen;
-    }
-
-    public Kleuren getKleur() {
-        return kleur;
-    }
-
-    public void setKleur(Kleuren kleur) {
-        this.kleur = kleur;
-    }
-    
+//    
+//    @Id
+//    private String id;
+//    
+//    private String naam;
+//    private List<String> opmerkingen = new ArrayList<>();
+//    private Kleuren kleur;
+//
+//    public Onderdeel(String naam, Kleuren kleur) {
+//        this.naam = naam;
+//        this.kleur = kleur;
+//    }
+//    
+//    
+//
+//    public String getNaam() {
+//        return naam;
+//    }
+//
+//    public void setNaam(String naam) {
+//        this.naam = naam;
+//    }
+//
+//    public List<String> getOpmerkingen() {
+//        return opmerkingen;
+//    }
+//
+//    public void setOpmerkingen(List<String> opmerkingen) {
+//        this.opmerkingen = opmerkingen;
+//    }
+//
+//    public Kleuren getKleur() {
+//        return kleur;
+//    }
+//
+//    public void setKleur(Kleuren kleur) {
+//        this.kleur = kleur;
+//    }
+//    
 }

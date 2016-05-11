@@ -5,7 +5,6 @@ import domein.Kleuren;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -18,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
@@ -40,6 +40,12 @@ public class RijtechniekSchermController implements Initializable {
         this.dc = dc;
     }
 
+    @FXML
+    private ListView opmerkingenLV;
+    
+    @FXML
+    private Button opslaanButton;
+    
     @FXML
     private Button rood;
     @FXML
@@ -131,7 +137,7 @@ public class RijtechniekSchermController implements Initializable {
     @FXML
     private Ellipse onderPijl;
     
-    private ObservableList<String> lijst;
+    private List<String> lijst = new ArrayList<>();
     
     private List<String> hulpLijst = new ArrayList<>();
     
@@ -140,9 +146,9 @@ public class RijtechniekSchermController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         naamLbl.setText(dc.getGeselecteerd().getNaam());
-        dc.getEvaluatieMatthias().getEvaLijst().get(1).getRijtechniekOnderdelen().get(0).getOpmerkingen().add("zithouding niet goed");
-        dc.getEvaluatieMatthias().getEvaLijst().get(0).getRijtechniekOnderdelen().get(1).getOpmerkingen().add("te snel");
-        lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(0).getOpmerkingen());
+//        lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(0).getOpmerkingen());
+
+        vierkantjes.clear();
         vulOp();
         
         initKleurEva1();
@@ -153,36 +159,36 @@ public class RijtechniekSchermController implements Initializable {
     }
     
     public void voegOpmerkingToe(ActionEvent event) throws IOException {
-        ObservableList<String> comboLijst;
-        tekstVeld.clear();
-        hulpLijst.clear();
-        combo.getSelectionModel().clearSelection();
+        
+        List<String> comboLijst = new ArrayList<>();
+        combo.setItems(FXCollections.observableArrayList(comboLijst));
         if (event.getSource() == remButton) {
             index = 2;
-            comboLijst = FXCollections.observableArrayList();
             comboLijst.add("Dosering");
             comboLijst.add("Volgorde");
             comboLijst.add("Te laat");
             comboLijst.add("Remmen op motor");
-            combo.setItems(comboLijst);
-            hulpLijst = dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(2).getOpmerkingen();
+            System.out.println(comboLijst.get(0));
+            combo.setItems(FXCollections.observableArrayList(comboLijst));
             wijzer.setRotate(345);
             titel.setText("Remmen");
             setNummerVierkant(0);
-            vanLijstNaarTextArea(hulpLijst);
+            lijst = dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(2).getOpmerkingen() ;
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
+            hulpLijst.clear();
         }
         if (event.getSource() == stuurButton) {
             index = 3;
-            hulpLijst.clear();
+            System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(2).getOpmerkingen());
             comboLijst = FXCollections.observableArrayList();
             comboLijst.add("Dosering");
             comboLijst.add("Houding");
-            combo.setItems(comboLijst);
-            lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(3).getOpmerkingen());
+            combo.setItems(FXCollections.observableArrayList(comboLijst));
+            lijst = dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(3).getOpmerkingen();
             wijzer.setRotate(15);
             titel.setText("Sturen");
             setNummerVierkant(3);
-            vanLijstNaarTextArea(lijst);
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
         }
         if (event.getSource() == schakelButton) {
             index = 4;
@@ -190,13 +196,13 @@ public class RijtechniekSchermController implements Initializable {
             comboLijst = FXCollections.observableArrayList();
             comboLijst.add("Bediening");
             comboLijst.add("Aangepaste versnelling");
-            combo.setItems(comboLijst);
+            combo.setItems(FXCollections.observableArrayList(comboLijst));
             lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(4).getOpmerkingen());
             hulpLijst.addAll(lijst);
             wijzer.setRotate(45);
             titel.setText("Schakelen");
             setNummerVierkant(6);
-            vanLijstNaarTextArea(lijst);
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
         }
         if (event.getSource() == kijkButton) {
             index = 5;
@@ -206,13 +212,13 @@ public class RijtechniekSchermController implements Initializable {
             comboLijst.add("Meer vegewissen");
             comboLijst.add("Dode hoeken");
             comboLijst.add("Scannen/selecteren");
-            combo.setItems(comboLijst);
+            combo.setItems(FXCollections.observableArrayList(comboLijst));
             lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(5).getOpmerkingen());
             hulpLijst.addAll(lijst);
             wijzer.setRotate(75);
             titel.setText("Kijken");
             setNummerVierkant(9);
-            vanLijstNaarTextArea(lijst);
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
         }
         if (event.getSource() == parkeerButton) {
             index = 6;
@@ -220,24 +226,24 @@ public class RijtechniekSchermController implements Initializable {
             comboLijst.add("Tussen 2 voertuigen");
             comboLijst.add("Achter een voertuig");
             comboLijst.add("Links");
-            combo.setItems(comboLijst);
+            combo.setItems(FXCollections.observableArrayList(comboLijst));
             lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(6).getOpmerkingen());
             hulpLijst.addAll(lijst);
             wijzer.setRotate(105);
             titel.setText("Parkeren");
             setNummerVierkant(12);
-            vanLijstNaarTextArea(lijst);
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
         }
         if (event.getSource() == kerenButton) {
             index = 7;
             comboLijst = FXCollections.observableArrayList();
-            combo.setItems(comboLijst);
+            combo.setItems(FXCollections.observableArrayList(comboLijst));
             lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(7).getOpmerkingen());
             hulpLijst.addAll(lijst);
             wijzer.setRotate(135);
             titel.setText("Keren");
             setNummerVierkant(15);
-            vanLijstNaarTextArea(lijst);
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
         }
         if (event.getSource() == garageButton) {
             index = 8;
@@ -245,35 +251,35 @@ public class RijtechniekSchermController implements Initializable {
             comboLijst.add("In 1 beweging");
             comboLijst.add("In 3 bewegingen");
             comboLijst.add("Achterwaarts");
-            combo.setItems(comboLijst);
+            combo.setItems(FXCollections.observableArrayList(comboLijst));
             lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(8).getOpmerkingen());
             hulpLijst.addAll(lijst);
             wijzer.setRotate(155);
             titel.setText("Garage");
             setNummerVierkant(18);
-            vanLijstNaarTextArea(lijst);
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
         }
         if (event.getSource() == achteruitButton) {
             index = 9;
             comboLijst = FXCollections.observableArrayList();
-            combo.setItems(comboLijst);
+            combo.setItems(FXCollections.observableArrayList(comboLijst));
             lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(9).getOpmerkingen());
             hulpLijst.addAll(lijst);
             wijzer.setRotate(205);
             titel.setText("Achterwaarts rijden");
             setNummerVierkant(21);
-            vanLijstNaarTextArea(lijst);
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
         }
         if (event.getSource() == bochtenButton) {
             index = 10;
             comboLijst = FXCollections.observableArrayList();
-            combo.setItems(comboLijst);
+            combo.setItems(FXCollections.observableArrayList(comboLijst));
             lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(10).getOpmerkingen());
             hulpLijst.addAll(lijst);
             wijzer.setRotate(235);
             titel.setText("Bochten");
             setNummerVierkant(24);
-            vanLijstNaarTextArea(lijst);
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
         }
         if (event.getSource() == hellingButton) {
             index = 11;
@@ -281,13 +287,13 @@ public class RijtechniekSchermController implements Initializable {
             comboLijst.add("Balanceren");
             comboLijst.add("Aanzetten met voetrem");
             comboLijst.add("Aanzetten met handrem");
-            combo.setItems(comboLijst);
+            combo.setItems(FXCollections.observableArrayList(comboLijst));
             lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(11).getOpmerkingen());
             hulpLijst.addAll(lijst);
             wijzer.setRotate(255);
             titel.setText("Vertrekken op een helling");
             setNummerVierkant(27);
-            vanLijstNaarTextArea(lijst);
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
         }
         if (event.getSource() == zittenButton) {
             index = 0;
@@ -296,13 +302,13 @@ public class RijtechniekSchermController implements Initializable {
             comboLijst.add("Gordel");
             comboLijst.add("Spiegels");
             comboLijst.add("Handrem");
-            combo.setItems(comboLijst);
+            combo.setItems(FXCollections.observableArrayList(comboLijst));
             lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(0).getOpmerkingen());
             hulpLijst.addAll(lijst);
             wijzer.setRotate(285);
             titel.setText("Zithouding");
             setNummerVierkant(30);
-            vanLijstNaarTextArea(hulpLijst);
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
         }
         if (event.getSource() == embreageButton) {
             index = 1;
@@ -312,13 +318,13 @@ public class RijtechniekSchermController implements Initializable {
             comboLijst.add("Plaatsing voet");
             comboLijst.add("Onnodig");
             comboLijst.add("Bocht");
-            combo.setItems(comboLijst);
+            combo.setItems(FXCollections.observableArrayList(comboLijst));
             lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(1).getOpmerkingen());
             hulpLijst.addAll(lijst);
             wijzer.setRotate(315);
             titel.setText("Ontkoppeling");
             setNummerVierkant(33);
-            vanLijstNaarTextArea(hulpLijst);
+            opmerkingenLV.setItems(FXCollections.observableArrayList(lijst));
         }
     }
 
@@ -359,12 +365,11 @@ public class RijtechniekSchermController implements Initializable {
     }
 
     public void selecteerUitCombo(ActionEvent event) throws IOException {
-        String toevoeg =  "\n" + combo.getSelectionModel().getSelectedItem().toString() + "\n";
-        
-        tekstVeld.appendText(toevoeg);
-        hulpLijst.add(combo.getSelectionModel().getSelectedItem().toString());
-        
-        
+        if(combo.getItems().size()!=0){
+        lijst = opmerkingenLV.getItems();
+        lijst.add(combo.getSelectionModel().getSelectedItem().toString());
+        opmerkingenLV.setItems(FXCollections.observableList(lijst));
+        }
     }
 
     public void vulOp(){
@@ -419,6 +424,7 @@ public class RijtechniekSchermController implements Initializable {
         if (event.getSource() == rood) {
             vierkantjes.get(eva + (index*3)).setFill(Color.web(Kleuren.ROOD.getHexValue(),1.0));
             dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(index).setKleur(Kleuren.ROOD);
+            System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(index));
             dc.getEvaluatieMatthias().getEvaLijst().get(eva).getRijtechniekOnderdelen().get(index).setKleur(Kleuren.ROOD);
         } else if (event.getSource() == oranje) {
             vierkantjes.get(eva + (index*3)).setFill(Color.web(Kleuren.ORANJE.getHexValue(),1.0));
@@ -439,8 +445,9 @@ public class RijtechniekSchermController implements Initializable {
         return nummerVierkant;
     }
 
-    public void wijzigigenOpslaan(ActionEvent e) throws IOException {
-        dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(index).setOpmerkingen(hulpLijst);
+    public void wijzigingenOpslaan(ActionEvent e) throws IOException {
+        dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(index).setOpmerkingen(opmerkingenLV.getItems());
+        System.out.println(opmerkingenLV.getItems());
     }
 
     public void vanLijstNaarTextArea(List<String> lijst) {

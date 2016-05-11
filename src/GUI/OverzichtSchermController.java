@@ -121,6 +121,20 @@ public class OverzichtSchermController implements Initializable {
     private Button attitudeButton;
     
     @FXML
+    private Circle bolLinks1;
+    @FXML
+    private Circle bolLinks2;
+    @FXML
+    private Circle bolLinks3;
+    
+    @FXML
+    private Circle bolRechts1;
+    @FXML
+    private Circle bolRechts2;
+    @FXML
+    private Circle bolRechts3;
+    
+    @FXML
     private Circle topStuur;
     @FXML
     private Circle linkerStuur;
@@ -149,6 +163,13 @@ public class OverzichtSchermController implements Initializable {
         bol2.setFill(Color.web(dc.getEvaluatieMatthias().getSteenweg().getHexValue(),1.0));
         bol3.setFill(Color.web(dc.getEvaluatieMatthias().getBebouwdeKom().getHexValue(),1.0));
         bol4.setFill(Color.web(dc.getEvaluatieMatthias().getAutostrade().getHexValue(),1.0));
+        bolLinks1.setFill(Color.web(dc.getEvaluatieMatthias().getLinks1().getHexValue(),1.0));
+        bolLinks2.setFill(Color.web(dc.getEvaluatieMatthias().getLinks2().getHexValue(),1.0));
+        bolLinks3.setFill(Color.web(dc.getEvaluatieMatthias().getLinks3().getHexValue(),1.0));
+        bolRechts1.setFill(Color.web(dc.getEvaluatieMatthias().getRechts1().getHexValue(),1.0));
+        bolRechts2.setFill(Color.web(dc.getEvaluatieMatthias().getRechts2().getHexValue(),1.0));
+        bolRechts3.setFill(Color.web(dc.getEvaluatieMatthias().getRechts3().getHexValue(),1.0));
+        
         naamLbl.setText(dc.getGeselecteerd().getNaam());
         imgView.setImage(new Image(dc.getGeselecteerd().getFotoPath().toURI().toString()));
         schakelaarButton.setBackground(standaardBackground);
@@ -159,6 +180,7 @@ public class OverzichtSchermController implements Initializable {
         tankenButton.setBackground(standaardBackground);
         gpsButton.setBackground(standaardBackground);
 
+        progress.setProgress(dc.getEvaluatieMatthias().getWaardeProgress());
     }
 
 
@@ -182,6 +204,31 @@ public class OverzichtSchermController implements Initializable {
             dezeBol = bol4;
             kleur = dc.getEvaluatieMatthias().getAutostrade().getHexValue();
         }
+        if(event.getSource() == bandenButton){
+            dezeBol = bolLinks1;
+            kleur =dc.getEvaluatieMatthias().getLinks1().getHexValue();
+        }
+        if(event.getSource() == vloeistoffenButton){
+            dezeBol = bolLinks2;
+            kleur =dc.getEvaluatieMatthias().getLinks2().getHexValue();
+        }
+        if(event.getSource() == schakelaarButton){
+            dezeBol = bolLinks3;
+            kleur = dc.getEvaluatieMatthias().getLinks3().getHexValue();
+        }
+        if(event.getSource() == tankenButton){
+            dezeBol = bolRechts1;
+            kleur = dc.getEvaluatieMatthias().getRechts1().getHexValue();
+        }
+        if(event.getSource() == gpsButton){
+            dezeBol = bolRechts2;
+            kleur = dc.getEvaluatieMatthias().getRechts2().getHexValue();
+        }
+        if(event.getSource() == stopButton){
+            dezeBol = bolRechts3;
+            kleur = dc.getEvaluatieMatthias().getRechts3().getHexValue();
+        }
+        
         if (kleur == "#FFFFFF") {
             kleur = "#FF0000";
 //            dc.getCursus().setKleurBol1("#FF0000");
@@ -218,6 +265,24 @@ public class OverzichtSchermController implements Initializable {
         if (event.getSource() == autostradeButton) {
             dezeBol = bol4;
             dc.getEvaluatieMatthias().setAutostrade(aux);
+        }
+        if(event.getSource() == bandenButton){
+            dc.getEvaluatieMatthias().setLinks1(aux);
+        }
+        if(event.getSource() == vloeistoffenButton){
+            dc.getEvaluatieMatthias().setLinks2(aux);
+        }
+        if(event.getSource() == schakelaarButton){
+            dc.getEvaluatieMatthias().setLinks3(aux);
+        }
+        if(event.getSource() == tankenButton){
+            dc.getEvaluatieMatthias().setRechts1(aux);
+        }
+        if(event.getSource() == gpsButton){
+            dc.getEvaluatieMatthias().setRechts2(aux);
+        }
+        if(event.getSource() == stopButton){
+            dc.getEvaluatieMatthias().setRechts3(aux);
         }
     }
 
@@ -288,6 +353,7 @@ public class OverzichtSchermController implements Initializable {
             progress.setProgress(progress.getProgress() + 0.08);
             tekstProgress(event);
         }
+        dc.getEvaluatieMatthias().setWaardeProgress(progress.getProgress());
     }
 
     public void minProgress(ActionEvent event) throws IOException {
@@ -295,6 +361,7 @@ public class OverzichtSchermController implements Initializable {
             progress.setProgress(progress.getProgress() - 0.08);
             tekstProgress(event);
         }
+        dc.getEvaluatieMatthias().setWaardeProgress(progress.getProgress());
     }
 
     public void tekstProgress(ActionEvent event) throws IOException {

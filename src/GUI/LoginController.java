@@ -14,6 +14,8 @@ import domein.Evaluatie;
 import domein.EvaluatieMoment;
 import domein.Kleuren;
 import domein.Leerling;
+import domein.RijOnderdeel;
+import domein.VerkeersOnderdeel;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -30,14 +32,12 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
@@ -114,14 +114,42 @@ public class LoginController {
             JsonObject jsono = gson.fromJson(jse, JsonElement.class).getAsJsonObject();
             System.out.println("check");
             System.out.println(jsono.toString());
-            Evaluatie e = new Evaluatie(jsono.get("evaluatieNummer").getAsString(), jsono.get("rijtechniekenScore").getAsInt(), jsono.get("verkeerstechniekenScore").getAsInt(), jsono.get("algemeneScore").getAsInt(), jsono.get("algemeneOpmerkingen").getAsString(), getByValue(jsono.get("rotonde").getAsString()), getByValue(jsono.get("rotonde").getAsString()), getByValue(jsono.get("rotonde").getAsString()), getByValue(jsono.get("rotonde").getAsString()));
+            Evaluatie e = new Evaluatie(jsono.get("evaluatieNummer").getAsString(), jsono.get("rijtechniekenScore").getAsInt()
+                    , jsono.get("verkeerstechniekenScore").getAsInt(), jsono.get("algemeneScore").getAsInt()
+                    , jsono.get("algemeneOpmerkingen").getAsString(), getByValue(jsono.get("rotonde").getAsString()), getByValue(jsono.get("rotonde").getAsString())
+                    , getByValue(jsono.get("rotonde").getAsString()), getByValue(jsono.get("rotonde").getAsString())
+                    , getByValue(jsono.get("links1").getAsString()), getByValue(jsono.get("links2").getAsString()), getByValue(jsono.get("links3").getAsString())
+                    , getByValue(jsono.get("rechts1").getAsString()),getByValue(jsono.get("rechts2").getAsString()),getByValue(jsono.get("rechts3").getAsString()));
             e.setEvaLijst(new ArrayList<>());
             JsonArray jsonArrayEvam = jsono.get("evaLijst").getAsJsonArray();
             System.out.println(jsonArrayEvam);
             System.out.println(jsonArrayEvam.get(0).getAsJsonObject().get("naam").getAsString());
-            e.getEvaLijst().add(new EvaluatieMoment(jsonArrayEvam.get(0).getAsJsonObject().get("naam").getAsString(), null, null));
-            e.getEvaLijst().add(new EvaluatieMoment(jsonArrayEvam.get(1).getAsJsonObject().get("naam").getAsString(), null, null));
-            e.getEvaLijst().add(new EvaluatieMoment(jsonArrayEvam.get(2).getAsJsonObject().get("naam").getAsString(), null, null));
+            e.getEvaLijst().add(new EvaluatieMoment(jsonArrayEvam.get(0).getAsJsonObject().get("naam").getAsString(), new ArrayList<>(), new ArrayList<>()));
+            e.getEvaLijst().add(new EvaluatieMoment(jsonArrayEvam.get(1).getAsJsonObject().get("naam").getAsString(), new ArrayList<>(), new ArrayList<>()));
+            e.getEvaLijst().add(new EvaluatieMoment(jsonArrayEvam.get(2).getAsJsonObject().get("naam").getAsString(), new ArrayList<>(), new ArrayList<>()));
+            JsonArray jsonro;
+            int counter=0;
+            for(JsonElement jsonele : jsonArrayEvam){
+                jsonro = jsonArrayEvam.get(counter).getAsJsonObject().getAsJsonArray("rijtechniekOnderdelen");
+                for(JsonElement jsonroele : jsonro){
+                    JsonObject jsonoro = gson.fromJson(jsonroele, JsonElement.class).getAsJsonObject();
+                    e.getEvaLijst().get(counter).getRijtechniekOnderdelen().add(new RijOnderdeel(jsonoro.get("rijtechniekOnderdeelNaam").getAsString()));
+                    e.getEvaLijst().get(counter).getRijtechniekOnderdelen().get(e.getEvaLijst().get(counter).getRijtechniekOnderdelen().size()-1).setOpmerkingen(new ArrayList<>());
+                }
+                counter++;
+            }
+            JsonArray jsonvo;
+            int counter2=0;
+            for(JsonElement jsonele : jsonArrayEvam){
+                jsonvo = jsonArrayEvam.get(counter2).getAsJsonObject().getAsJsonArray("verkeersTechniekOnderdelen");
+                for(JsonElement jsonvoele : jsonvo){
+                    JsonObject jsonovo = gson.fromJson(jsonvoele, JsonElement.class).getAsJsonObject();
+                    e.getEvaLijst().get(counter2).getVerkeerstechniekOnderdelen().add(new VerkeersOnderdeel(jsonovo.get("verkeerstechniekOnderdeelNaam").getAsString()));
+                    e.getEvaLijst().get(counter2).getVerkeerstechniekOnderdelen().get(e.getEvaLijst().get(counter2).getVerkeerstechniekOnderdelen().size()-1).setOpmerkingen(new ArrayList<>());
+                }
+                counter2++;
+            }
+            System.out.println(e.getEvaLijst().get(0).getRijtechniekOnderdelen());
             e.setHuidigeEva(e.getEvaLijst().get(0));
             evaluatiesLijst.add(e);
         }
@@ -165,7 +193,7 @@ public class LoginController {
         jsonLeerling.addProperty("naam", "Ewout Ghysbrecht");
         jsonLeerling.addProperty("email", "ewout.g@gmail.com");
         JsonObject jsonEva = new JsonObject();
-        Evaluatie eva = new Evaluatie("", 0, 0, 0, "", Kleuren.ROOD, Kleuren.ORANJE, Kleuren.ROOD, Kleuren.ORANJE);
+        Evaluatie eva = new Evaluatie("", 0, 0, 0, "", Kleuren.ROOD, Kleuren.ORANJE, Kleuren.ROOD, Kleuren.ORANJE,Kleuren.WIT, Kleuren.WIT, Kleuren.WIT, Kleuren.WIT, Kleuren.WIT, Kleuren.WIT);
         System.out.println(jsonLeerling);
         nvps.add(new BasicNameValuePair("inschrijvingsNummer", "0002"));
         nvps.add(new BasicNameValuePair("naam", "Ewout Ghysbrecht"));

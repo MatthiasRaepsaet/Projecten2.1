@@ -82,7 +82,7 @@
               </ImageView>
           </graphic>
       </Button>
-      <Button fx:id="schakelaarButton" alignment="CENTER" layoutX="163.0" layoutY="425.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
+      <Button fx:id="schakelaarButton" alignment="CENTER" layoutX="163.0" layoutY="425.0" mnemonicParsing="false" onAction="#veranderBol" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
           <graphic>
           <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="140.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -91,7 +91,7 @@
           </ImageView>
           </graphic>
       </Button>
-      <Button fx:id="vloeistoffenButton" alignment="CENTER" layoutX="133.0" layoutY="495.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
+      <Button fx:id="vloeistoffenButton" alignment="CENTER" layoutX="133.0" layoutY="495.0" mnemonicParsing="false" onAction="#veranderBol" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
           <graphic>
                 <ImageView fitHeight="45" fitWidth="45" layoutX="132.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -100,7 +100,7 @@
       </ImageView>
           </graphic>
       </Button>
-      <Button fx:id="bandenButton" alignment="CENTER" layoutX="103.0" layoutY="566.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
+      <Button fx:id="bandenButton" alignment="CENTER" layoutX="103.0" layoutY="566.0" mnemonicParsing="false" onAction="#veranderBol" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
           <graphic>
               <ImageView fitHeight="450" fitWidth="45" layoutX="132.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -109,7 +109,7 @@
       </ImageView>
           </graphic>
       </Button>
-      <Button fx:id="tankenButton" alignment="CENTER" contentDisplay="CENTER" layoutX="804.0" layoutY="425.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
+      <Button fx:id="tankenButton" alignment="CENTER" contentDisplay="CENTER" layoutX="804.0" layoutY="425.0" mnemonicParsing="false" onAction="#veranderBol" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
           <graphic>
               <ImageView fitHeight="45" fitWidth="450" layoutX="649.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -118,12 +118,12 @@
       </ImageView>
           </graphic>
       </Button>
-      <Button fx:id="gpsButton" alignment="CENTER" layoutX="835.0" layoutY="495.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" text="GPS" textAlignment="CENTER">
+      <Button fx:id="gpsButton" alignment="CENTER" layoutX="835.0" layoutY="495.0" mnemonicParsing="false" onAction="#veranderBol" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" text="GPS" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="stopButton" alignment="CENTER" layoutX="865.0" layoutY="566.0" mnemonicParsing="false" onAction="#veranderKleur" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
+      <Button fx:id="stopButton" alignment="CENTER" layoutX="865.0" layoutY="566.0" mnemonicParsing="false" onAction="#veranderBol" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 30;" textAlignment="CENTER">
           <graphic>
               <ImageView fitHeight="45" fitWidth="45" layoutX="649.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -234,6 +234,12 @@
       <RadioButton fx:id="radioEva1" layoutX="18.0" layoutY="487.0" mnemonicParsing="false" onAction="#veranderEva" text="Eva1" />
       <RadioButton fx:id="radioEva2" layoutX="18.0" layoutY="511.0" mnemonicParsing="false" onAction="#veranderEva" text="Eva2" />
       <RadioButton fx:id="radioEva3" layoutX="18.0" layoutY="534.0" mnemonicParsing="false" onAction="#veranderEva" text="Eva3" />
+      <Circle fx:id="bolLinks3" fill="WHITE" layoutX="213.0" layoutY="434.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="bolLinks2" fill="WHITE" layoutX="185.0" layoutY="504.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="bolLinks1" fill="WHITE" layoutX="155.0" layoutY="576.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="bolRechts1" fill="WHITE" layoutX="811.0" layoutY="434.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="bolRechts2" fill="WHITE" layoutX="844.0" layoutY="504.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="bolRechts3" fill="WHITE" layoutX="869.0" layoutY="576.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
       
       
 

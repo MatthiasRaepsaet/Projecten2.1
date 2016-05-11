@@ -38,7 +38,7 @@ public class Evaluatie {
     
     private double waardeProgress;
 
-    public Evaluatie(String evaluatieNummer, int rijtechniekenScore, int verkeerstechniekenScore, int algemeneScore, String algemeneOpmerkingen, Kleuren rotonde, Kleuren steenweg, Kleuren bebouwdeKom, Kleuren autostrade) {
+    public Evaluatie(String evaluatieNummer, int rijtechniekenScore, int verkeerstechniekenScore, int algemeneScore, String algemeneOpmerkingen, Kleuren rotonde, Kleuren steenweg, Kleuren bebouwdeKom, Kleuren autostrade, Kleuren links1, Kleuren links2, Kleuren links3, Kleuren rechts1, Kleuren rechts2, Kleuren rechts3) {
         this.evaluatieNummer = evaluatieNummer;
         this.rijtechniekenScore = rijtechniekenScore;
         this.verkeerstechniekenScore = verkeerstechniekenScore;
@@ -48,7 +48,12 @@ public class Evaluatie {
         this.steenweg = steenweg;
         this.bebouwdeKom = bebouwdeKom;
         this.autostrade = autostrade;
-        
+        this.links1 = links1;
+        this.links2 = links2;
+        this.links3 = links3;
+        this.rechts1 = rechts1;
+        this.rechts2 = rechts2;
+        this.rechts3 = rechts3;
     }
 
     public Evaluatie(String string, int i, int i0, int i1, String string0, Kleuren kleuren, Kleuren kleuren0, Kleuren kleuren1) {
