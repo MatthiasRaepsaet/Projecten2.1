@@ -215,9 +215,9 @@
             <TextField fx:id="lelijkaard" layoutX="31.0" layoutY="330.0" prefHeight="54.0" prefWidth="265.0" />
          </children>
       </Pane>
-      <Text layoutX="173.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A" />
-      <Text layoutX="174.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B" />
-      <Text layoutX="173.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C" />
+      <Text layoutX="173.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="174.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="173.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text fx:id="naamLbl" fill="WHITE" layoutX="617.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Matthias Raepsaet" textAlignment="CENTER" wrappingWidth="350.0">
          <font>
             <Font name="System Bold" size="18.0" />

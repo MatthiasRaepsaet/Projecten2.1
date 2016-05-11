@@ -50,7 +50,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="postButton" layoutX="809.0" layoutY="88.0" mnemonicParsing="false" onAction="#nieuweLeerling" text="Button" />
+            <Button fx:id="postButton" layoutX="809.0" layoutY="88.0" mnemonicParsing="false" onAction="#nieuweLeerling" opacity="0.0" text="Button" />
                   
                   
          </children>

@@ -52,6 +52,8 @@ public class AttitudeSchermController implements Initializable {
     
     @FXML
     private TextField andereText;
+    
+    private Scene scene;
             
     //dit is de rechterlijst
     private ObservableList<String> attitudes = FXCollections.observableArrayList();
@@ -159,6 +161,8 @@ public class AttitudeSchermController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        this.scene=achteruitButton.getScene();
+        dc.setAttitudeScene(this.scene);
     }
 
     public DomeinController getDc() {

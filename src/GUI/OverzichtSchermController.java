@@ -31,6 +31,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javax.ws.rs.client.Client;
@@ -144,7 +145,24 @@ public class OverzichtSchermController implements Initializable {
     private Circle linkerStuur;
     @FXML
     private Circle rechterStuur;
-
+    
+        @FXML
+    private Ellipse linkerPijl;
+    @FXML
+    private Ellipse rechterPijl;
+    @FXML
+    private Ellipse onderPijl;
+    
+        
+    @FXML
+    private Ellipse boven;
+    @FXML
+    private Ellipse rechter;
+    @FXML
+    private Ellipse linker;
+    
+    private Scene scene;
+    
     @FXML
     private TextArea textArea;
     
@@ -414,6 +432,8 @@ public class OverzichtSchermController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        this.scene = imgView.getScene();
+        dc.setOverzichtScene(this.scene);
     }
 
     public void evaCheck() {
@@ -464,15 +484,25 @@ public class OverzichtSchermController implements Initializable {
     }
     
     public void kleurBovenStuur(String kleur){
-        topStuur.setFill(Color.web(kleur));
+       boven.setFill(Color.web(kleur));
     }
     public void kleurLinkerStuur(String kleur){
-        linkerStuur.setFill(Color.web(kleur));
+        linker.setFill(Color.web(kleur));
         
     }
     public void kleurRechterStuur(String kleur){
-        rechterStuur.setFill(Color.web(kleur));
+        rechter.setFill(Color.web(kleur));
         
     }
-
+     public void kleurLinkerPijl(String kleur){
+       linkerPijl.setFill(Color.web(kleur));
+    }
+    public void kleurRechterPijl(String kleur){
+        rechterPijl.setFill(Color.web(kleur));
+        
+    }
+    public void kleurOnderPijl(String kleur){
+        onderPijl.setFill(Color.web(kleur));
+        
+    }
 }

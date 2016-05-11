@@ -6,9 +6,11 @@
 package GUI;
 
 import domein.DomeinController;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,9 +21,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 
 /**
  * FXML Controller class
@@ -29,8 +33,8 @@ import javafx.stage.Stage;
  * @author ewout
  */
 public class LogoutController implements Initializable {
-    
     DomeinController dc;
+    private OverzichtSchermController ozc;
 
     public DomeinController getDc() {
         return dc;
@@ -65,8 +69,14 @@ public class LogoutController implements Initializable {
         imgView.setImage(new Image(dc.getGeselecteerd().getFotoPath().toURI().toString()));
     } 
     public void naarOverzichtScherm(ActionEvent event) throws IOException {
-        Stage stage = (Stage) terugButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("OverzichtScherm.fxml"));
+       Stage stage = (Stage) terugButton.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        ozc = dc.getOzc();
+        dc.setOzc(ozc);
+        dc.getOzc().setDc(dc);
+        loader.setLocation(getClass().getResource("OverzichtScherm.fxml"));
+        loader.setController(dc.getOzc());
+        Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -109,6 +119,37 @@ public class LogoutController implements Initializable {
                 bericht += "\n-Email is niet Geldig.";
             }
             errorTxt.setText(bericht);
+        }
+    }
+        @FXML
+    public void saveAlleSchermen(ActionEvent event)throws IOException{
+        if(dc.getStuurtechniekenScene()!=null){
+            takeSnapShot(dc.getStuurtechniekenScene(), dc.getGeselecteerd().getNaam().replaceAll(" ", "")+"_Stuurtechnieken_"+dc.getEvaluatieMatthias().getHuidigeEva().toString());
+        }
+        if(dc.getRijtechniekenScene()!=null){
+            takeSnapShot(dc.getRijtechniekenScene(), dc.getGeselecteerd().getNaam().replaceAll(" ", "")+"_Rijtechnieken_"+dc.getEvaluatieMatthias().getHuidigeEva().toString());
+        }
+        if(dc.getOverzichtScene()!=null){
+            takeSnapShot(dc.getOverzichtScene(), dc.getGeselecteerd().getNaam().replaceAll(" ", "")+"_Overzicht_"+dc.getEvaluatieMatthias().getHuidigeEva().toString());
+        }
+        if(dc.getAttitudeScene()!=null){
+            takeSnapShot(dc.getAttitudeScene(), dc.getGeselecteerd().getNaam().replaceAll(" ", "")+"_Attitude_"+dc.getEvaluatieMatthias().getHuidigeEva().toString());
+        }
+    }
+    
+    @FXML
+    public void takeSnapShot(Scene scene,String naam){
+        WritableImage writableImage = 
+            new WritableImage((int)scene.getWidth(), (int)scene.getHeight());
+        scene.snapshot(writableImage);
+         
+        File file = new File(naam+".png");
+        
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null), "png", file);
+            System.out.println("snapshot saved: " + file.getAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
