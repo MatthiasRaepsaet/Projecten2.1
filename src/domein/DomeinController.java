@@ -45,11 +45,63 @@ public class DomeinController {
     private StuurtechniekSchermController stc;
     private ZoekLlnSchermController zlsc;
     
+    private Kleuren boven, links, rechts;
+    private Kleuren onderPijl, linkerPijl, rechterPijl;
     
     private Scene overzichtScene;
     private Scene stuurTechniekenScene;
     private Scene rijTechniekenScene;
     private Scene attitudeScene;
+
+    public Kleuren getBoven() {
+        return boven;
+    }
+
+    public void setBoven(Kleuren boven) {
+        this.boven = boven;
+    }
+
+    public Kleuren getLinks() {
+        return links;
+    }
+
+    public void setLinks(Kleuren links) {
+        this.links = links;
+    }
+
+    public Kleuren getRechts() {
+        return rechts;
+    }
+
+    public void setRechts(Kleuren rechts) {
+        this.rechts = rechts;
+    }
+
+    public Kleuren getOnderPijl() {
+        return onderPijl;
+    }
+
+    public void setOnderPijl(Kleuren onderPijl) {
+        this.onderPijl = onderPijl;
+    }
+
+    public Kleuren getLinkerPijl() {
+        return linkerPijl;
+    }
+
+    public void setLinkerPijl(Kleuren linkerPijl) {
+        this.linkerPijl = linkerPijl;
+    }
+
+    public Kleuren getRechterPijl() {
+        return rechterPijl;
+    }
+
+    public void setRechterPijl(Kleuren rechterPijl) {
+        this.rechterPijl = rechterPijl;
+    }
+    
+    
     
     public DomeinController()
     {

@@ -181,6 +181,12 @@ public class OverzichtSchermController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        kleurBovenStuur();
+        kleurLinkerStuur();
+        kleurRechterStuur();
+        kleurLinkerPijl();
+        kleurRechterPijl();
+        kleurOnderPijl();
         System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getNaam());
         evaCheck();
         System.out.println(dc.getEvaluatieMatthias().getRotonde().getHexValue());
@@ -483,26 +489,26 @@ public class OverzichtSchermController implements Initializable {
         this.dc = dc;
     }
     
-    public void kleurBovenStuur(String kleur){
-       boven.setFill(Color.web(kleur));
+    public void kleurBovenStuur( ){
+       boven.setFill(Color.web(dc.getBoven().getHexValue()));
     }
-    public void kleurLinkerStuur(String kleur){
-        linker.setFill(Color.web(kleur));
+    public void kleurLinkerStuur( ){
+       linker.setFill(Color.web(dc.getLinks().getHexValue()));
         
     }
-    public void kleurRechterStuur(String kleur){
-        rechter.setFill(Color.web(kleur));
+    public void kleurRechterStuur(){
+        rechter.setFill(Color.web(dc.getRechts().getHexValue()));
         
     }
-     public void kleurLinkerPijl(String kleur){
-       linkerPijl.setFill(Color.web(kleur));
+     public void kleurLinkerPijl(){
+       linkerPijl.setFill(Color.web(dc.getLinkerPijl().getHexValue()));
     }
-    public void kleurRechterPijl(String kleur){
-        rechterPijl.setFill(Color.web(kleur));
+    public void kleurRechterPijl( ){
+        rechterPijl.setFill(Color.web(dc.getRechterPijl().getHexValue()));
         
     }
-    public void kleurOnderPijl(String kleur){
-        onderPijl.setFill(Color.web(kleur));
+    public void kleurOnderPijl( ){
+        onderPijl.setFill(Color.web(dc.getOnderPijl().getHexValue()));
         
     }
 }

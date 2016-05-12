@@ -146,7 +146,7 @@ public class StuurtechniekSchermController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         naamLbl.setText(dc.getGeselecteerd().getNaam());
 //        lijst = FXCollections.observableArrayList(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(0).getOpmerkingen());
-
+kleurStuur();
         vierkantjes.clear();
         vulOp();
         
@@ -394,6 +394,7 @@ public class StuurtechniekSchermController implements Initializable {
             dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(index).setKleur(Kleuren.ROOD);
             System.out.println(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(index));
             dc.getEvaluatieMatthias().getEvaLijst().get(eva).getVerkeerstechniekOnderdelen().get(index).setKleur(Kleuren.ROOD);
+            
         } else if (event.getSource() == oranje) {
             vierkantjes.get(eva + (index*3)).setFill(Color.web(Kleuren.ORANJE.getHexValue(),1.0));
             dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(index).setKleur(Kleuren.ORANJE);
@@ -403,6 +404,7 @@ public class StuurtechniekSchermController implements Initializable {
             dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(index).setKleur(Kleuren.GROEN);
             dc.getEvaluatieMatthias().getEvaLijst().get(eva).getVerkeerstechniekOnderdelen().get(index).setKleur(Kleuren.GROEN);
         }
+        kleurStuur();
     }
 
     public void setNummerVierkant(int nummerVierkant) {
@@ -479,26 +481,26 @@ public class StuurtechniekSchermController implements Initializable {
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(7).getKleur().getHexValue()=="#FF0000")
         {
             linkerPijl.setFill(Color.web("#FF0000"));
-            dc.getOzc().kleurLinkerPijl("#FF0000");
+            dc.setLinkerPijl(Kleuren.ROOD);
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(0).getKleur().getHexValue()=="#FFA500"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(6).getKleur().getHexValue()=="#FFA500"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(7).getKleur().getHexValue()=="#FFA500")
         {
             linkerPijl.setFill(Color.web("#FFA500"));
-            dc.getOzc().kleurLinkerPijl("#FFA500");
+            dc.setLinkerPijl(Kleuren.ORANJE);
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(0).getKleur().getHexValue()=="#00FF00"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(6).getKleur().getHexValue()=="#00FF00"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(7).getKleur().getHexValue()=="#00FF00")
         {
             linkerPijl.setFill(Color.web("#00FF00"));
-            dc.getOzc().kleurLinkerPijl("#00FF00");
+            dc.setLinkerPijl(Kleuren.GROEN);
             
             
         }else{
             linkerPijl.setFill(Color.web("#FFFFFF"));
-            dc.getOzc().kleurLinkerPijl("#FFFFFF");
+            dc.setLinkerPijl(Kleuren.WIT);
         }
         //rechter
         if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(1).getKleur().getHexValue()=="#FF0000"
@@ -507,7 +509,7 @@ public class StuurtechniekSchermController implements Initializable {
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(9).getKleur().getHexValue()=="#FF0000")
         {
             rechterPijl.setFill(Color.web("#FF0000"));
-            dc.getOzc().kleurRechterPijl("#FF0000");
+            dc.setRechterPijl(Kleuren.ROOD);
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(1).getKleur().getHexValue()=="#FFA500"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(5).getKleur().getHexValue()=="#FFA500"
@@ -515,7 +517,7 @@ public class StuurtechniekSchermController implements Initializable {
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(9).getKleur().getHexValue()=="#FFA500")
         {
             rechterPijl.setFill(Color.web("#FFA500"));
-            dc.getOzc().kleurRechterPijl("#FFA500");
+            dc.setRechterPijl(Kleuren.ORANJE);
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(1).getKleur().getHexValue()=="#00FF00"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(5).getKleur().getHexValue()=="#00FF00"
@@ -523,12 +525,12 @@ public class StuurtechniekSchermController implements Initializable {
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(9).getKleur().getHexValue()=="#00FF00")
         {
             rechterPijl.setFill(Color.web("#00FF00"));
-            dc.getOzc().kleurRechterPijl("#00FF00");
+            dc.setRechterPijl(Kleuren.GROEN);
             
             
         }else{
             rechterPijl.setFill(Color.web("#FFFFFF"));
-            dc.getOzc().kleurRechterPijl("#FFFFFF");
+            dc.setRechterPijl(Kleuren.WIT);
         }
         //linker
         if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(2).getKleur().getHexValue()=="#FF0000"
@@ -536,26 +538,26 @@ public class StuurtechniekSchermController implements Initializable {
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(4).getKleur().getHexValue()=="#FF0000")
         {
             onderPijl.setFill(Color.web("#FF0000"));
-            dc.getOzc().kleurOnderPijl("#FF0000");
+            dc.setOnderPijl(Kleuren.ROOD);
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(2).getKleur().getHexValue()=="#FFA500"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(3).getKleur().getHexValue()=="#FFA500"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(4).getKleur().getHexValue()=="#FFA500")
         {
             onderPijl.setFill(Color.web("#FFA500"));
-            dc.getOzc().kleurOnderPijl("#FFA500");
+            dc.setOnderPijl(Kleuren.ORANJE);
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(2).getKleur().getHexValue()=="#00FF00"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(3).getKleur().getHexValue()=="#00FF00"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getVerkeerstechniekOnderdelen().get(4).getKleur().getHexValue()=="#00FF00")
         {
             onderPijl.setFill(Color.web("#00FF00"));
-            dc.getOzc().kleurOnderPijl("#00FF00");
+            dc.setOnderPijl(Kleuren.GROEN);
             
             
         }else{
             onderPijl.setFill(Color.web("#FFFFFF"));
-            dc.getOzc().kleurOnderPijl("#FFFFFF");
+            dc.setOnderPijl(Kleuren.WIT);
         }
      }
 }

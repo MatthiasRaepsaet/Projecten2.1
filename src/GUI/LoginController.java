@@ -55,6 +55,7 @@ public class LoginController {
         this.dc = dc;
     }
 
+    
     private ZoekLlnSchermController zsc = new ZoekLlnSchermController();
 
     @FXML
@@ -178,6 +179,12 @@ public class LoginController {
             leerlingenLijst.add(l);
         }
         dc.setLeerlingenCache(leerlingenLijst);
+        dc.setBoven(Kleuren.WIT);
+        dc.setLinks(Kleuren.WIT);
+        dc.setRechts(Kleuren.WIT);
+        dc.setLinkerPijl(Kleuren.WIT);
+        dc.setRechterPijl(Kleuren.WIT);
+        dc.setOnderPijl(Kleuren.WIT);
     }
 
     public void nieuweLeerling(ActionEvent event) throws MalformedURLException, IOException {

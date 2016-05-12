@@ -526,7 +526,8 @@ public class RijtechniekSchermController implements Initializable {
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(5).getKleur().getHexValue()=="#FF0000")
         {
             boven.setFill(Color.web("#FF0000"));
-            dc.getOzc().kleurBovenStuur("#FF0000");
+            dc.setBoven(Kleuren.ROOD);
+            
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(0).getKleur().getHexValue()=="#FFA500"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(1).getKleur().getHexValue()=="#FFA500"
@@ -536,7 +537,8 @@ public class RijtechniekSchermController implements Initializable {
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(5).getKleur().getHexValue()=="#FFA500")
         {
             boven.setFill(Color.web("#FFA500"));
-            dc.getOzc().kleurBovenStuur("#FFA500");
+            dc.setBoven(Kleuren.ORANJE);
+            
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(0).getKleur().getHexValue()=="#00FF00"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(1).getKleur().getHexValue()=="#00FF00"
@@ -546,36 +548,42 @@ public class RijtechniekSchermController implements Initializable {
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(5).getKleur().getHexValue()=="#00FF00")
         {
             boven.setFill(Color.web("#00FF00"));
-            dc.getOzc().kleurBovenStuur("#00FF00");
+            dc.setBoven(Kleuren.GROEN);
+            
             
             
         }else{
             boven.setFill(Color.web("#FFFFFF"));
-            dc.getOzc().kleurBovenStuur("#FFFFFF");
+            dc.setBoven(Kleuren.WIT);
+            
         }
         //rechter
         if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(6).getKleur().getHexValue()=="#FF0000"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(7).getKleur().getHexValue()=="#FF0000")
         {
             rechter.setFill(Color.web("#FF0000"));
-            dc.getOzc().kleurRechterStuur("#FF0000");
+            dc.setRechts(Kleuren.ROOD);
+            
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(6).getKleur().getHexValue()=="#FFA500"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(7).getKleur().getHexValue()=="#FFA500")
         {
             rechter.setFill(Color.web("#FFA500"));
-            dc.getOzc().kleurRechterStuur("#FFA500");
+            dc.setRechts(Kleuren.ORANJE);
+            
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(6).getKleur().getHexValue()=="#00FF00"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(7).getKleur().getHexValue()=="#00FF00")
         {
             rechter.setFill(Color.web("#00FF00"));
-            dc.getOzc().kleurRechterStuur("#00FF000");
+            dc.setRechts(Kleuren.GROEN);
+            
             
             
         }else{
             rechter.setFill(Color.web("#FFFFFF"));
-            dc.getOzc().kleurLinkerStuur("#FFFFFF");
+            dc.setRechts(Kleuren.WIT);
+            
         }
         //linker
         if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(8).getKleur().getHexValue()=="#FF0000"
@@ -584,7 +592,8 @@ public class RijtechniekSchermController implements Initializable {
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(11).getKleur().getHexValue()=="#FF0000")
         {
             linker.setFill(Color.web("#FF0000"));
-            dc.getOzc().kleurLinkerStuur("#FF0000");
+            dc.setLinks(Kleuren.ROOD);
+            
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(8).getKleur().getHexValue()=="#FFA500"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(9).getKleur().getHexValue()=="#FFA500"
@@ -592,7 +601,8 @@ public class RijtechniekSchermController implements Initializable {
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(11).getKleur().getHexValue()=="#FFA500")
         {
             linker.setFill(Color.web("#FFA500"));
-            dc.getOzc().kleurLinkerStuur("#FFA500");
+            dc.setLinks(Kleuren.ORANJE);
+            
             
         }else if(dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(8).getKleur().getHexValue()=="#00FF00"
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(9).getKleur().getHexValue()=="#00FF00"
@@ -600,12 +610,14 @@ public class RijtechniekSchermController implements Initializable {
                 ||dc.getEvaluatieMatthias().getHuidigeEva().getRijtechniekOnderdelen().get(11).getKleur().getHexValue()=="#00FF00")
         {
             linker.setFill(Color.web("#00FF00"));
-            dc.getOzc().kleurLinkerStuur("#00FF00");
+            dc.setLinks(Kleuren.GROEN);
+            
             
             
         }else{
             linker.setFill(Color.web("#FFFFFF"));
-            dc.getOzc().kleurLinkerStuur("#FFFFFF");
+            dc.setLinks(Kleuren.WIT);
+            
         }
     }
 }
